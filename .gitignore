@@ -18,6 +18,7 @@ work_dirs/
 *.zip
 *.part
 *.incomplete
+wget-log*
 *.pem
 *.key
 results/*.png

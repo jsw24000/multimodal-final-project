@@ -11,13 +11,17 @@ esac
 
 # Verify the mount before *any* directory creation or download.
 test -d "$mount" && mountpoint -q "$mount" || { echo "BLOCKED: $mount is not a mount" >&2; exit 3; }
-test -w "$mount" || { echo "BLOCKED: $mount is not writable" >&2; exit 3; }
 mount_source=$(findmnt -n -o SOURCE -T "$mount")
 root_source=$(findmnt -n -o SOURCE -T "$(dirname "$(realpath -m "$root")")")
 system_source=$(findmnt -n -o SOURCE -T /)
 [[ "$(realpath -m "$root")" == "$(realpath "$mount")"/* && "$mount_source" != "$system_source" && "$root_source" == "$mount_source" ]] || {
   echo "BLOCKED: $root is not on the separate mounted disk" >&2; exit 3;
 }
+if [[ -e "$root" ]]; then
+  [[ -d "$root" && -w "$root" ]] || { echo "BLOCKED: $root is not a writable directory" >&2; exit 3; }
+else
+  [[ -w "$(dirname "$root")" ]] || { echo "BLOCKED: cannot create $root" >&2; exit 3; }
+fi
 mkdir -p "$root"/{datasets,checkpoints,cache,outputs,downloads}
 [[ "$(findmnt -n -o SOURCE -T "$root")" == "$mount_source" ]] || exit 3
 available=$(df -B1 --output=avail "$root" | tail -1)
@@ -29,7 +33,7 @@ fetch() {
   else
     (( available > expected * 2 )) || { echo "BLOCKED: insufficient free space for $file" >&2; exit 4; }
     echo "Download $url -> $file.part"
-    wget --no-hsts --https-only --continue --tries=3 --timeout=45 --waitretry=5 -O "$file.part" "$url"
+    wget --no-hsts --https-only --continue --tries=3 --timeout=45 --waitretry=5 --progress=dot:giga -O "$file.part" "$url"
     [[ $(stat -c %s "$file.part") -eq $expected ]] || { echo "FAILED: archive size mismatch; preserving .part" >&2; exit 5; }
     mv -n "$file.part" "$file"
   fi

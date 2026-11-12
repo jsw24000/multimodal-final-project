@@ -7,11 +7,17 @@ printf 'user=%s\nproject=%s\ndata_root=%s\n' "$(whoami)" "$(pwd)" "$root"
 printf '\nMount:\n'
 findmnt -T "$mount" -o TARGET,SOURCE,FSTYPE,SIZE,AVAIL,OPTIONS
 df -hT "$mount" /
-if [[ ! -d "$mount" ]] || [[ ! -w "$mount" ]]; then
-  printf 'BLOCKED: %s is absent or not writable by %s\n' "$mount" "$(whoami)" >&2
-fi
 if [[ -e "$root" ]]; then
   findmnt -T "$root" -o TARGET,SOURCE,FSTYPE,AVAIL
+  if [[ ! -d "$root" || ! -w "$root" ||
+        "$(findmnt -n -o SOURCE -T "$root")" != "$(findmnt -n -o SOURCE -T "$mount")" ||
+        "$(findmnt -n -o SOURCE -T "$root")" == "$(findmnt -n -o SOURCE -T /)" ]]; then
+    printf 'BLOCKED: data root %s is not a writable directory on the large mount\n' "$root" >&2
+  else
+    printf 'data root writable: yes\n'
+  fi
+else
+  printf 'BLOCKED: data root %s does not exist\n' "$root" >&2
 fi
 printf '\nGPU and tools:\n'
 for command_name in nvidia-smi nvcc python conda git gh wget; do

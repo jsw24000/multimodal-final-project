@@ -4,7 +4,7 @@ This repository retains the upstream PEARL code and Git history. `origin` is int
 
 ## Storage and cache
 
-The host's large ext4 disk is mounted at `/data`, but user `3dsm` currently cannot write to it. See [ENVIRONMENT_REPORT.md](ENVIRONMENT_REPORT.md) for the limited manual permission step. Once writable, the project data root contains `datasets/`, `checkpoints/`, `cache/`, `outputs/`, and `downloads/`. All large artifacts and package caches belong there. Set variables from `.env.example` in the shell after verifying the mount. `.env` is ignored by Git. The default CLIP ViT-B/16 weight download goes to `checkpoints/clip`, and default evaluator work directories go to `outputs/work_dirs`.
+The host's large ext4 disk is mounted at `/data`, and user `3dsm` can write to the project subdirectory `/data/Multimodal-final-project`. See [ENVIRONMENT_REPORT.md](ENVIRONMENT_REPORT.md) for the mount check. The project data root contains `datasets/`, `checkpoints/`, `cache/`, `outputs/`, and `downloads/`. All large artifacts and package caches belong there. Set variables from `.env.example` in the shell after verifying the mount. `.env` is ignored by Git. The default CLIP ViT-B/16 weight download goes to `checkpoints/clip`, and default evaluator work directories go to `outputs/work_dirs`.
 
 ```bash
 export PEARL_DATA_ROOT=/data/Multimodal-final-project
@@ -29,3 +29,14 @@ python -c 'import torch; print(torch.__version__, torch.cuda.get_device_capabili
 ```
 
 The final installation commands are pending a compatible wheel/extension check. The official dependency versions and links remain in the upstream README below the local project section.
+
+## Terminal proxy on this host
+
+The desktop system proxy does not automatically reach every shell. On this host, Clash Verge currently listens at `127.0.0.1:7897`. When `wget` prints `Connecting to 127.0.0.1:7897`, it is using the proxy. Export the variables in the same terminal as a download command if direct connections time out:
+
+```bash
+export http_proxy=http://127.0.0.1:7897
+export https_proxy=$http_proxy
+```
+
+This is a host-specific convenience, not a project dependency. Download `.part` files remain on the large disk and can be resumed by rerunning the script.
