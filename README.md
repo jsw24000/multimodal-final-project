@@ -1,3 +1,13 @@
+# Multimodal Final Project: PEARL Reproduction and Mechanism Analysis
+
+This project is based on the [official PEARL implementation by Gensheng Pei, Xiruo Jiang, Xinhao Cai, Tao Chen, Yazhou Yao, and Byeungwoo Jeon](https://github.com/PGSmall/PEARL) for [*PEARL: Geometry Aligns Semantics for Training-Free Open-Vocabulary Semantic Segmentation*](https://arxiv.org/abs/2603.21528). The upstream code and history are retained. New experiments belong in `experiments/`; data tools in `scripts/`; setup, protocol, and provenance notes in `docs/`; compact metrics in `results/`. The original README follows below, including author acknowledgements and citation.
+
+Use `PEARL_DATA_ROOT` (see `.env.example` and `project_paths.py`) for a single external data root. On this host it should be `/data/Multimodal-final-project` **after** write permission is granted and the mount is rechecked. Run `bash scripts/check_environment.sh`, then `bash scripts/download_datasets.sh voc2012` or `ade20k`, and verify with `python scripts/verify_datasets.py --dataset all`. Current dataset and environment status is recorded in [docs/DATASETS.md](docs/DATASETS.md) and [docs/ENVIRONMENT_REPORT.md](docs/ENVIRONMENT_REPORT.md).
+
+The first goal is VOC21 performance reproduction. Later work will compare PEARL components with Vanilla CLIP, SCLIP and NACLIP; inspect attention, Q/K features and background tokens; and test alignment and TLP ablations. See [docs/REPRODUCTION_PLAN.md](docs/REPRODUCTION_PLAN.md). Do not run the original `run.sh` for the first baseline: it evaluates all eight datasets.
+
+## Original upstream README
+
 # <img src="assets/pearl-logo.png" width="66" style="vertical-align: middle;" alt="PEARL Logo"/> PEARL: Geometry Aligns Semantics for Training-Free Open-Vocabulary Semantic Segmentation
 
 <div align="center">

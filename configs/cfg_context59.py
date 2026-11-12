@@ -1,4 +1,5 @@
 _base_ = './base_config.py'
+from project_paths import dataset_path
 
 # model settings
 model = dict(
@@ -7,7 +8,7 @@ model = dict(
 
 # dataset settings
 dataset_type = 'PascalContext59Dataset'
-data_root = '/data/VOCdevkit/VOC2010'
+data_root = dataset_path('VOCdevkit', 'VOC2010')
 
 test_pipeline = [
     dict(type='LoadImageFromFile'),

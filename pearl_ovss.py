@@ -1,5 +1,7 @@
 import logging
+import os
 import sys
+from project_paths import checkpoint_path
 
 import torch
 import torch.nn as nn
@@ -31,7 +33,9 @@ class PEARL(BaseSegmentor):
         )
         super().__init__(data_preprocessor=data_preprocessor)
 
-        self.net, _ = clip.load(clip_path, device=device, jit=False)
+        self.net, _ = clip.load(
+            clip_path, device=device, jit=False,
+            download_root=os.environ.get('PEARL_CLIP_CACHE', checkpoint_path('clip')))
 
         query_words, self.query_idx = get_cls_idx(name_path)
         self.num_queries = len(query_words)

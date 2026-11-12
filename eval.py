@@ -1,6 +1,7 @@
 import argparse
 import os
 import torch.distributed as dist
+from project_paths import output_path
 
 from mmengine.config import Config
 from mmengine.runner import Runner
@@ -71,7 +72,7 @@ def main():
 
     if args.work_dir == '' or args.work_dir is None:
         dataset_name = infer_dataset_name_from_config(args.config)
-        cfg.work_dir = os.path.join('./work_dirs', dataset_name)
+        cfg.work_dir = output_path('work_dirs', dataset_name)
     else:
         cfg.work_dir = args.work_dir
     

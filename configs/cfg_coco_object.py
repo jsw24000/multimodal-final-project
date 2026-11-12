@@ -1,4 +1,5 @@
 _base_ = './base_config.py'
+from project_paths import dataset_path
 
 # model settings
 model = dict(
@@ -8,7 +9,7 @@ model = dict(
 
 # dataset settings
 dataset_type = 'COCOObjectDataset'
-data_root = '/data/coco_stuff164k'
+data_root = dataset_path('coco_stuff164k')
 
 test_pipeline = [
     dict(type='LoadImageFromFile'),

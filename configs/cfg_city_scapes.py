@@ -1,4 +1,5 @@
 _base_ = './base_config.py'
+from project_paths import dataset_path
 
 # model settings
 model = dict(
@@ -9,7 +10,7 @@ model = dict(
 
 # dataset settings
 dataset_type = 'CityscapesDataset'
-data_root = '/data/cityscapes/'
+data_root = dataset_path('cityscapes')
 
 test_pipeline = [
     dict(type='LoadImageFromFile'),

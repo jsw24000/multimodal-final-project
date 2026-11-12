@@ -1,4 +1,5 @@
 _base_ = './base_config.py'
+from project_paths import dataset_path
 
 # model settings
 model = dict(
@@ -8,7 +9,7 @@ model = dict(
 
 # dataset settings
 dataset_type = 'ADE20KDataset'
-data_root = '/data/ADEChallengeData2016/'
+data_root = dataset_path('ADEChallengeData2016')
 
 test_pipeline = [
     dict(type='LoadImageFromFile'),
