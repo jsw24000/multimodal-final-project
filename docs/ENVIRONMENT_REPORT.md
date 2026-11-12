@@ -27,3 +27,13 @@ sudo install -d -o 3dsm -g 3dsm -m 750 /data/Multimodal-final-project
 ```
 
 The assistant did **not** execute this sudo command. `bash scripts/check_environment.sh` and `findmnt -T /data/Multimodal-final-project` now confirm the data root is on `/dev/nvme0n1` and writable. The environment and download scripts were corrected to require write access to the project directory rather than the mount root.
+
+## PEARL runtime update: 2026-11-13
+
+An isolated Conda environment now exists at `/data/Multimodal-final-project/cache/conda_envs/pearl`. It was cloned from `wan22_videogpa` without modifying that source. The PEARL environment has Python 3.10.20, PyTorch 2.8.0+cu128, torchvision 0.23.0+cu128, MMEngine 0.10.7, full MMCV 2.1.0 with CPU C++ ops, MMSegmentation 1.2.2, and setuptools 80.9.0. The bundled CLIP implementation requires `pkg_resources`, which setuptools 83 in the source environment no longer supplies. The cloned `pip` was repaired only in the new environment. `pip check` passes after removing an unrelated, unsupported `decord` package from the clone.
+
+The check script `python scripts/check_pearl_environment.py --check-voc21` passed: CUDA tensor computation worked on the RTX PRO 6000 (`sm_120`), `mmcv._ext` loaded, MMSegmentation and PEARL registered, and one sample loaded from the 1,449-entry VOC21 validation dataset. The environment uses a documented Blackwell-compatible software variant because the upstream PyTorch 2.4.1+cu118 pin predates Blackwell support and the upstream MMCV 2.2.0 pin conflicts with the MMSegmentation 1.2.2 runtime bound `mmcv<2.2.0`. See [SETUP.md](SETUP.md) for exact versions and rebuilding steps.
+
+The official CLIP ViT-B/16 checkpoint was downloaded to `/data/Multimodal-final-project/checkpoints/clip/ViT-B-16.pt` with resumable direct access and verified against SHA256 `5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f` (350,837,078 bytes). `python scripts/smoke_test_voc21.py` passed with full PEARL on one validation image: prediction and mask shape `(1, 366, 500)`, predicted label IDs `[0, 1]`, and peak allocated GPU memory 840.2 MiB. This is an integration test, not a full validation mIoU result.
+
+GitHub CLI 2.103.3 is now available at `/data/Multimodal-final-project/cache/tools/gh_2.103.3_linux_amd64/bin/gh`; `gh api user` returned `jsw24000`. The 2026-11-12 GitHub CLI/auth status in the inspection table above is historical.
