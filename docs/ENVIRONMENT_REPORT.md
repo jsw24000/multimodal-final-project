@@ -12,13 +12,13 @@ Inspection date: 2026-11-12 (Asia/Shanghai). Commands: `pwd`, `whoami`, `lsblk -
 | GPU | NVIDIA RTX PRO 6000 Blackwell, 97,887 MiB | COMPLETED |
 | Driver / CUDA toolkit | NVIDIA 570.211.01, reported CUDA 12.8; nvcc 12.8.93 | COMPLETED |
 | Python / Conda | Python 3.13.11 in base; Conda 26.1.0 | COMPLETED |
-| Git / GitHub CLI | Git 2.34.1; `gh` not installed | BLOCKED for CLI fork |
+| Git / GitHub CLI | Git 2.34.1; `gh` not installed | BLOCKED for host CLI authentication |
 | Git author identity | No global identity; repository-local `jsw24000` and GitHub noreply address tied to verified account ID 192295254 configured | COMPLETED |
 | Python packages in base | `torch`, `mmengine`, `mmseg` absent; Pillow and NumPy present | BLOCKED for model test |
-| Network | GitHub and PyTorch wheel index returned HTTP 200; target GitHub repo returned 404; direct official VOC2012/VOC2010 archive URLs and ADE archive returned HTTP 200; COCO HTTPS had a certificate mismatch | PARTIAL |
-| Connected GitHub account | `jsw24000`, verified by GitHub connector; connector does not expose repository fork/create | BLOCKED for fork |
+| Network | GitHub and PyTorch wheel index returned HTTP 200; direct official VOC2012/VOC2010 archive URLs and ADE archive returned HTTP 200; COCO HTTPS had a certificate mismatch; SSH to GitHub ports 22 and 443 timed out | PARTIAL |
+| GitHub repository | `jsw24000/multimodal-final-project` now exists, Public, empty, `fork: false`; connected account is `jsw24000` | PENDING push; GitHub fork relation absent |
 
-The target data root has not been created. No data, model, package cache, or large experimental output was written to the system disk. The official PEARL README pins PyTorch 2.4.1 with CUDA 11.8. This Blackwell GPU needs an explicit wheel compatibility check; do not assume the official pin can execute CUDA kernels on it.
+The target data root has not been created. No data, model, package cache, or large experimental output was written to the system disk. The official PEARL README pins PyTorch 2.4.1 with CUDA 11.8. This Blackwell GPU needs an explicit wheel compatibility check; do not assume the official pin can execute CUDA kernels on it. The local Git commit preserves upstream PEARL history, but the newly created GitHub repository is an independent repository, not a native Fork. The host cannot push over HTTPS without local GitHub authentication.
 
 The administrator or disk owner should grant access only to a new project directory on `/data`, without changing mount configuration or existing data:
 
