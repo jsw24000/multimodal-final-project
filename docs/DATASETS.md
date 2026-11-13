@@ -1,12 +1,12 @@
 # Dataset preparation and status
 
-Dataset root: `${PEARL_DATA_ROOT}/datasets`, default `/data/Multimodal-final-project/datasets`. `project_paths.py` supplies every PEARL config with this common root. The project data root is writable. VOC2012 is verified for both VOC20 and VOC21. VOC2010 raw images have been installed, while the validation GT for Context is still missing. ADE20K is downloading to a resumable `.part` archive.
+Dataset root: `${PEARL_DATA_ROOT}/datasets`, default `/data/Multimodal-final-project/datasets`. `project_paths.py` supplies every PEARL config with this common root. The project data root is writable. VOC2012 is verified for both VOC20 and VOC21. VOC2010 raw images have been installed, while the validation GT for Context is still missing. ADE20K is verified for its validation split.
 
 | Benchmark | Required validation layout relative to `datasets/` | Expected val pairs | Raw labels and processing | Status |
 | --- | --- | ---: | --- | --- |
 | VOC20 / VOC21 | `VOCdevkit/VOC2012/{JPEGImages,SegmentationClass,ImageSets/Segmentation/val.txt}` | 1,449 | indexed PNG 0 background, 1–20 objects, 255 ignore; VOC20 `reduce_zero_label=True`, VOC21 includes background | COMPLETED: 1,449 pairs, 17,125 JPEGs and 2,913 masks in the full source directory; sampled IDs and dimensions valid |
 | Context59 / Context60 | `VOCdevkit/VOC2010/{JPEGImages,SegmentationClassContext,ImageSets/SegmentationContext/val.txt}` | 5,105 | converted PNG 0 background, 1–59 classes, 255 ignore; Context59 reduces zero, Context60 retains it | PENDING: 11,321 raw VOC2010 JPEGs installed; Context JSON, masks and split missing |
-| ADE20K | `ADEChallengeData2016/{images,annotations}/validation` | 2,000 | indexed PNG raw 0 ignore, 1–150 classes; `LoadAnnotations(reduce_zero_label=True)` | PENDING: official ZIP downloading to `.part`; no validation pairs yet |
+| ADE20K | `ADEChallengeData2016/{images,annotations}/validation` | 2,000 | indexed PNG raw 0 ignore, 1–150 classes; `LoadAnnotations(reduce_zero_label=True)` | COMPLETED: 2,000 validation image/mask pairs; archive, counts, sampled IDs and dimensions verified |
 | COCO-Object | `coco_stuff164k/{images,annotations}/val2017`; masks end `_instanceTrainIds.png` | 5,000 | uses project's `convert_dataset/convert_coco_object.py` on COCO-Stuff maps, 0 background + 80 objects | BLOCKED |
 | COCO-Stuff 164k | same val images; masks end `_labelTrainIds.png` | 5,000 | requires official MMSegmentation conversion from indexed stuff+thing maps; 171 evaluated classes | BLOCKED |
 | Cityscapes | `cityscapes/leftImg8bit/val`, `gtFine/val` | 500 | separate licensed source; not in initial download scope | PENDING |
@@ -26,14 +26,18 @@ VOC2010 archive provenance: `downloads/VOCtrainval_03-May-2010.tar`, 1,345,040,8
 
 VOC2012 archive provenance: `downloads/VOCtrainval_11-May-2012.tar`, 1,999,639,040 bytes, SHA256 `e14f763270cf193d0b5f74b169f44157a4b0c6efa708f4dd0ff78ee691763bcb`. `verify_datasets.py` passed independently for VOC20 and VOC21. The verification is structural and sampled, not a full decode of all source images.
 
-## Resume after storage permission
+ADE20K archive provenance: `downloads/ADEChallengeData2016.zip`, 967,382,037 bytes, local SHA256 `7ff1be44964418441f542a7cc1e1a650e7dc0fc275f5d23252bc9bbdbc977b29`. The official ZIP passed `unzip -tq`; the extracted 44,422 files match the archive file count and contain no empty files. The source contains 20,210 training images/masks and 2,000 validation images/masks. The validation directory passed `verify_datasets.py`; the PEARL/MMSegmentation ADE20K config loaded 2,000 samples, and full PEARL produced one prediction matching its GT shape `(1, 512, 683)`. This is a local archive digest, not a published upstream checksum. The single-image smoke test is not a validation mIoU score.
+
+On 2026-11-13, the background ADE20K download service finished the ZIP and extraction but exited with status 127 because its minimal PATH did not include `python`. The verified staging directory was moved to `datasets/` on the same data filesystem without redownloading or overwriting files. `download_datasets.sh` now uses `python3` or the absolute interpreter supplied by `PEARL_PYTHON`; both ADE20K and VOC2012 completion checks passed with a minimal systemd-like PATH.
+
+## Repeat checks
 
 ```bash
 export PEARL_DATA_ROOT=/data/Multimodal-final-project
 bash scripts/check_environment.sh
 bash scripts/download_datasets.sh voc2012
 bash scripts/download_datasets.sh ade20k
-python scripts/verify_datasets.py --dataset all
+python3 scripts/verify_datasets.py --dataset all
 ```
 
 The `context` and `coco_val` script selectors record pending protocols and do not mark data complete. No large download should start if the mount guard fails.

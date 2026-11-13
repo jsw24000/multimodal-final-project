@@ -5,6 +5,11 @@ project=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 root=${PEARL_DATA_ROOT:-/data/Multimodal-final-project}
 mount=${PEARL_DATA_MOUNT:-/data}
 dataset=${1:-}
+python_bin=${PEARL_PYTHON:-$(command -v python3 || true)}
+[[ -n "$python_bin" && -x "$python_bin" ]] || {
+  echo 'BLOCKED: Python 3 is unavailable; set PEARL_PYTHON to its absolute path' >&2
+  exit 3
+}
 case "$dataset" in voc2012|ade20k|context|coco_val) ;; *)
   echo 'Usage: scripts/download_datasets.sh {voc2012|ade20k|context|coco_val}' >&2; exit 2 ;;
 esac
@@ -42,7 +47,7 @@ fetch() {
 
 case "$dataset" in
   voc2012)
-    if python "$project/scripts/verify_datasets.py" --dataset voc21 --data-root "$root" --quiet; then
+    if "$python_bin" "$project/scripts/verify_datasets.py" --dataset voc21 --data-root "$root" --quiet; then
       echo 'COMPLETED: VOC2012 already verified'; exit 0
     fi
     target="$root/datasets/VOCdevkit/VOC2012"
@@ -53,13 +58,13 @@ case "$dataset" in
     stage="$root/downloads/staging/voc2012"
     mkdir -p "$stage"
     tar -xf "$archive" -C "$stage" --skip-old-files
-    PEARL_DATA_ROOT="$stage" python "$project/scripts/verify_datasets.py" --dataset voc21 --dataset-dir "$stage/VOCdevkit/VOC2012" --quiet
+    PEARL_DATA_ROOT="$stage" "$python_bin" "$project/scripts/verify_datasets.py" --dataset voc21 --dataset-dir "$stage/VOCdevkit/VOC2012" --quiet
     mkdir -p "$root/datasets/VOCdevkit"
     mv -n "$stage/VOCdevkit/VOC2012" "$target"
-    python "$project/scripts/verify_datasets.py" --dataset voc21 --data-root "$root"
+    "$python_bin" "$project/scripts/verify_datasets.py" --dataset voc21 --data-root "$root"
     ;;
   ade20k)
-    if python "$project/scripts/verify_datasets.py" --dataset ade20k --data-root "$root" --quiet; then
+    if "$python_bin" "$project/scripts/verify_datasets.py" --dataset ade20k --data-root "$root" --quiet; then
       echo 'COMPLETED: ADE20K already verified'; exit 0
     fi
     target="$root/datasets/ADEChallengeData2016"
@@ -70,9 +75,9 @@ case "$dataset" in
     stage="$root/downloads/staging/ade20k"
     mkdir -p "$stage"
     unzip -nq "$archive" -d "$stage"
-    python "$project/scripts/verify_datasets.py" --dataset ade20k --dataset-dir "$stage/ADEChallengeData2016" --quiet
+    "$python_bin" "$project/scripts/verify_datasets.py" --dataset ade20k --dataset-dir "$stage/ADEChallengeData2016" --quiet
     mv -n "$stage/ADEChallengeData2016" "$target"
-    python "$project/scripts/verify_datasets.py" --dataset ade20k --data-root "$root"
+    "$python_bin" "$project/scripts/verify_datasets.py" --dataset ade20k --data-root "$root"
     ;;
   context)
     echo 'PENDING: VOC2010 images, trainval_merged.json and MMSegmentation Detail converter required.'
