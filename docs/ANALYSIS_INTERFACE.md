@@ -1,0 +1,5 @@
+# Mechanism analysis interface
+
+The released visual encoder already exposes the last-layer attention through `VisionTransformer.get_last_layer_attn` and `CLIP.get_image_last_attn` in `clip/model.py`. `VisionTransformer.custom_attn` splits the projected last-block input into Q, K and V at the `in_proj_weight` linear projection; the returned `return_all=True` token sequence and `PEARL.forward_feature` in `pearl_ovss.py` expose patch embeddings. `pearl/attn.py` contains the PA alignment matrix and K–K term.
+
+For later analysis, use temporary forward hooks or a separate analysis wrapper around these points, save selected tensors to `${PEARL_DATA_ROOT}/outputs/`, and record image ID, patch grid, prompt set, architecture and attention strategy with every artifact. Compare foreground/background attention and high-norm K tokens on VOC21 first, then inspect Q/K alignment and dominant PCA/SVD directions before and after PA. Keep any GT-conditioned diagnostic separate from inference and never use validation GT to tune the baseline.

@@ -1,0 +1,5728 @@
+{
+  "project_git_sha": "d51817c9b0bc0aa2e62256978237386543d82132",
+  "checkpoint_sha256": "5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f",
+  "commands": {
+    "pearl_variants": "bash experiments/performance/run_pearl_matrix.sh",
+    "external": "bash experiments/performance/run_external_matrix.sh",
+    "full_pearl": "python eval.py --config configs/cfg_<dataset>.py --attn pearl --prop on"
+  },
+  "versions": {
+    "torch": "2.8.0+cu128",
+    "torchvision": "0.23.0+cu128",
+    "mmcv": "2.1.0",
+    "mmengine": "0.10.7",
+    "mmsegmentation": "1.2.2"
+  },
+  "external_repos": {
+    "SCLIP": "3608360267b6130c1ef18090d7289f17c771cb90",
+    "NACLIP": "7f2bb0ab8389e270bae1c4750ffcfe161a73e42c",
+    "ClearCLIP": "ad68a404d55d48d27330b93554eb64a234ff717f"
+  },
+  "runs": {
+    "vanilla_voc21": {
+      "metrics": {
+        "aAcc": 61.53,
+        "mIoU": 15.16,
+        "mAcc": 28.7,
+        "data_time": 0.001515201571236157,
+        "time": 0.012295128971729056
+      },
+      "per_class": {
+        "background": {
+          "iou": 59.59,
+          "acc": 74.52
+        },
+        "aeroplane": {
+          "iou": 10.99,
+          "acc": 48.58
+        },
+        "bicycle": {
+          "iou": 7.45,
+          "acc": 35.67
+        },
+        "bird": {
+          "iou": 8.31,
+          "acc": 10.87
+        },
+        "boat": {
+          "iou": 3.97,
+          "acc": 5.93
+        },
+        "bottle": {
+          "iou": 11.45,
+          "acc": 12.69
+        },
+        "bus": {
+          "iou": 26.95,
+          "acc": 47.77
+        },
+        "car": {
+          "iou": 22.41,
+          "acc": 47.44
+        },
+        "cat": {
+          "iou": 23.64,
+          "acc": 46.31
+        },
+        "chair": {
+          "iou": 2.93,
+          "acc": 3.47
+        },
+        "cow": {
+          "iou": 23.98,
+          "acc": 40.39
+        },
+        "diningtable": {
+          "iou": 7.26,
+          "acc": 9.14
+        },
+        "dog": {
+          "iou": 19.19,
+          "acc": 36.74
+        },
+        "horse": {
+          "iou": 17.7,
+          "acc": 49.38
+        },
+        "motorbike": {
+          "iou": 10.71,
+          "acc": 20.09
+        },
+        "person": {
+          "iou": 3.02,
+          "acc": 3.14
+        },
+        "pottedplant": {
+          "iou": 5.58,
+          "acc": 7.57
+        },
+        "sheep": {
+          "iou": 13.21,
+          "acc": 28.43
+        },
+        "sofa": {
+          "iou": 7.85,
+          "acc": 10.74
+        },
+        "train": {
+          "iou": 18.81,
+          "acc": 42.19
+        },
+        "tvmonitor": {
+          "iou": 13.39,
+          "acc": 21.6
+        }
+      },
+      "metrics_file": "/data/Multimodal-final-project/outputs/performance/voc21_vanilla/20261114_165240/20261114_165240.json",
+      "log": "/data/Multimodal-final-project/outputs/performance/voc21_vanilla.log",
+      "samples": 1449,
+      "command": "python eval.py --config configs/cfg_voc21.py --arch vanilla --attn vanilla --prop off --work-dir $PEARL_DATA_ROOT/outputs/performance/voc21_vanilla",
+      "peak_logged_memory_MiB": 1017,
+      "elapsed_s": 23.0
+    },
+    "vanilla_voc20": {
+      "metrics": {
+        "aAcc": 53.6,
+        "mIoU": 38.01,
+        "mAcc": 53.17,
+        "data_time": 0.0013045200074105693,
+        "time": 0.009719686725371619
+      },
+      "per_class": {
+        "aeroplane": {
+          "iou": 53.49,
+          "acc": 77.86
+        },
+        "bicycle": {
+          "iou": 20.19,
+          "acc": 58.58
+        },
+        "bird": {
+          "iou": 39.95,
+          "acc": 46.43
+        },
+        "boat": {
+          "iou": 35.01,
+          "acc": 43.17
+        },
+        "bottle": {
+          "iou": 38.03,
+          "acc": 43.47
+        },
+        "bus": {
+          "iou": 55.27,
+          "acc": 63.31
+        },
+        "car": {
+          "iou": 37.38,
+          "acc": 72.64
+        },
+        "cat": {
+          "iou": 61.53,
+          "acc": 77.07
+        },
+        "chair": {
+          "iou": 7.26,
+          "acc": 10.62
+        },
+        "cow": {
+          "iou": 55.56,
+          "acc": 70.12
+        },
+        "diningtable": {
+          "iou": 14.43,
+          "acc": 38.47
+        },
+        "dog": {
+          "iou": 52.49,
+          "acc": 63.58
+        },
+        "horse": {
+          "iou": 55.28,
+          "acc": 78.14
+        },
+        "motorbike": {
+          "iou": 26.25,
+          "acc": 33.76
+        },
+        "person": {
+          "iou": 27.2,
+          "acc": 38.38
+        },
+        "pottedplant": {
+          "iou": 23.84,
+          "acc": 27.12
+        },
+        "sheep": {
+          "iou": 55.16,
+          "acc": 61.43
+        },
+        "sofa": {
+          "iou": 18.94,
+          "acc": 26.05
+        },
+        "train": {
+          "iou": 66.15,
+          "acc": 72.3
+        },
+        "tvmonitor": {
+          "iou": 16.74,
+          "acc": 60.81
+        }
+      },
+      "metrics_file": "/data/Multimodal-final-project/outputs/performance/voc20_vanilla/20261114_180404/20261114_180404.json",
+      "log": "/data/Multimodal-final-project/outputs/performance/voc20_vanilla.log",
+      "samples": 1449,
+      "command": "python eval.py --config configs/cfg_voc20.py --arch vanilla --attn vanilla --prop off --work-dir $PEARL_DATA_ROOT/outputs/performance/voc20_vanilla",
+      "peak_logged_memory_MiB": 715,
+      "elapsed_s": 17.0
+    },
+    "vanilla_ade20k": {
+      "metrics": {
+        "aAcc": 7.85,
+        "mIoU": 3.17,
+        "mAcc": 10.49,
+        "data_time": 0.0013122717142105102,
+        "time": 0.03482156777381897
+      },
+      "per_class": {
+        "wall": {
+          "iou": 1.27,
+          "acc": 1.34
+        },
+        "building": {
+          "iou": 4.87,
+          "acc": 5.5
+        },
+        "sky": {
+          "iou": 1.94,
+          "acc": 1.96
+        },
+        "floor": {
+          "iou": 2.77,
+          "acc": 3.0
+        },
+        "tree": {
+          "iou": 8.59,
+          "acc": 10.33
+        },
+        "ceiling": {
+          "iou": 1.67,
+          "acc": 1.8
+        },
+        "road": {
+          "iou": 11.75,
+          "acc": 17.14
+        },
+        "bed": {
+          "iou": 20.86,
+          "acc": 61.74
+        },
+        "windowpane": {
+          "iou": 0.26,
+          "acc": 0.33
+        },
+        "grass": {
+          "iou": 14.71,
+          "acc": 26.48
+        },
+        "cabinet": {
+          "iou": 0.53,
+          "acc": 0.7
+        },
+        "sidewalk": {
+          "iou": 5.54,
+          "acc": 12.62
+        },
+        "person": {
+          "iou": 2.49,
+          "acc": 3.18
+        },
+        "earth": {
+          "iou": 0.33,
+          "acc": 0.34
+        },
+        "door": {
+          "iou": 5.08,
+          "acc": 8.67
+        },
+        "table": {
+          "iou": 2.2,
+          "acc": 5.5
+        },
+        "mountain": {
+          "iou": 8.13,
+          "acc": 9.2
+        },
+        "plant": {
+          "iou": 6.02,
+          "acc": 6.75
+        },
+        "curtain": {
+          "iou": 2.06,
+          "acc": 2.62
+        },
+        "chair": {
+          "iou": 0.41,
+          "acc": 0.47
+        },
+        "car": {
+          "iou": 7.82,
+          "acc": 27.04
+        },
+        "water": {
+          "iou": 4.35,
+          "acc": 5.65
+        },
+        "painting": {
+          "iou": 2.06,
+          "acc": 2.68
+        },
+        "sofa": {
+          "iou": 2.42,
+          "acc": 4.07
+        },
+        "shelf": {
+          "iou": 1.68,
+          "acc": 1.79
+        },
+        "house": {
+          "iou": 3.35,
+          "acc": 39.18
+        },
+        "sea": {
+          "iou": 9.13,
+          "acc": 15.22
+        },
+        "mirror": {
+          "iou": 0.57,
+          "acc": 0.58
+        },
+        "rug": {
+          "iou": 1.2,
+          "acc": 2.08
+        },
+        "field": {
+          "iou": 8.67,
+          "acc": 18.76
+        },
+        "armchair": {
+          "iou": 1.66,
+          "acc": 5.05
+        },
+        "seat": {
+          "iou": 5.04,
+          "acc": 12.72
+        },
+        "fence": {
+          "iou": 7.22,
+          "acc": 9.06
+        },
+        "desk": {
+          "iou": 4.54,
+          "acc": 16.2
+        },
+        "rock": {
+          "iou": 9.89,
+          "acc": 29.92
+        },
+        "wardrobe": {
+          "iou": 6.16,
+          "acc": 32.67
+        },
+        "lamp": {
+          "iou": 0.7,
+          "acc": 1.62
+        },
+        "bathtub": {
+          "iou": 7.91,
+          "acc": 29.76
+        },
+        "railing": {
+          "iou": 3.8,
+          "acc": 5.22
+        },
+        "cushion": {
+          "iou": 0.98,
+          "acc": 2.26
+        },
+        "base": {
+          "iou": 0.01,
+          "acc": 0.01
+        },
+        "box": {
+          "iou": 0.7,
+          "acc": 1.37
+        },
+        "column": {
+          "iou": 3.7,
+          "acc": 9.46
+        },
+        "signboard": {
+          "iou": 1.54,
+          "acc": 2.28
+        },
+        "chest of drawers": {
+          "iou": 0.21,
+          "acc": 0.36
+        },
+        "counter": {
+          "iou": 0.83,
+          "acc": 9.68
+        },
+        "sand": {
+          "iou": 17.04,
+          "acc": 31.42
+        },
+        "sink": {
+          "iou": 0.54,
+          "acc": 0.89
+        },
+        "skyscraper": {
+          "iou": 9.97,
+          "acc": 13.6
+        },
+        "fireplace": {
+          "iou": 4.38,
+          "acc": 16.47
+        },
+        "refrigerator": {
+          "iou": 1.23,
+          "acc": 25.8
+        },
+        "grandstand": {
+          "iou": 7.92,
+          "acc": 13.62
+        },
+        "path": {
+          "iou": 0.18,
+          "acc": 0.2
+        },
+        "stairs": {
+          "iou": 0.95,
+          "acc": 1.32
+        },
+        "runway": {
+          "iou": 5.21,
+          "acc": 9.47
+        },
+        "case": {
+          "iou": 0.01,
+          "acc": 0.01
+        },
+        "pool table": {
+          "iou": 8.85,
+          "acc": 36.13
+        },
+        "pillow": {
+          "iou": 0.53,
+          "acc": 2.13
+        },
+        "screen door": {
+          "iou": 0.02,
+          "acc": 0.08
+        },
+        "stairway": {
+          "iou": 8.44,
+          "acc": 13.24
+        },
+        "river": {
+          "iou": 2.34,
+          "acc": 11.28
+        },
+        "bridge": {
+          "iou": 2.65,
+          "acc": 5.72
+        },
+        "bookcase": {
+          "iou": 7.59,
+          "acc": 15.62
+        },
+        "blind": {
+          "iou": 1.11,
+          "acc": 1.24
+        },
+        "coffee table": {
+          "iou": 0.07,
+          "acc": 0.4
+        },
+        "toilet": {
+          "iou": 2.3,
+          "acc": 29.42
+        },
+        "flower": {
+          "iou": 4.03,
+          "acc": 8.15
+        },
+        "book": {
+          "iou": 4.49,
+          "acc": 7.1
+        },
+        "hill": {
+          "iou": 0.16,
+          "acc": 0.66
+        },
+        "bench": {
+          "iou": 3.0,
+          "acc": 3.78
+        },
+        "countertop": {
+          "iou": 0.18,
+          "acc": 4.59
+        },
+        "stove": {
+          "iou": 0.37,
+          "acc": 1.76
+        },
+        "palm": {
+          "iou": 1.22,
+          "acc": 3.99
+        },
+        "kitchen island": {
+          "iou": 1.58,
+          "acc": 27.34
+        },
+        "computer": {
+          "iou": 4.49,
+          "acc": 5.22
+        },
+        "swivel chair": {
+          "iou": 0.01,
+          "acc": 0.02
+        },
+        "boat": {
+          "iou": 7.86,
+          "acc": 49.65
+        },
+        "bar": {
+          "iou": 11.05,
+          "acc": 34.45
+        },
+        "arcade machine": {
+          "iou": 7.25,
+          "acc": 10.41
+        },
+        "hovel": {
+          "iou": 0.34,
+          "acc": 11.19
+        },
+        "bus": {
+          "iou": 15.29,
+          "acc": 61.56
+        },
+        "towel": {
+          "iou": 0.25,
+          "acc": 0.71
+        },
+        "light": {
+          "iou": 0.08,
+          "acc": 0.17
+        },
+        "truck": {
+          "iou": 2.01,
+          "acc": 6.88
+        },
+        "tower": {
+          "iou": 5.32,
+          "acc": 18.67
+        },
+        "chandelier": {
+          "iou": 0.15,
+          "acc": 0.18
+        },
+        "awning": {
+          "iou": 0.09,
+          "acc": 1.65
+        },
+        "streetlight": {
+          "iou": 0.14,
+          "acc": 0.96
+        },
+        "booth": {
+          "iou": 0.2,
+          "acc": 2.71
+        },
+        "television receiver": {
+          "iou": 0.28,
+          "acc": 0.92
+        },
+        "airplane": {
+          "iou": 2.24,
+          "acc": 29.03
+        },
+        "dirt track": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "apparel": {
+          "iou": 0.06,
+          "acc": 0.41
+        },
+        "pole": {
+          "iou": 0.02,
+          "acc": 0.11
+        },
+        "land": {
+          "iou": 0.24,
+          "acc": 43.0
+        },
+        "bannister": {
+          "iou": 0.9,
+          "acc": 5.05
+        },
+        "escalator": {
+          "iou": 8.59,
+          "acc": 30.94
+        },
+        "ottoman": {
+          "iou": 0.06,
+          "acc": 0.59
+        },
+        "bottle": {
+          "iou": 6.63,
+          "acc": 8.66
+        },
+        "buffet": {
+          "iou": 0.24,
+          "acc": 2.54
+        },
+        "poster": {
+          "iou": 1.09,
+          "acc": 2.45
+        },
+        "stage": {
+          "iou": 4.56,
+          "acc": 19.85
+        },
+        "van": {
+          "iou": 0.69,
+          "acc": 1.6
+        },
+        "ship": {
+          "iou": 0.58,
+          "acc": 0.98
+        },
+        "fountain": {
+          "iou": 4.25,
+          "acc": 14.22
+        },
+        "conveyer belt": {
+          "iou": 1.43,
+          "acc": 4.39
+        },
+        "canopy": {
+          "iou": 0.18,
+          "acc": 1.45
+        },
+        "washer": {
+          "iou": 25.23,
+          "acc": 44.89
+        },
+        "plaything": {
+          "iou": 0.69,
+          "acc": 6.81
+        },
+        "swimming pool": {
+          "iou": 3.66,
+          "acc": 48.23
+        },
+        "stool": {
+          "iou": 0.02,
+          "acc": 0.09
+        },
+        "barrel": {
+          "iou": 0.0,
+          "acc": 0.31
+        },
+        "basket": {
+          "iou": 0.05,
+          "acc": 0.29
+        },
+        "waterfall": {
+          "iou": 6.66,
+          "acc": 25.97
+        },
+        "tent": {
+          "iou": 13.26,
+          "acc": 76.13
+        },
+        "bag": {
+          "iou": 0.17,
+          "acc": 0.27
+        },
+        "minibike": {
+          "iou": 0.72,
+          "acc": 0.83
+        },
+        "cradle": {
+          "iou": 2.75,
+          "acc": 12.17
+        },
+        "oven": {
+          "iou": 0.37,
+          "acc": 17.19
+        },
+        "ball": {
+          "iou": 0.87,
+          "acc": 7.72
+        },
+        "food": {
+          "iou": 2.86,
+          "acc": 43.95
+        },
+        "step": {
+          "iou": 0.08,
+          "acc": 2.66
+        },
+        "tank": {
+          "iou": 0.47,
+          "acc": 0.55
+        },
+        "trade name": {
+          "iou": 0.08,
+          "acc": 2.09
+        },
+        "microwave": {
+          "iou": 5.77,
+          "acc": 23.76
+        },
+        "pot": {
+          "iou": 0.18,
+          "acc": 0.94
+        },
+        "animal": {
+          "iou": 6.69,
+          "acc": 13.05
+        },
+        "bicycle": {
+          "iou": 0.69,
+          "acc": 3.68
+        },
+        "lake": {
+          "iou": 3.64,
+          "acc": 40.79
+        },
+        "dishwasher": {
+          "iou": 0.49,
+          "acc": 1.82
+        },
+        "screen": {
+          "iou": 1.07,
+          "acc": 7.15
+        },
+        "blanket": {
+          "iou": 0.15,
+          "acc": 0.32
+        },
+        "sculpture": {
+          "iou": 2.4,
+          "acc": 4.83
+        },
+        "hood": {
+          "iou": 0.01,
+          "acc": 0.21
+        },
+        "sconce": {
+          "iou": 0.02,
+          "acc": 0.09
+        },
+        "vase": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "traffic light": {
+          "iou": 0.17,
+          "acc": 6.15
+        },
+        "tray": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "ashcan": {
+          "iou": 0.0,
+          "acc": 0.01
+        },
+        "fan": {
+          "iou": 0.0,
+          "acc": 0.03
+        },
+        "pier": {
+          "iou": 3.24,
+          "acc": 12.97
+        },
+        "crt screen": {
+          "iou": 0.11,
+          "acc": 0.7
+        },
+        "plate": {
+          "iou": 0.82,
+          "acc": 1.77
+        },
+        "monitor": {
+          "iou": 2.45,
+          "acc": 14.29
+        },
+        "bulletin board": {
+          "iou": 0.05,
+          "acc": 0.34
+        },
+        "shower": {
+          "iou": 0.14,
+          "acc": 15.17
+        },
+        "radiator": {
+          "iou": 0.02,
+          "acc": 0.06
+        },
+        "glass": {
+          "iou": 0.01,
+          "acc": 0.03
+        },
+        "clock": {
+          "iou": 1.06,
+          "acc": 4.67
+        },
+        "flag": {
+          "iou": 7.11,
+          "acc": 10.67
+        }
+      },
+      "metrics_file": "/data/Multimodal-final-project/outputs/performance/ade20k_vanilla/20261114_180550/20261114_180550.json",
+      "log": "/data/Multimodal-final-project/outputs/performance/ade20k_vanilla.log",
+      "samples": 2000,
+      "command": "python eval.py --config configs/cfg_ade20k.py --arch vanilla --attn vanilla --prop off --work-dir $PEARL_DATA_ROOT/outputs/performance/ade20k_vanilla",
+      "peak_logged_memory_MiB": 4765,
+      "elapsed_s": 74.0
+    },
+    "reduced_voc21": {
+      "metrics": {
+        "aAcc": 65.52,
+        "mIoU": 35.28,
+        "mAcc": 76.82,
+        "data_time": 0.0013626724214205008,
+        "time": 0.011260397603710904
+      },
+      "per_class": {
+        "background": {
+          "iou": 58.57,
+          "acc": 62.06
+        },
+        "aeroplane": {
+          "iou": 24.32,
+          "acc": 92.42
+        },
+        "bicycle": {
+          "iou": 16.05,
+          "acc": 93.03
+        },
+        "bird": {
+          "iou": 37.03,
+          "acc": 57.84
+        },
+        "boat": {
+          "iou": 26.7,
+          "acc": 44.59
+        },
+        "bottle": {
+          "iou": 48.98,
+          "acc": 83.64
+        },
+        "bus": {
+          "iou": 47.92,
+          "acc": 98.3
+        },
+        "car": {
+          "iou": 39.25,
+          "acc": 91.53
+        },
+        "cat": {
+          "iou": 41.39,
+          "acc": 95.22
+        },
+        "chair": {
+          "iou": 20.15,
+          "acc": 31.34
+        },
+        "cow": {
+          "iou": 43.3,
+          "acc": 88.89
+        },
+        "diningtable": {
+          "iou": 31.06,
+          "acc": 79.44
+        },
+        "dog": {
+          "iou": 42.64,
+          "acc": 88.74
+        },
+        "horse": {
+          "iou": 28.37,
+          "acc": 96.5
+        },
+        "motorbike": {
+          "iou": 40.78,
+          "acc": 75.78
+        },
+        "person": {
+          "iou": 33.59,
+          "acc": 41.02
+        },
+        "pottedplant": {
+          "iou": 31.93,
+          "acc": 69.48
+        },
+        "sheep": {
+          "iou": 34.01,
+          "acc": 93.51
+        },
+        "sofa": {
+          "iou": 31.56,
+          "acc": 80.11
+        },
+        "train": {
+          "iou": 35.26,
+          "acc": 96.02
+        },
+        "tvmonitor": {
+          "iou": 27.96,
+          "acc": 53.7
+        }
+      },
+      "metrics_file": "/data/Multimodal-final-project/outputs/performance/voc21_reduced/20261114_180237/20261114_180237.json",
+      "log": "/data/Multimodal-final-project/outputs/performance/voc21_reduced.log",
+      "samples": 1449,
+      "command": "python eval.py --config configs/cfg_voc21.py --arch reduced --attn vanilla --prop off --work-dir $PEARL_DATA_ROOT/outputs/performance/voc21_reduced",
+      "peak_logged_memory_MiB": 1017,
+      "elapsed_s": 20.0
+    },
+    "reduced_voc20": {
+      "metrics": {
+        "aAcc": 87.09,
+        "mIoU": 78.98,
+        "mAcc": 89.97,
+        "data_time": 0.0013782346223945696,
+        "time": 0.010012674200032974
+      },
+      "per_class": {
+        "aeroplane": {
+          "iou": 95.74,
+          "acc": 99.17
+        },
+        "bicycle": {
+          "iou": 55.25,
+          "acc": 97.93
+        },
+        "bird": {
+          "iou": 92.71,
+          "acc": 93.27
+        },
+        "boat": {
+          "iou": 87.97,
+          "acc": 94.29
+        },
+        "bottle": {
+          "iou": 86.25,
+          "acc": 90.59
+        },
+        "bus": {
+          "iou": 95.26,
+          "acc": 99.62
+        },
+        "car": {
+          "iou": 84.07,
+          "acc": 96.3
+        },
+        "cat": {
+          "iou": 92.7,
+          "acc": 97.57
+        },
+        "chair": {
+          "iou": 31.99,
+          "acc": 36.23
+        },
+        "cow": {
+          "iou": 90.4,
+          "acc": 95.97
+        },
+        "diningtable": {
+          "iou": 50.79,
+          "acc": 88.46
+        },
+        "dog": {
+          "iou": 85.53,
+          "acc": 95.29
+        },
+        "horse": {
+          "iou": 86.72,
+          "acc": 97.9
+        },
+        "motorbike": {
+          "iou": 75.53,
+          "acc": 91.57
+        },
+        "person": {
+          "iou": 61.55,
+          "acc": 64.59
+        },
+        "pottedplant": {
+          "iou": 72.78,
+          "acc": 84.53
+        },
+        "sheep": {
+          "iou": 88.74,
+          "acc": 97.93
+        },
+        "sofa": {
+          "iou": 67.83,
+          "acc": 90.32
+        },
+        "train": {
+          "iou": 96.95,
+          "acc": 99.18
+        },
+        "tvmonitor": {
+          "iou": 80.84,
+          "acc": 88.71
+        }
+      },
+      "metrics_file": "/data/Multimodal-final-project/outputs/performance/voc20_reduced/20261114_180426/20261114_180426.json",
+      "log": "/data/Multimodal-final-project/outputs/performance/voc20_reduced.log",
+      "samples": 1449,
+      "command": "python eval.py --config configs/cfg_voc20.py --arch reduced --attn vanilla --prop off --work-dir $PEARL_DATA_ROOT/outputs/performance/voc20_reduced",
+      "peak_logged_memory_MiB": 715,
+      "elapsed_s": 18.0
+    },
+    "reduced_ade20k": {
+      "metrics": {
+        "aAcc": 29.07,
+        "mIoU": 11.6,
+        "mAcc": 31.42,
+        "data_time": 0.0014597384929656983,
+        "time": 0.03739063322544098
+      },
+      "per_class": {
+        "wall": {
+          "iou": 7.8,
+          "acc": 8.72
+        },
+        "building": {
+          "iou": 18.63,
+          "acc": 19.93
+        },
+        "sky": {
+          "iou": 32.23,
+          "acc": 32.51
+        },
+        "floor": {
+          "iou": 23.52,
+          "acc": 26.89
+        },
+        "tree": {
+          "iou": 37.69,
+          "acc": 51.2
+        },
+        "ceiling": {
+          "iou": 17.03,
+          "acc": 18.94
+        },
+        "road": {
+          "iou": 37.55,
+          "acc": 59.77
+        },
+        "bed": {
+          "iou": 33.28,
+          "acc": 93.82
+        },
+        "windowpane": {
+          "iou": 7.18,
+          "acc": 7.77
+        },
+        "grass": {
+          "iou": 40.73,
+          "acc": 69.98
+        },
+        "cabinet": {
+          "iou": 7.1,
+          "acc": 9.19
+        },
+        "sidewalk": {
+          "iou": 18.89,
+          "acc": 62.24
+        },
+        "person": {
+          "iou": 10.62,
+          "acc": 11.1
+        },
+        "earth": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "door": {
+          "iou": 14.13,
+          "acc": 38.36
+        },
+        "table": {
+          "iou": 14.06,
+          "acc": 41.88
+        },
+        "mountain": {
+          "iou": 26.23,
+          "acc": 36.03
+        },
+        "plant": {
+          "iou": 20.33,
+          "acc": 23.9
+        },
+        "curtain": {
+          "iou": 21.45,
+          "acc": 31.53
+        },
+        "chair": {
+          "iou": 4.0,
+          "acc": 4.36
+        },
+        "car": {
+          "iou": 33.66,
+          "acc": 73.87
+        },
+        "water": {
+          "iou": 3.14,
+          "acc": 3.28
+        },
+        "painting": {
+          "iou": 7.24,
+          "acc": 8.88
+        },
+        "sofa": {
+          "iou": 27.17,
+          "acc": 75.12
+        },
+        "shelf": {
+          "iou": 9.59,
+          "acc": 11.34
+        },
+        "house": {
+          "iou": 5.77,
+          "acc": 76.41
+        },
+        "sea": {
+          "iou": 20.96,
+          "acc": 39.81
+        },
+        "mirror": {
+          "iou": 6.7,
+          "acc": 7.3
+        },
+        "rug": {
+          "iou": 16.9,
+          "acc": 44.95
+        },
+        "field": {
+          "iou": 13.12,
+          "acc": 27.77
+        },
+        "armchair": {
+          "iou": 9.66,
+          "acc": 28.56
+        },
+        "seat": {
+          "iou": 17.36,
+          "acc": 50.79
+        },
+        "fence": {
+          "iou": 16.96,
+          "acc": 27.39
+        },
+        "desk": {
+          "iou": 11.32,
+          "acc": 51.09
+        },
+        "rock": {
+          "iou": 18.7,
+          "acc": 53.97
+        },
+        "wardrobe": {
+          "iou": 13.79,
+          "acc": 45.04
+        },
+        "lamp": {
+          "iou": 12.13,
+          "acc": 19.0
+        },
+        "bathtub": {
+          "iou": 22.33,
+          "acc": 68.76
+        },
+        "railing": {
+          "iou": 10.43,
+          "acc": 15.05
+        },
+        "cushion": {
+          "iou": 3.89,
+          "acc": 4.94
+        },
+        "base": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "box": {
+          "iou": 4.06,
+          "acc": 6.29
+        },
+        "column": {
+          "iou": 14.52,
+          "acc": 34.05
+        },
+        "signboard": {
+          "iou": 5.88,
+          "acc": 7.58
+        },
+        "chest of drawers": {
+          "iou": 12.62,
+          "acc": 17.55
+        },
+        "counter": {
+          "iou": 4.71,
+          "acc": 24.31
+        },
+        "sand": {
+          "iou": 35.44,
+          "acc": 82.94
+        },
+        "sink": {
+          "iou": 11.0,
+          "acc": 18.95
+        },
+        "skyscraper": {
+          "iou": 27.17,
+          "acc": 66.77
+        },
+        "fireplace": {
+          "iou": 21.01,
+          "acc": 73.01
+        },
+        "refrigerator": {
+          "iou": 10.27,
+          "acc": 69.46
+        },
+        "grandstand": {
+          "iou": 13.66,
+          "acc": 19.78
+        },
+        "path": {
+          "iou": 9.2,
+          "acc": 16.65
+        },
+        "stairs": {
+          "iou": 5.14,
+          "acc": 11.08
+        },
+        "runway": {
+          "iou": 40.3,
+          "acc": 56.91
+        },
+        "case": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "pool table": {
+          "iou": 46.47,
+          "acc": 70.42
+        },
+        "pillow": {
+          "iou": 2.25,
+          "acc": 3.38
+        },
+        "screen door": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "stairway": {
+          "iou": 5.51,
+          "acc": 21.39
+        },
+        "river": {
+          "iou": 8.77,
+          "acc": 44.88
+        },
+        "bridge": {
+          "iou": 11.84,
+          "acc": 38.35
+        },
+        "bookcase": {
+          "iou": 19.89,
+          "acc": 71.61
+        },
+        "blind": {
+          "iou": 0.97,
+          "acc": 1.12
+        },
+        "coffee table": {
+          "iou": 6.41,
+          "acc": 12.48
+        },
+        "toilet": {
+          "iou": 8.69,
+          "acc": 90.08
+        },
+        "flower": {
+          "iou": 12.06,
+          "acc": 29.91
+        },
+        "book": {
+          "iou": 5.83,
+          "acc": 6.17
+        },
+        "hill": {
+          "iou": 2.27,
+          "acc": 31.71
+        },
+        "bench": {
+          "iou": 15.98,
+          "acc": 19.83
+        },
+        "countertop": {
+          "iou": 3.21,
+          "acc": 24.7
+        },
+        "stove": {
+          "iou": 11.02,
+          "acc": 17.34
+        },
+        "palm": {
+          "iou": 19.02,
+          "acc": 69.46
+        },
+        "kitchen island": {
+          "iou": 2.77,
+          "acc": 69.1
+        },
+        "computer": {
+          "iou": 12.32,
+          "acc": 13.39
+        },
+        "swivel chair": {
+          "iou": 1.04,
+          "acc": 2.25
+        },
+        "boat": {
+          "iou": 21.38,
+          "acc": 80.13
+        },
+        "bar": {
+          "iou": 13.32,
+          "acc": 45.02
+        },
+        "arcade machine": {
+          "iou": 14.42,
+          "acc": 17.57
+        },
+        "hovel": {
+          "iou": 2.82,
+          "acc": 60.53
+        },
+        "bus": {
+          "iou": 21.56,
+          "acc": 83.74
+        },
+        "towel": {
+          "iou": 9.39,
+          "acc": 21.93
+        },
+        "light": {
+          "iou": 0.26,
+          "acc": 0.28
+        },
+        "truck": {
+          "iou": 7.67,
+          "acc": 52.88
+        },
+        "tower": {
+          "iou": 8.06,
+          "acc": 84.51
+        },
+        "chandelier": {
+          "iou": 19.52,
+          "acc": 58.81
+        },
+        "awning": {
+          "iou": 1.67,
+          "acc": 32.56
+        },
+        "streetlight": {
+          "iou": 3.78,
+          "acc": 8.01
+        },
+        "booth": {
+          "iou": 0.52,
+          "acc": 5.27
+        },
+        "television receiver": {
+          "iou": 17.72,
+          "acc": 27.49
+        },
+        "airplane": {
+          "iou": 5.8,
+          "acc": 41.31
+        },
+        "dirt track": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "apparel": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "pole": {
+          "iou": 0.04,
+          "acc": 0.05
+        },
+        "land": {
+          "iou": 0.79,
+          "acc": 12.79
+        },
+        "bannister": {
+          "iou": 3.23,
+          "acc": 8.72
+        },
+        "escalator": {
+          "iou": 26.21,
+          "acc": 61.35
+        },
+        "ottoman": {
+          "iou": 0.26,
+          "acc": 1.14
+        },
+        "bottle": {
+          "iou": 20.82,
+          "acc": 37.9
+        },
+        "buffet": {
+          "iou": 0.16,
+          "acc": 1.61
+        },
+        "poster": {
+          "iou": 8.31,
+          "acc": 13.8
+        },
+        "stage": {
+          "iou": 9.8,
+          "acc": 51.24
+        },
+        "van": {
+          "iou": 10.82,
+          "acc": 42.1
+        },
+        "ship": {
+          "iou": 3.58,
+          "acc": 5.32
+        },
+        "fountain": {
+          "iou": 16.95,
+          "acc": 56.68
+        },
+        "conveyer belt": {
+          "iou": 4.37,
+          "acc": 9.18
+        },
+        "canopy": {
+          "iou": 0.46,
+          "acc": 2.83
+        },
+        "washer": {
+          "iou": 38.46,
+          "acc": 72.22
+        },
+        "plaything": {
+          "iou": 2.06,
+          "acc": 2.82
+        },
+        "swimming pool": {
+          "iou": 15.91,
+          "acc": 94.89
+        },
+        "stool": {
+          "iou": 0.95,
+          "acc": 6.23
+        },
+        "barrel": {
+          "iou": 1.96,
+          "acc": 65.12
+        },
+        "basket": {
+          "iou": 1.9,
+          "acc": 4.76
+        },
+        "waterfall": {
+          "iou": 13.5,
+          "acc": 99.82
+        },
+        "tent": {
+          "iou": 20.58,
+          "acc": 99.8
+        },
+        "bag": {
+          "iou": 5.14,
+          "acc": 8.46
+        },
+        "minibike": {
+          "iou": 14.65,
+          "acc": 14.91
+        },
+        "cradle": {
+          "iou": 9.09,
+          "acc": 52.14
+        },
+        "oven": {
+          "iou": 1.31,
+          "acc": 9.02
+        },
+        "ball": {
+          "iou": 13.45,
+          "acc": 65.05
+        },
+        "food": {
+          "iou": 11.53,
+          "acc": 41.2
+        },
+        "step": {
+          "iou": 0.67,
+          "acc": 12.08
+        },
+        "tank": {
+          "iou": 3.38,
+          "acc": 4.49
+        },
+        "trade name": {
+          "iou": 2.16,
+          "acc": 6.39
+        },
+        "microwave": {
+          "iou": 24.22,
+          "acc": 35.85
+        },
+        "pot": {
+          "iou": 0.5,
+          "acc": 0.55
+        },
+        "animal": {
+          "iou": 23.48,
+          "acc": 42.5
+        },
+        "bicycle": {
+          "iou": 25.49,
+          "acc": 67.71
+        },
+        "lake": {
+          "iou": 3.55,
+          "acc": 50.13
+        },
+        "dishwasher": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "screen": {
+          "iou": 34.35,
+          "acc": 48.35
+        },
+        "blanket": {
+          "iou": 0.65,
+          "acc": 1.18
+        },
+        "sculpture": {
+          "iou": 23.66,
+          "acc": 38.79
+        },
+        "hood": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "sconce": {
+          "iou": 3.6,
+          "acc": 15.6
+        },
+        "vase": {
+          "iou": 2.04,
+          "acc": 2.19
+        },
+        "traffic light": {
+          "iou": 6.46,
+          "acc": 30.97
+        },
+        "tray": {
+          "iou": 1.13,
+          "acc": 2.77
+        },
+        "ashcan": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "fan": {
+          "iou": 3.71,
+          "acc": 5.43
+        },
+        "pier": {
+          "iou": 9.98,
+          "acc": 45.18
+        },
+        "crt screen": {
+          "iou": 0.15,
+          "acc": 0.44
+        },
+        "plate": {
+          "iou": 26.33,
+          "acc": 42.38
+        },
+        "monitor": {
+          "iou": 5.06,
+          "acc": 11.74
+        },
+        "bulletin board": {
+          "iou": 2.26,
+          "acc": 4.69
+        },
+        "shower": {
+          "iou": 0.21,
+          "acc": 37.83
+        },
+        "radiator": {
+          "iou": 8.36,
+          "acc": 13.39
+        },
+        "glass": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "clock": {
+          "iou": 11.81,
+          "acc": 38.68
+        },
+        "flag": {
+          "iou": 27.83,
+          "acc": 68.14
+        }
+      },
+      "metrics_file": "/data/Multimodal-final-project/outputs/performance/ade20k_reduced/20261114_180710/20261114_180710.json",
+      "log": "/data/Multimodal-final-project/outputs/performance/ade20k_reduced.log",
+      "samples": 2000,
+      "command": "python eval.py --config configs/cfg_ade20k.py --arch reduced --attn vanilla --prop off --work-dir $PEARL_DATA_ROOT/outputs/performance/ade20k_reduced",
+      "peak_logged_memory_MiB": 4765,
+      "elapsed_s": 81.0
+    },
+    "pa_only_voc21": {
+      "metrics": {
+        "aAcc": 86.28,
+        "mIoU": 59.19,
+        "mAcc": 83.43,
+        "data_time": 0.0012695721875724503,
+        "time": 0.010979775809846803
+      },
+      "per_class": {
+        "background": {
+          "iou": 83.64,
+          "acc": 87.97
+        },
+        "aeroplane": {
+          "iou": 50.97,
+          "acc": 87.91
+        },
+        "bicycle": {
+          "iou": 34.38,
+          "acc": 95.25
+        },
+        "bird": {
+          "iou": 72.3,
+          "acc": 86.94
+        },
+        "boat": {
+          "iou": 51.37,
+          "acc": 71.27
+        },
+        "bottle": {
+          "iou": 61.37,
+          "acc": 84.1
+        },
+        "bus": {
+          "iou": 71.67,
+          "acc": 90.68
+        },
+        "car": {
+          "iou": 67.86,
+          "acc": 94.91
+        },
+        "cat": {
+          "iou": 77.89,
+          "acc": 92.52
+        },
+        "chair": {
+          "iou": 32.86,
+          "acc": 48.35
+        },
+        "cow": {
+          "iou": 75.92,
+          "acc": 90.78
+        },
+        "diningtable": {
+          "iou": 40.9,
+          "acc": 81.24
+        },
+        "dog": {
+          "iou": 77.28,
+          "acc": 91.85
+        },
+        "horse": {
+          "iou": 57.68,
+          "acc": 95.28
+        },
+        "motorbike": {
+          "iou": 69.01,
+          "acc": 85.97
+        },
+        "person": {
+          "iou": 57.56,
+          "acc": 63.71
+        },
+        "pottedplant": {
+          "iou": 43.02,
+          "acc": 82.4
+        },
+        "sheep": {
+          "iou": 71.2,
+          "acc": 92.43
+        },
+        "sofa": {
+          "iou": 47.7,
+          "acc": 83.74
+        },
+        "train": {
+          "iou": 57.96,
+          "acc": 86.08
+        },
+        "tvmonitor": {
+          "iou": 40.46,
+          "acc": 58.67
+        }
+      },
+      "metrics_file": "/data/Multimodal-final-project/outputs/performance/voc21_pa_only/20261114_180303/20261114_180303.json",
+      "log": "/data/Multimodal-final-project/outputs/performance/voc21_pa_only.log",
+      "samples": 1449,
+      "command": "python eval.py --config configs/cfg_voc21.py --arch reduced --attn pearl --prop off --work-dir $PEARL_DATA_ROOT/outputs/performance/voc21_pa_only",
+      "peak_logged_memory_MiB": 1017,
+      "elapsed_s": 19.0
+    },
+    "pa_only_voc20": {
+      "metrics": {
+        "aAcc": 92.17,
+        "mIoU": 84.95,
+        "mAcc": 92.15,
+        "data_time": 0.0014220590505869821,
+        "time": 0.011586775690872476
+      },
+      "per_class": {
+        "aeroplane": {
+          "iou": 96.42,
+          "acc": 97.55
+        },
+        "bicycle": {
+          "iou": 69.75,
+          "acc": 97.88
+        },
+        "bird": {
+          "iou": 94.44,
+          "acc": 96.87
+        },
+        "boat": {
+          "iou": 91.1,
+          "acc": 92.29
+        },
+        "bottle": {
+          "iou": 85.13,
+          "acc": 91.64
+        },
+        "bus": {
+          "iou": 94.26,
+          "acc": 96.17
+        },
+        "car": {
+          "iou": 91.83,
+          "acc": 98.06
+        },
+        "cat": {
+          "iou": 93.91,
+          "acc": 95.6
+        },
+        "chair": {
+          "iou": 46.31,
+          "acc": 52.55
+        },
+        "cow": {
+          "iou": 92.95,
+          "acc": 95.29
+        },
+        "diningtable": {
+          "iou": 62.65,
+          "acc": 90.02
+        },
+        "dog": {
+          "iou": 92.4,
+          "acc": 95.39
+        },
+        "horse": {
+          "iou": 92.23,
+          "acc": 97.49
+        },
+        "motorbike": {
+          "iou": 82.82,
+          "acc": 90.26
+        },
+        "person": {
+          "iou": 83.2,
+          "acc": 88.56
+        },
+        "pottedplant": {
+          "iou": 84.3,
+          "acc": 92.91
+        },
+        "sheep": {
+          "iou": 91.82,
+          "acc": 97.08
+        },
+        "sofa": {
+          "iou": 76.89,
+          "acc": 91.66
+        },
+        "train": {
+          "iou": 95.8,
+          "acc": 96.29
+        },
+        "tvmonitor": {
+          "iou": 80.83,
+          "acc": 89.51
+        }
+      },
+      "metrics_file": "/data/Multimodal-final-project/outputs/performance/voc20_pa_only/20261114_180449/20261114_180449.json",
+      "log": "/data/Multimodal-final-project/outputs/performance/voc20_pa_only.log",
+      "samples": 1449,
+      "command": "python eval.py --config configs/cfg_voc20.py --arch reduced --attn pearl --prop off --work-dir $PEARL_DATA_ROOT/outputs/performance/voc20_pa_only",
+      "peak_logged_memory_MiB": 786,
+      "elapsed_s": 21.0
+    },
+    "pa_only_ade20k": {
+      "metrics": {
+        "aAcc": 44.34,
+        "mIoU": 17.82,
+        "mAcc": 40.46,
+        "data_time": 0.0013213872909545899,
+        "time": 0.03988306593894959
+      },
+      "per_class": {
+        "wall": {
+          "iou": 23.45,
+          "acc": 26.47
+        },
+        "building": {
+          "iou": 23.0,
+          "acc": 24.09
+        },
+        "sky": {
+          "iou": 68.37,
+          "acc": 69.13
+        },
+        "floor": {
+          "iou": 44.41,
+          "acc": 51.39
+        },
+        "tree": {
+          "iou": 55.24,
+          "acc": 75.21
+        },
+        "ceiling": {
+          "iou": 46.32,
+          "acc": 54.55
+        },
+        "road": {
+          "iou": 58.41,
+          "acc": 70.34
+        },
+        "bed": {
+          "iou": 49.02,
+          "acc": 73.86
+        },
+        "windowpane": {
+          "iou": 21.55,
+          "acc": 27.2
+        },
+        "grass": {
+          "iou": 50.32,
+          "acc": 83.15
+        },
+        "cabinet": {
+          "iou": 21.81,
+          "acc": 31.29
+        },
+        "sidewalk": {
+          "iou": 33.87,
+          "acc": 73.71
+        },
+        "person": {
+          "iou": 25.06,
+          "acc": 26.77
+        },
+        "earth": {
+          "iou": 0.01,
+          "acc": 0.01
+        },
+        "door": {
+          "iou": 20.19,
+          "acc": 49.08
+        },
+        "table": {
+          "iou": 22.8,
+          "acc": 45.87
+        },
+        "mountain": {
+          "iou": 27.48,
+          "acc": 32.6
+        },
+        "plant": {
+          "iou": 29.3,
+          "acc": 37.87
+        },
+        "curtain": {
+          "iou": 41.79,
+          "acc": 65.23
+        },
+        "chair": {
+          "iou": 19.31,
+          "acc": 23.19
+        },
+        "car": {
+          "iou": 56.4,
+          "acc": 84.43
+        },
+        "water": {
+          "iou": 5.92,
+          "acc": 6.18
+        },
+        "painting": {
+          "iou": 16.89,
+          "acc": 20.49
+        },
+        "sofa": {
+          "iou": 40.47,
+          "acc": 78.16
+        },
+        "shelf": {
+          "iou": 13.65,
+          "acc": 16.06
+        },
+        "house": {
+          "iou": 7.15,
+          "acc": 71.48
+        },
+        "sea": {
+          "iou": 28.86,
+          "acc": 42.15
+        },
+        "mirror": {
+          "iou": 15.47,
+          "acc": 20.01
+        },
+        "rug": {
+          "iou": 18.75,
+          "acc": 73.63
+        },
+        "field": {
+          "iou": 17.09,
+          "acc": 25.68
+        },
+        "armchair": {
+          "iou": 14.78,
+          "acc": 30.97
+        },
+        "seat": {
+          "iou": 23.89,
+          "acc": 55.37
+        },
+        "fence": {
+          "iou": 25.02,
+          "acc": 43.23
+        },
+        "desk": {
+          "iou": 16.75,
+          "acc": 40.67
+        },
+        "rock": {
+          "iou": 25.13,
+          "acc": 82.37
+        },
+        "wardrobe": {
+          "iou": 15.43,
+          "acc": 40.66
+        },
+        "lamp": {
+          "iou": 27.85,
+          "acc": 63.16
+        },
+        "bathtub": {
+          "iou": 33.44,
+          "acc": 60.94
+        },
+        "railing": {
+          "iou": 11.2,
+          "acc": 19.47
+        },
+        "cushion": {
+          "iou": 9.43,
+          "acc": 14.27
+        },
+        "base": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "box": {
+          "iou": 8.87,
+          "acc": 16.45
+        },
+        "column": {
+          "iou": 18.05,
+          "acc": 47.03
+        },
+        "signboard": {
+          "iou": 12.69,
+          "acc": 17.42
+        },
+        "chest of drawers": {
+          "iou": 20.45,
+          "acc": 44.0
+        },
+        "counter": {
+          "iou": 5.67,
+          "acc": 26.31
+        },
+        "sand": {
+          "iou": 36.99,
+          "acc": 81.15
+        },
+        "sink": {
+          "iou": 23.4,
+          "acc": 41.64
+        },
+        "skyscraper": {
+          "iou": 25.09,
+          "acc": 56.46
+        },
+        "fireplace": {
+          "iou": 42.49,
+          "acc": 64.3
+        },
+        "refrigerator": {
+          "iou": 16.1,
+          "acc": 75.54
+        },
+        "grandstand": {
+          "iou": 20.03,
+          "acc": 26.67
+        },
+        "path": {
+          "iou": 8.64,
+          "acc": 13.67
+        },
+        "stairs": {
+          "iou": 12.77,
+          "acc": 23.08
+        },
+        "runway": {
+          "iou": 39.23,
+          "acc": 43.87
+        },
+        "case": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "pool table": {
+          "iou": 40.22,
+          "acc": 43.6
+        },
+        "pillow": {
+          "iou": 8.02,
+          "acc": 13.7
+        },
+        "screen door": {
+          "iou": 0.11,
+          "acc": 0.48
+        },
+        "stairway": {
+          "iou": 4.99,
+          "acc": 16.08
+        },
+        "river": {
+          "iou": 11.29,
+          "acc": 46.67
+        },
+        "bridge": {
+          "iou": 21.86,
+          "acc": 57.03
+        },
+        "bookcase": {
+          "iou": 22.13,
+          "acc": 61.68
+        },
+        "blind": {
+          "iou": 6.18,
+          "acc": 7.41
+        },
+        "coffee table": {
+          "iou": 22.86,
+          "acc": 47.98
+        },
+        "toilet": {
+          "iou": 19.84,
+          "acc": 93.18
+        },
+        "flower": {
+          "iou": 15.71,
+          "acc": 72.18
+        },
+        "book": {
+          "iou": 13.27,
+          "acc": 15.8
+        },
+        "hill": {
+          "iou": 3.94,
+          "acc": 44.6
+        },
+        "bench": {
+          "iou": 24.88,
+          "acc": 32.65
+        },
+        "countertop": {
+          "iou": 7.89,
+          "acc": 44.16
+        },
+        "stove": {
+          "iou": 15.78,
+          "acc": 28.88
+        },
+        "palm": {
+          "iou": 21.44,
+          "acc": 90.08
+        },
+        "kitchen island": {
+          "iou": 1.54,
+          "acc": 16.2
+        },
+        "computer": {
+          "iou": 18.03,
+          "acc": 19.4
+        },
+        "swivel chair": {
+          "iou": 0.02,
+          "acc": 0.04
+        },
+        "boat": {
+          "iou": 27.08,
+          "acc": 92.52
+        },
+        "bar": {
+          "iou": 10.72,
+          "acc": 27.63
+        },
+        "arcade machine": {
+          "iou": 18.27,
+          "acc": 19.11
+        },
+        "hovel": {
+          "iou": 2.2,
+          "acc": 43.98
+        },
+        "bus": {
+          "iou": 37.2,
+          "acc": 88.26
+        },
+        "towel": {
+          "iou": 19.59,
+          "acc": 76.73
+        },
+        "light": {
+          "iou": 11.93,
+          "acc": 24.48
+        },
+        "truck": {
+          "iou": 11.32,
+          "acc": 61.37
+        },
+        "tower": {
+          "iou": 9.7,
+          "acc": 74.58
+        },
+        "chandelier": {
+          "iou": 31.27,
+          "acc": 87.35
+        },
+        "awning": {
+          "iou": 2.75,
+          "acc": 55.59
+        },
+        "streetlight": {
+          "iou": 12.42,
+          "acc": 34.68
+        },
+        "booth": {
+          "iou": 1.85,
+          "acc": 14.58
+        },
+        "television receiver": {
+          "iou": 33.25,
+          "acc": 57.73
+        },
+        "airplane": {
+          "iou": 17.42,
+          "acc": 61.06
+        },
+        "dirt track": {
+          "iou": 0.97,
+          "acc": 3.46
+        },
+        "apparel": {
+          "iou": 0.23,
+          "acc": 2.24
+        },
+        "pole": {
+          "iou": 6.09,
+          "acc": 24.32
+        },
+        "land": {
+          "iou": 1.23,
+          "acc": 18.9
+        },
+        "bannister": {
+          "iou": 3.43,
+          "acc": 10.06
+        },
+        "escalator": {
+          "iou": 16.42,
+          "acc": 22.66
+        },
+        "ottoman": {
+          "iou": 0.17,
+          "acc": 0.44
+        },
+        "bottle": {
+          "iou": 24.98,
+          "acc": 48.92
+        },
+        "buffet": {
+          "iou": 0.16,
+          "acc": 0.84
+        },
+        "poster": {
+          "iou": 10.66,
+          "acc": 40.1
+        },
+        "stage": {
+          "iou": 13.42,
+          "acc": 41.15
+        },
+        "van": {
+          "iou": 14.92,
+          "acc": 55.58
+        },
+        "ship": {
+          "iou": 3.26,
+          "acc": 4.25
+        },
+        "fountain": {
+          "iou": 29.58,
+          "acc": 55.6
+        },
+        "conveyer belt": {
+          "iou": 3.07,
+          "acc": 6.62
+        },
+        "canopy": {
+          "iou": 0.75,
+          "acc": 5.6
+        },
+        "washer": {
+          "iou": 46.25,
+          "acc": 51.85
+        },
+        "plaything": {
+          "iou": 1.97,
+          "acc": 3.18
+        },
+        "swimming pool": {
+          "iou": 21.28,
+          "acc": 75.18
+        },
+        "stool": {
+          "iou": 3.73,
+          "acc": 57.78
+        },
+        "barrel": {
+          "iou": 2.35,
+          "acc": 71.74
+        },
+        "basket": {
+          "iou": 12.45,
+          "acc": 36.4
+        },
+        "waterfall": {
+          "iou": 31.73,
+          "acc": 97.28
+        },
+        "tent": {
+          "iou": 30.71,
+          "acc": 99.36
+        },
+        "bag": {
+          "iou": 11.55,
+          "acc": 29.63
+        },
+        "minibike": {
+          "iou": 40.91,
+          "acc": 47.75
+        },
+        "cradle": {
+          "iou": 11.67,
+          "acc": 66.15
+        },
+        "oven": {
+          "iou": 5.67,
+          "acc": 30.23
+        },
+        "ball": {
+          "iou": 14.33,
+          "acc": 75.64
+        },
+        "food": {
+          "iou": 15.53,
+          "acc": 46.18
+        },
+        "step": {
+          "iou": 0.53,
+          "acc": 12.31
+        },
+        "tank": {
+          "iou": 3.85,
+          "acc": 4.21
+        },
+        "trade name": {
+          "iou": 5.0,
+          "acc": 16.57
+        },
+        "microwave": {
+          "iou": 25.32,
+          "acc": 32.57
+        },
+        "pot": {
+          "iou": 10.01,
+          "acc": 18.65
+        },
+        "animal": {
+          "iou": 44.04,
+          "acc": 76.99
+        },
+        "bicycle": {
+          "iou": 26.01,
+          "acc": 91.82
+        },
+        "lake": {
+          "iou": 3.94,
+          "acc": 33.51
+        },
+        "dishwasher": {
+          "iou": 0.87,
+          "acc": 1.17
+        },
+        "screen": {
+          "iou": 34.55,
+          "acc": 70.64
+        },
+        "blanket": {
+          "iou": 4.0,
+          "acc": 23.68
+        },
+        "sculpture": {
+          "iou": 25.02,
+          "acc": 33.35
+        },
+        "hood": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "sconce": {
+          "iou": 9.95,
+          "acc": 35.11
+        },
+        "vase": {
+          "iou": 15.71,
+          "acc": 32.85
+        },
+        "traffic light": {
+          "iou": 11.24,
+          "acc": 52.53
+        },
+        "tray": {
+          "iou": 2.85,
+          "acc": 14.11
+        },
+        "ashcan": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "fan": {
+          "iou": 27.79,
+          "acc": 67.31
+        },
+        "pier": {
+          "iou": 9.37,
+          "acc": 30.01
+        },
+        "crt screen": {
+          "iou": 0.24,
+          "acc": 0.73
+        },
+        "plate": {
+          "iou": 27.59,
+          "acc": 62.25
+        },
+        "monitor": {
+          "iou": 4.52,
+          "acc": 11.99
+        },
+        "bulletin board": {
+          "iou": 2.67,
+          "acc": 5.82
+        },
+        "shower": {
+          "iou": 0.21,
+          "acc": 37.61
+        },
+        "radiator": {
+          "iou": 25.85,
+          "acc": 56.55
+        },
+        "glass": {
+          "iou": 2.67,
+          "acc": 7.06
+        },
+        "clock": {
+          "iou": 17.64,
+          "acc": 45.52
+        },
+        "flag": {
+          "iou": 29.09,
+          "acc": 85.99
+        }
+      },
+      "metrics_file": "/data/Multimodal-final-project/outputs/performance/ade20k_pa_only/20261114_180835/20261114_180835.json",
+      "log": "/data/Multimodal-final-project/outputs/performance/ade20k_pa_only.log",
+      "samples": 2000,
+      "command": "python eval.py --config configs/cfg_ade20k.py --arch reduced --attn pearl --prop off --work-dir $PEARL_DATA_ROOT/outputs/performance/ade20k_pa_only",
+      "peak_logged_memory_MiB": 4765,
+      "elapsed_s": 85.0
+    },
+    "tlp_only_voc21": {
+      "metrics": {
+        "aAcc": 65.23,
+        "mIoU": 35.37,
+        "mAcc": 77.19,
+        "data_time": 0.0012714074676492611,
+        "time": 0.01998439305728678
+      },
+      "per_class": {
+        "background": {
+          "iou": 58.15,
+          "acc": 61.57
+        },
+        "aeroplane": {
+          "iou": 24.45,
+          "acc": 92.75
+        },
+        "bicycle": {
+          "iou": 15.61,
+          "acc": 92.97
+        },
+        "bird": {
+          "iou": 37.77,
+          "acc": 58.4
+        },
+        "boat": {
+          "iou": 27.32,
+          "acc": 44.96
+        },
+        "bottle": {
+          "iou": 51.27,
+          "acc": 84.26
+        },
+        "bus": {
+          "iou": 47.08,
+          "acc": 98.61
+        },
+        "car": {
+          "iou": 38.57,
+          "acc": 91.8
+        },
+        "cat": {
+          "iou": 40.77,
+          "acc": 95.45
+        },
+        "chair": {
+          "iou": 20.82,
+          "acc": 32.18
+        },
+        "cow": {
+          "iou": 43.08,
+          "acc": 89.18
+        },
+        "diningtable": {
+          "iou": 30.83,
+          "acc": 79.86
+        },
+        "dog": {
+          "iou": 42.48,
+          "acc": 88.62
+        },
+        "horse": {
+          "iou": 28.02,
+          "acc": 96.46
+        },
+        "motorbike": {
+          "iou": 42.19,
+          "acc": 76.58
+        },
+        "person": {
+          "iou": 33.47,
+          "acc": 40.5
+        },
+        "pottedplant": {
+          "iou": 32.52,
+          "acc": 70.48
+        },
+        "sheep": {
+          "iou": 33.22,
+          "acc": 93.95
+        },
+        "sofa": {
+          "iou": 31.96,
+          "acc": 81.78
+        },
+        "train": {
+          "iou": 34.98,
+          "acc": 96.51
+        },
+        "tvmonitor": {
+          "iou": 28.26,
+          "acc": 54.19
+        }
+      },
+      "metrics_file": "/data/Multimodal-final-project/outputs/performance/voc21_tlp_only/20261114_180326/20261114_180326.json",
+      "log": "/data/Multimodal-final-project/outputs/performance/voc21_tlp_only.log",
+      "samples": 1449,
+      "command": "python eval.py --config configs/cfg_voc21.py --arch reduced --attn vanilla --prop on --work-dir $PEARL_DATA_ROOT/outputs/performance/voc21_tlp_only",
+      "peak_logged_memory_MiB": 1017,
+      "elapsed_s": 32.0
+    },
+    "tlp_only_voc20": {
+      "metrics": {
+        "aAcc": 87.24,
+        "mIoU": 79.27,
+        "mAcc": 90.18,
+        "data_time": 0.001309843537229929,
+        "time": 0.019385004471383315
+      },
+      "per_class": {
+        "aeroplane": {
+          "iou": 95.96,
+          "acc": 99.28
+        },
+        "bicycle": {
+          "iou": 55.32,
+          "acc": 97.98
+        },
+        "bird": {
+          "iou": 92.97,
+          "acc": 93.47
+        },
+        "boat": {
+          "iou": 88.82,
+          "acc": 94.58
+        },
+        "bottle": {
+          "iou": 87.68,
+          "acc": 91.39
+        },
+        "bus": {
+          "iou": 95.34,
+          "acc": 99.68
+        },
+        "car": {
+          "iou": 83.86,
+          "acc": 96.23
+        },
+        "cat": {
+          "iou": 93.37,
+          "acc": 97.82
+        },
+        "chair": {
+          "iou": 32.02,
+          "acc": 36.36
+        },
+        "cow": {
+          "iou": 90.39,
+          "acc": 96.08
+        },
+        "diningtable": {
+          "iou": 51.33,
+          "acc": 89.26
+        },
+        "dog": {
+          "iou": 85.73,
+          "acc": 95.31
+        },
+        "horse": {
+          "iou": 86.5,
+          "acc": 97.78
+        },
+        "motorbike": {
+          "iou": 75.31,
+          "acc": 91.92
+        },
+        "person": {
+          "iou": 61.53,
+          "acc": 64.36
+        },
+        "pottedplant": {
+          "iou": 73.91,
+          "acc": 84.32
+        },
+        "sheep": {
+          "iou": 88.27,
+          "acc": 97.96
+        },
+        "sofa": {
+          "iou": 68.89,
+          "acc": 91.66
+        },
+        "train": {
+          "iou": 97.12,
+          "acc": 99.37
+        },
+        "tvmonitor": {
+          "iou": 81.0,
+          "acc": 88.79
+        }
+      },
+      "metrics_file": "/data/Multimodal-final-project/outputs/performance/voc20_tlp_only/20261114_180514/20261114_180514.json",
+      "log": "/data/Multimodal-final-project/outputs/performance/voc20_tlp_only.log",
+      "samples": 1449,
+      "command": "python eval.py --config configs/cfg_voc20.py --arch reduced --attn vanilla --prop on --work-dir $PEARL_DATA_ROOT/outputs/performance/voc20_tlp_only",
+      "peak_logged_memory_MiB": 715,
+      "elapsed_s": 31.0
+    },
+    "tlp_only_ade20k": {
+      "metrics": {
+        "aAcc": 29.27,
+        "mIoU": 11.71,
+        "mAcc": 31.37,
+        "data_time": 0.0013191092014312744,
+        "time": 0.04184658968448639
+      },
+      "per_class": {
+        "wall": {
+          "iou": 7.79,
+          "acc": 8.72
+        },
+        "building": {
+          "iou": 18.92,
+          "acc": 20.26
+        },
+        "sky": {
+          "iou": 31.95,
+          "acc": 32.19
+        },
+        "floor": {
+          "iou": 23.93,
+          "acc": 27.16
+        },
+        "tree": {
+          "iou": 37.9,
+          "acc": 51.43
+        },
+        "ceiling": {
+          "iou": 17.38,
+          "acc": 19.17
+        },
+        "road": {
+          "iou": 38.54,
+          "acc": 61.69
+        },
+        "bed": {
+          "iou": 32.8,
+          "acc": 94.7
+        },
+        "windowpane": {
+          "iou": 7.34,
+          "acc": 7.88
+        },
+        "grass": {
+          "iou": 41.18,
+          "acc": 70.39
+        },
+        "cabinet": {
+          "iou": 7.39,
+          "acc": 9.47
+        },
+        "sidewalk": {
+          "iou": 19.23,
+          "acc": 63.0
+        },
+        "person": {
+          "iou": 10.65,
+          "acc": 11.13
+        },
+        "earth": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "door": {
+          "iou": 14.41,
+          "acc": 38.88
+        },
+        "table": {
+          "iou": 13.98,
+          "acc": 42.56
+        },
+        "mountain": {
+          "iou": 26.21,
+          "acc": 36.25
+        },
+        "plant": {
+          "iou": 20.24,
+          "acc": 23.58
+        },
+        "curtain": {
+          "iou": 21.25,
+          "acc": 30.78
+        },
+        "chair": {
+          "iou": 3.9,
+          "acc": 4.21
+        },
+        "car": {
+          "iou": 33.55,
+          "acc": 72.8
+        },
+        "water": {
+          "iou": 2.97,
+          "acc": 3.11
+        },
+        "painting": {
+          "iou": 7.42,
+          "acc": 9.06
+        },
+        "sofa": {
+          "iou": 27.49,
+          "acc": 76.83
+        },
+        "shelf": {
+          "iou": 9.71,
+          "acc": 11.51
+        },
+        "house": {
+          "iou": 5.7,
+          "acc": 76.47
+        },
+        "sea": {
+          "iou": 21.23,
+          "acc": 40.25
+        },
+        "mirror": {
+          "iou": 6.49,
+          "acc": 6.99
+        },
+        "rug": {
+          "iou": 17.51,
+          "acc": 44.48
+        },
+        "field": {
+          "iou": 13.25,
+          "acc": 27.86
+        },
+        "armchair": {
+          "iou": 9.64,
+          "acc": 28.68
+        },
+        "seat": {
+          "iou": 17.65,
+          "acc": 51.77
+        },
+        "fence": {
+          "iou": 17.29,
+          "acc": 27.46
+        },
+        "desk": {
+          "iou": 11.45,
+          "acc": 52.04
+        },
+        "rock": {
+          "iou": 18.78,
+          "acc": 54.02
+        },
+        "wardrobe": {
+          "iou": 13.34,
+          "acc": 44.0
+        },
+        "lamp": {
+          "iou": 11.93,
+          "acc": 18.69
+        },
+        "bathtub": {
+          "iou": 22.99,
+          "acc": 70.21
+        },
+        "railing": {
+          "iou": 10.32,
+          "acc": 15.01
+        },
+        "cushion": {
+          "iou": 4.34,
+          "acc": 5.44
+        },
+        "base": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "box": {
+          "iou": 4.32,
+          "acc": 6.66
+        },
+        "column": {
+          "iou": 14.56,
+          "acc": 33.78
+        },
+        "signboard": {
+          "iou": 5.44,
+          "acc": 6.92
+        },
+        "chest of drawers": {
+          "iou": 13.57,
+          "acc": 17.98
+        },
+        "counter": {
+          "iou": 4.7,
+          "acc": 24.34
+        },
+        "sand": {
+          "iou": 35.94,
+          "acc": 83.4
+        },
+        "sink": {
+          "iou": 10.13,
+          "acc": 17.23
+        },
+        "skyscraper": {
+          "iou": 27.4,
+          "acc": 67.18
+        },
+        "fireplace": {
+          "iou": 21.03,
+          "acc": 74.5
+        },
+        "refrigerator": {
+          "iou": 10.33,
+          "acc": 70.49
+        },
+        "grandstand": {
+          "iou": 13.54,
+          "acc": 19.44
+        },
+        "path": {
+          "iou": 8.56,
+          "acc": 15.29
+        },
+        "stairs": {
+          "iou": 5.21,
+          "acc": 11.22
+        },
+        "runway": {
+          "iou": 42.52,
+          "acc": 58.77
+        },
+        "case": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "pool table": {
+          "iou": 48.74,
+          "acc": 72.5
+        },
+        "pillow": {
+          "iou": 2.43,
+          "acc": 3.48
+        },
+        "screen door": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "stairway": {
+          "iou": 5.37,
+          "acc": 20.64
+        },
+        "river": {
+          "iou": 8.82,
+          "acc": 45.18
+        },
+        "bridge": {
+          "iou": 11.63,
+          "acc": 38.07
+        },
+        "bookcase": {
+          "iou": 20.21,
+          "acc": 72.26
+        },
+        "blind": {
+          "iou": 0.48,
+          "acc": 0.55
+        },
+        "coffee table": {
+          "iou": 6.62,
+          "acc": 12.56
+        },
+        "toilet": {
+          "iou": 8.55,
+          "acc": 89.8
+        },
+        "flower": {
+          "iou": 12.45,
+          "acc": 28.71
+        },
+        "book": {
+          "iou": 5.86,
+          "acc": 6.15
+        },
+        "hill": {
+          "iou": 2.22,
+          "acc": 31.47
+        },
+        "bench": {
+          "iou": 16.15,
+          "acc": 19.88
+        },
+        "countertop": {
+          "iou": 3.17,
+          "acc": 24.45
+        },
+        "stove": {
+          "iou": 11.18,
+          "acc": 17.03
+        },
+        "palm": {
+          "iou": 19.37,
+          "acc": 69.13
+        },
+        "kitchen island": {
+          "iou": 2.83,
+          "acc": 71.82
+        },
+        "computer": {
+          "iou": 11.89,
+          "acc": 12.72
+        },
+        "swivel chair": {
+          "iou": 1.35,
+          "acc": 2.87
+        },
+        "boat": {
+          "iou": 21.51,
+          "acc": 80.13
+        },
+        "bar": {
+          "iou": 13.85,
+          "acc": 45.18
+        },
+        "arcade machine": {
+          "iou": 14.26,
+          "acc": 17.51
+        },
+        "hovel": {
+          "iou": 3.01,
+          "acc": 64.8
+        },
+        "bus": {
+          "iou": 21.59,
+          "acc": 83.18
+        },
+        "towel": {
+          "iou": 9.73,
+          "acc": 21.97
+        },
+        "light": {
+          "iou": 0.14,
+          "acc": 0.15
+        },
+        "truck": {
+          "iou": 7.6,
+          "acc": 52.28
+        },
+        "tower": {
+          "iou": 8.29,
+          "acc": 84.57
+        },
+        "chandelier": {
+          "iou": 19.72,
+          "acc": 57.18
+        },
+        "awning": {
+          "iou": 1.66,
+          "acc": 31.76
+        },
+        "streetlight": {
+          "iou": 3.56,
+          "acc": 7.56
+        },
+        "booth": {
+          "iou": 0.42,
+          "acc": 4.49
+        },
+        "television receiver": {
+          "iou": 20.3,
+          "acc": 30.2
+        },
+        "airplane": {
+          "iou": 5.54,
+          "acc": 40.43
+        },
+        "dirt track": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "apparel": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "pole": {
+          "iou": 0.02,
+          "acc": 0.02
+        },
+        "land": {
+          "iou": 0.82,
+          "acc": 13.47
+        },
+        "bannister": {
+          "iou": 2.99,
+          "acc": 8.44
+        },
+        "escalator": {
+          "iou": 27.85,
+          "acc": 62.86
+        },
+        "ottoman": {
+          "iou": 0.34,
+          "acc": 1.42
+        },
+        "bottle": {
+          "iou": 22.05,
+          "acc": 39.18
+        },
+        "buffet": {
+          "iou": 0.14,
+          "acc": 1.37
+        },
+        "poster": {
+          "iou": 7.58,
+          "acc": 11.39
+        },
+        "stage": {
+          "iou": 9.68,
+          "acc": 52.22
+        },
+        "van": {
+          "iou": 10.81,
+          "acc": 41.97
+        },
+        "ship": {
+          "iou": 3.63,
+          "acc": 5.18
+        },
+        "fountain": {
+          "iou": 17.26,
+          "acc": 57.28
+        },
+        "conveyer belt": {
+          "iou": 4.38,
+          "acc": 8.73
+        },
+        "canopy": {
+          "iou": 0.2,
+          "acc": 1.27
+        },
+        "washer": {
+          "iou": 37.38,
+          "acc": 72.53
+        },
+        "plaything": {
+          "iou": 1.61,
+          "acc": 1.98
+        },
+        "swimming pool": {
+          "iou": 16.09,
+          "acc": 95.39
+        },
+        "stool": {
+          "iou": 1.17,
+          "acc": 6.84
+        },
+        "barrel": {
+          "iou": 1.96,
+          "acc": 65.12
+        },
+        "basket": {
+          "iou": 1.5,
+          "acc": 3.6
+        },
+        "waterfall": {
+          "iou": 13.33,
+          "acc": 99.84
+        },
+        "tent": {
+          "iou": 20.66,
+          "acc": 99.9
+        },
+        "bag": {
+          "iou": 5.21,
+          "acc": 8.44
+        },
+        "minibike": {
+          "iou": 14.42,
+          "acc": 14.63
+        },
+        "cradle": {
+          "iou": 9.0,
+          "acc": 52.64
+        },
+        "oven": {
+          "iou": 1.08,
+          "acc": 7.47
+        },
+        "ball": {
+          "iou": 13.94,
+          "acc": 64.49
+        },
+        "food": {
+          "iou": 11.07,
+          "acc": 39.35
+        },
+        "step": {
+          "iou": 0.66,
+          "acc": 11.73
+        },
+        "tank": {
+          "iou": 3.17,
+          "acc": 4.15
+        },
+        "trade name": {
+          "iou": 2.19,
+          "acc": 6.17
+        },
+        "microwave": {
+          "iou": 22.06,
+          "acc": 32.83
+        },
+        "pot": {
+          "iou": 0.17,
+          "acc": 0.19
+        },
+        "animal": {
+          "iou": 23.39,
+          "acc": 42.5
+        },
+        "bicycle": {
+          "iou": 26.99,
+          "acc": 62.16
+        },
+        "lake": {
+          "iou": 3.39,
+          "acc": 48.52
+        },
+        "dishwasher": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "screen": {
+          "iou": 35.69,
+          "acc": 51.15
+        },
+        "blanket": {
+          "iou": 0.59,
+          "acc": 0.98
+        },
+        "sculpture": {
+          "iou": 23.59,
+          "acc": 39.62
+        },
+        "hood": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "sconce": {
+          "iou": 3.49,
+          "acc": 14.55
+        },
+        "vase": {
+          "iou": 1.41,
+          "acc": 1.46
+        },
+        "traffic light": {
+          "iou": 6.18,
+          "acc": 27.7
+        },
+        "tray": {
+          "iou": 0.86,
+          "acc": 2.02
+        },
+        "ashcan": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "fan": {
+          "iou": 2.95,
+          "acc": 3.99
+        },
+        "pier": {
+          "iou": 10.58,
+          "acc": 45.27
+        },
+        "crt screen": {
+          "iou": 0.15,
+          "acc": 0.42
+        },
+        "plate": {
+          "iou": 28.41,
+          "acc": 40.82
+        },
+        "monitor": {
+          "iou": 5.7,
+          "acc": 12.32
+        },
+        "bulletin board": {
+          "iou": 2.91,
+          "acc": 5.67
+        },
+        "shower": {
+          "iou": 0.2,
+          "acc": 37.9
+        },
+        "radiator": {
+          "iou": 8.99,
+          "acc": 13.4
+        },
+        "glass": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "clock": {
+          "iou": 12.74,
+          "acc": 38.43
+        },
+        "flag": {
+          "iou": 27.71,
+          "acc": 66.46
+        }
+      },
+      "metrics_file": "/data/Multimodal-final-project/outputs/performance/ade20k_tlp_only/20261114_181004/20261114_181004.json",
+      "log": "/data/Multimodal-final-project/outputs/performance/ade20k_tlp_only.log",
+      "samples": 2000,
+      "command": "python eval.py --config configs/cfg_ade20k.py --arch reduced --attn vanilla --prop on --work-dir $PEARL_DATA_ROOT/outputs/performance/ade20k_tlp_only",
+      "peak_logged_memory_MiB": 4032,
+      "elapsed_s": 88.0
+    },
+    "full_pearl_voc21": {
+      "metrics": {
+        "aAcc": 88.5,
+        "mIoU": 64.07,
+        "mAcc": 85.32,
+        "data_time": 0.0014198221281695317,
+        "time": 0.02205453452116214
+      },
+      "per_class": {
+        "background": {
+          "iou": 86.38,
+          "acc": 90.37
+        },
+        "aeroplane": {
+          "iou": 62.79,
+          "acc": 89.78
+        },
+        "bicycle": {
+          "iou": 36.6,
+          "acc": 94.81
+        },
+        "bird": {
+          "iou": 79.67,
+          "acc": 87.5
+        },
+        "boat": {
+          "iou": 59.36,
+          "acc": 73.51
+        },
+        "bottle": {
+          "iou": 68.59,
+          "acc": 86.17
+        },
+        "bus": {
+          "iou": 77.7,
+          "acc": 94.32
+        },
+        "car": {
+          "iou": 70.16,
+          "acc": 96.45
+        },
+        "cat": {
+          "iou": 85.58,
+          "acc": 94.19
+        },
+        "chair": {
+          "iou": 35.35,
+          "acc": 50.01
+        },
+        "cow": {
+          "iou": 80.79,
+          "acc": 93.46
+        },
+        "diningtable": {
+          "iou": 43.06,
+          "acc": 84.33
+        },
+        "dog": {
+          "iou": 83.72,
+          "acc": 93.29
+        },
+        "horse": {
+          "iou": 58.9,
+          "acc": 96.3
+        },
+        "motorbike": {
+          "iou": 74.66,
+          "acc": 86.74
+        },
+        "person": {
+          "iou": 59.55,
+          "acc": 63.79
+        },
+        "pottedplant": {
+          "iou": 46.39,
+          "acc": 83.76
+        },
+        "sheep": {
+          "iou": 77.32,
+          "acc": 94.57
+        },
+        "sofa": {
+          "iou": 50.76,
+          "acc": 86.8
+        },
+        "train": {
+          "iou": 63.53,
+          "acc": 89.5
+        },
+        "tvmonitor": {
+          "iou": 44.53,
+          "acc": 62.17
+        }
+      },
+      "metrics_file": "/data/Multimodal-final-project/outputs/work_dirs/voc21/20261113_152255/20261113_152255.json",
+      "log": "/data/Multimodal-final-project/outputs/work_dirs/voc21/20261113_152255/20261113_152255.log",
+      "samples": 1449,
+      "command": "python eval.py --config configs/cfg_voc21.py --attn pearl --prop on",
+      "peak_logged_memory_MiB": 1017,
+      "elapsed_s": 37.0
+    },
+    "full_pearl_voc20": {
+      "metrics": {
+        "aAcc": 93.29,
+        "mIoU": 86.9,
+        "mAcc": 93.39,
+        "data_time": 0.001327972892566415,
+        "time": 0.020060828013449723
+      },
+      "per_class": {
+        "aeroplane": {
+          "iou": 97.63,
+          "acc": 98.27
+        },
+        "bicycle": {
+          "iou": 69.57,
+          "acc": 98.35
+        },
+        "bird": {
+          "iou": 96.02,
+          "acc": 97.59
+        },
+        "boat": {
+          "iou": 92.21,
+          "acc": 93.24
+        },
+        "bottle": {
+          "iou": 88.49,
+          "acc": 93.5
+        },
+        "bus": {
+          "iou": 96.4,
+          "acc": 98.23
+        },
+        "car": {
+          "iou": 92.95,
+          "acc": 98.66
+        },
+        "cat": {
+          "iou": 95.33,
+          "acc": 96.74
+        },
+        "chair": {
+          "iou": 48.23,
+          "acc": 53.86
+        },
+        "cow": {
+          "iou": 95.01,
+          "acc": 96.98
+        },
+        "diningtable": {
+          "iou": 64.96,
+          "acc": 91.13
+        },
+        "dog": {
+          "iou": 94.04,
+          "acc": 96.38
+        },
+        "horse": {
+          "iou": 93.14,
+          "acc": 98.34
+        },
+        "motorbike": {
+          "iou": 83.69,
+          "acc": 91.05
+        },
+        "person": {
+          "iou": 85.07,
+          "acc": 88.93
+        },
+        "pottedplant": {
+          "iou": 87.8,
+          "acc": 94.69
+        },
+        "sheep": {
+          "iou": 94.54,
+          "acc": 97.6
+        },
+        "sofa": {
+          "iou": 79.86,
+          "acc": 94.12
+        },
+        "train": {
+          "iou": 97.16,
+          "acc": 97.68
+        },
+        "tvmonitor": {
+          "iou": 86.01,
+          "acc": 92.49
+        }
+      },
+      "metrics_file": "/data/Multimodal-final-project/outputs/work_dirs/voc20/20261114_153611/20261114_153611.json",
+      "log": "/data/Multimodal-final-project/outputs/performance/voc20_full_pearl.log",
+      "samples": 1449,
+      "command": "python eval.py --config configs/cfg_voc20.py --attn pearl --prop on",
+      "peak_logged_memory_MiB": 786,
+      "elapsed_s": 34.0
+    },
+    "full_pearl_ade20k": {
+      "metrics": {
+        "aAcc": 46.87,
+        "mIoU": 19.36,
+        "mAcc": 41.16,
+        "data_time": 0.0013403785228729248,
+        "time": 0.047790706276893614
+      },
+      "per_class": {
+        "wall": {
+          "iou": 25.23,
+          "acc": 28.45
+        },
+        "building": {
+          "iou": 23.8,
+          "acc": 24.73
+        },
+        "sky": {
+          "iou": 77.69,
+          "acc": 78.63
+        },
+        "floor": {
+          "iou": 47.17,
+          "acc": 53.64
+        },
+        "tree": {
+          "iou": 57.4,
+          "acc": 76.72
+        },
+        "ceiling": {
+          "iou": 49.39,
+          "acc": 59.06
+        },
+        "road": {
+          "iou": 60.99,
+          "acc": 74.28
+        },
+        "bed": {
+          "iou": 54.57,
+          "acc": 80.08
+        },
+        "windowpane": {
+          "iou": 23.16,
+          "acc": 28.23
+        },
+        "grass": {
+          "iou": 52.92,
+          "acc": 86.47
+        },
+        "cabinet": {
+          "iou": 23.2,
+          "acc": 33.49
+        },
+        "sidewalk": {
+          "iou": 35.85,
+          "acc": 77.06
+        },
+        "person": {
+          "iou": 25.34,
+          "acc": 26.21
+        },
+        "earth": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "door": {
+          "iou": 21.61,
+          "acc": 52.16
+        },
+        "table": {
+          "iou": 23.76,
+          "acc": 48.91
+        },
+        "mountain": {
+          "iou": 28.94,
+          "acc": 33.61
+        },
+        "plant": {
+          "iou": 30.14,
+          "acc": 37.63
+        },
+        "curtain": {
+          "iou": 44.2,
+          "acc": 68.11
+        },
+        "chair": {
+          "iou": 18.22,
+          "acc": 21.06
+        },
+        "car": {
+          "iou": 60.45,
+          "acc": 84.51
+        },
+        "water": {
+          "iou": 5.57,
+          "acc": 5.77
+        },
+        "painting": {
+          "iou": 17.43,
+          "acc": 20.38
+        },
+        "sofa": {
+          "iou": 42.67,
+          "acc": 81.7
+        },
+        "shelf": {
+          "iou": 14.04,
+          "acc": 16.0
+        },
+        "house": {
+          "iou": 7.15,
+          "acc": 74.19
+        },
+        "sea": {
+          "iou": 33.65,
+          "acc": 47.97
+        },
+        "mirror": {
+          "iou": 17.78,
+          "acc": 21.08
+        },
+        "rug": {
+          "iou": 19.45,
+          "acc": 77.03
+        },
+        "field": {
+          "iou": 18.23,
+          "acc": 26.68
+        },
+        "armchair": {
+          "iou": 15.98,
+          "acc": 32.91
+        },
+        "seat": {
+          "iou": 24.8,
+          "acc": 58.03
+        },
+        "fence": {
+          "iou": 27.18,
+          "acc": 44.54
+        },
+        "desk": {
+          "iou": 18.36,
+          "acc": 44.34
+        },
+        "rock": {
+          "iou": 25.98,
+          "acc": 82.59
+        },
+        "wardrobe": {
+          "iou": 17.31,
+          "acc": 45.69
+        },
+        "lamp": {
+          "iou": 30.2,
+          "acc": 61.52
+        },
+        "bathtub": {
+          "iou": 36.13,
+          "acc": 64.19
+        },
+        "railing": {
+          "iou": 11.85,
+          "acc": 19.44
+        },
+        "cushion": {
+          "iou": 9.94,
+          "acc": 14.17
+        },
+        "base": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "box": {
+          "iou": 9.23,
+          "acc": 16.37
+        },
+        "column": {
+          "iou": 19.59,
+          "acc": 49.7
+        },
+        "signboard": {
+          "iou": 13.2,
+          "acc": 16.38
+        },
+        "chest of drawers": {
+          "iou": 24.66,
+          "acc": 46.92
+        },
+        "counter": {
+          "iou": 6.6,
+          "acc": 29.76
+        },
+        "sand": {
+          "iou": 40.89,
+          "acc": 85.57
+        },
+        "sink": {
+          "iou": 24.26,
+          "acc": 39.94
+        },
+        "skyscraper": {
+          "iou": 27.41,
+          "acc": 56.71
+        },
+        "fireplace": {
+          "iou": 47.98,
+          "acc": 71.12
+        },
+        "refrigerator": {
+          "iou": 15.88,
+          "acc": 78.17
+        },
+        "grandstand": {
+          "iou": 22.44,
+          "acc": 29.47
+        },
+        "path": {
+          "iou": 8.2,
+          "acc": 12.77
+        },
+        "stairs": {
+          "iou": 12.18,
+          "acc": 21.12
+        },
+        "runway": {
+          "iou": 41.27,
+          "acc": 45.58
+        },
+        "case": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "pool table": {
+          "iou": 43.72,
+          "acc": 44.85
+        },
+        "pillow": {
+          "iou": 7.65,
+          "acc": 12.4
+        },
+        "screen door": {
+          "iou": 0.03,
+          "acc": 0.14
+        },
+        "stairway": {
+          "iou": 4.99,
+          "acc": 16.37
+        },
+        "river": {
+          "iou": 11.68,
+          "acc": 49.19
+        },
+        "bridge": {
+          "iou": 22.94,
+          "acc": 56.4
+        },
+        "bookcase": {
+          "iou": 23.68,
+          "acc": 63.34
+        },
+        "blind": {
+          "iou": 7.38,
+          "acc": 8.41
+        },
+        "coffee table": {
+          "iou": 26.46,
+          "acc": 50.06
+        },
+        "toilet": {
+          "iou": 19.18,
+          "acc": 94.56
+        },
+        "flower": {
+          "iou": 17.43,
+          "acc": 69.81
+        },
+        "book": {
+          "iou": 13.54,
+          "acc": 15.26
+        },
+        "hill": {
+          "iou": 4.15,
+          "acc": 47.74
+        },
+        "bench": {
+          "iou": 25.82,
+          "acc": 32.19
+        },
+        "countertop": {
+          "iou": 8.57,
+          "acc": 46.87
+        },
+        "stove": {
+          "iou": 17.61,
+          "acc": 31.12
+        },
+        "palm": {
+          "iou": 22.23,
+          "acc": 89.81
+        },
+        "kitchen island": {
+          "iou": 1.98,
+          "acc": 21.27
+        },
+        "computer": {
+          "iou": 16.75,
+          "acc": 17.74
+        },
+        "swivel chair": {
+          "iou": 0.03,
+          "acc": 0.05
+        },
+        "boat": {
+          "iou": 30.14,
+          "acc": 93.42
+        },
+        "bar": {
+          "iou": 11.53,
+          "acc": 28.6
+        },
+        "arcade machine": {
+          "iou": 18.06,
+          "acc": 18.64
+        },
+        "hovel": {
+          "iou": 2.24,
+          "acc": 47.08
+        },
+        "bus": {
+          "iou": 40.67,
+          "acc": 91.57
+        },
+        "towel": {
+          "iou": 21.43,
+          "acc": 76.0
+        },
+        "light": {
+          "iou": 13.33,
+          "acc": 20.93
+        },
+        "truck": {
+          "iou": 12.45,
+          "acc": 63.03
+        },
+        "tower": {
+          "iou": 11.64,
+          "acc": 76.54
+        },
+        "chandelier": {
+          "iou": 37.63,
+          "acc": 85.24
+        },
+        "awning": {
+          "iou": 2.65,
+          "acc": 55.41
+        },
+        "streetlight": {
+          "iou": 13.78,
+          "acc": 29.57
+        },
+        "booth": {
+          "iou": 1.49,
+          "acc": 12.07
+        },
+        "television receiver": {
+          "iou": 41.53,
+          "acc": 60.16
+        },
+        "airplane": {
+          "iou": 20.13,
+          "acc": 61.1
+        },
+        "dirt track": {
+          "iou": 1.12,
+          "acc": 3.33
+        },
+        "apparel": {
+          "iou": 0.31,
+          "acc": 2.83
+        },
+        "pole": {
+          "iou": 7.23,
+          "acc": 19.43
+        },
+        "land": {
+          "iou": 1.28,
+          "acc": 19.55
+        },
+        "bannister": {
+          "iou": 3.58,
+          "acc": 9.93
+        },
+        "escalator": {
+          "iou": 16.66,
+          "acc": 22.13
+        },
+        "ottoman": {
+          "iou": 0.18,
+          "acc": 0.4
+        },
+        "bottle": {
+          "iou": 27.42,
+          "acc": 46.37
+        },
+        "buffet": {
+          "iou": 0.1,
+          "acc": 0.49
+        },
+        "poster": {
+          "iou": 13.56,
+          "acc": 41.91
+        },
+        "stage": {
+          "iou": 14.82,
+          "acc": 44.1
+        },
+        "van": {
+          "iou": 16.17,
+          "acc": 58.51
+        },
+        "ship": {
+          "iou": 3.48,
+          "acc": 4.15
+        },
+        "fountain": {
+          "iou": 34.48,
+          "acc": 57.88
+        },
+        "conveyer belt": {
+          "iou": 2.66,
+          "acc": 5.58
+        },
+        "canopy": {
+          "iou": 0.8,
+          "acc": 5.95
+        },
+        "washer": {
+          "iou": 51.42,
+          "acc": 55.31
+        },
+        "plaything": {
+          "iou": 1.67,
+          "acc": 2.37
+        },
+        "swimming pool": {
+          "iou": 21.77,
+          "acc": 80.78
+        },
+        "stool": {
+          "iou": 4.1,
+          "acc": 56.76
+        },
+        "barrel": {
+          "iou": 3.13,
+          "acc": 69.31
+        },
+        "basket": {
+          "iou": 13.72,
+          "acc": 36.17
+        },
+        "waterfall": {
+          "iou": 30.84,
+          "acc": 97.51
+        },
+        "tent": {
+          "iou": 33.1,
+          "acc": 99.24
+        },
+        "bag": {
+          "iou": 13.23,
+          "acc": 30.57
+        },
+        "minibike": {
+          "iou": 38.72,
+          "acc": 42.9
+        },
+        "cradle": {
+          "iou": 13.33,
+          "acc": 67.54
+        },
+        "oven": {
+          "iou": 6.09,
+          "acc": 33.02
+        },
+        "ball": {
+          "iou": 20.75,
+          "acc": 76.48
+        },
+        "food": {
+          "iou": 16.79,
+          "acc": 46.3
+        },
+        "step": {
+          "iou": 0.82,
+          "acc": 18.03
+        },
+        "tank": {
+          "iou": 3.68,
+          "acc": 3.82
+        },
+        "trade name": {
+          "iou": 6.27,
+          "acc": 15.88
+        },
+        "microwave": {
+          "iou": 26.22,
+          "acc": 31.62
+        },
+        "pot": {
+          "iou": 12.0,
+          "acc": 19.78
+        },
+        "animal": {
+          "iou": 53.41,
+          "acc": 77.01
+        },
+        "bicycle": {
+          "iou": 31.1,
+          "acc": 85.61
+        },
+        "lake": {
+          "iou": 3.98,
+          "acc": 33.89
+        },
+        "dishwasher": {
+          "iou": 0.11,
+          "acc": 0.15
+        },
+        "screen": {
+          "iou": 37.4,
+          "acc": 72.18
+        },
+        "blanket": {
+          "iou": 4.33,
+          "acc": 22.53
+        },
+        "sculpture": {
+          "iou": 26.63,
+          "acc": 30.77
+        },
+        "hood": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "sconce": {
+          "iou": 11.99,
+          "acc": 34.98
+        },
+        "vase": {
+          "iou": 17.51,
+          "acc": 29.71
+        },
+        "traffic light": {
+          "iou": 12.99,
+          "acc": 48.81
+        },
+        "tray": {
+          "iou": 3.06,
+          "acc": 13.44
+        },
+        "ashcan": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "fan": {
+          "iou": 31.77,
+          "acc": 64.83
+        },
+        "pier": {
+          "iou": 10.7,
+          "acc": 30.29
+        },
+        "crt screen": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "plate": {
+          "iou": 33.1,
+          "acc": 62.18
+        },
+        "monitor": {
+          "iou": 5.05,
+          "acc": 12.39
+        },
+        "bulletin board": {
+          "iou": 3.06,
+          "acc": 5.69
+        },
+        "shower": {
+          "iou": 0.2,
+          "acc": 37.56
+        },
+        "radiator": {
+          "iou": 29.86,
+          "acc": 55.33
+        },
+        "glass": {
+          "iou": 2.32,
+          "acc": 5.09
+        },
+        "clock": {
+          "iou": 22.39,
+          "acc": 44.82
+        },
+        "flag": {
+          "iou": 35.88,
+          "acc": 83.52
+        }
+      },
+      "metrics_file": "/data/Multimodal-final-project/outputs/work_dirs/ade20k/20261114_162231/20261114_162231.json",
+      "log": "/data/Multimodal-final-project/outputs/performance/ade20k_full_pearl.log",
+      "samples": 2000,
+      "command": "python eval.py --config configs/cfg_ade20k.py --attn pearl --prop on",
+      "peak_logged_memory_MiB": 4033,
+      "elapsed_s": 100.0
+    },
+    "sclip_voc21": {
+      "metrics": {
+        "aAcc": 87.55,
+        "mIoU": 59.63,
+        "mAcc": 81.89,
+        "data_time": 0.0013005068748058164,
+        "time": 0.03645217015547453
+      },
+      "per_class": {
+        "background": {
+          "iou": 85.5,
+          "acc": 89.25
+        },
+        "aeroplane": {
+          "iou": 50.72,
+          "acc": 95.54
+        },
+        "bicycle": {
+          "iou": 30.29,
+          "acc": 97.55
+        },
+        "bird": {
+          "iou": 71.68,
+          "acc": 81.93
+        },
+        "boat": {
+          "iou": 50.62,
+          "acc": 67.25
+        },
+        "bottle": {
+          "iou": 57.16,
+          "acc": 70.74
+        },
+        "bus": {
+          "iou": 81.39,
+          "acc": 91.2
+        },
+        "car": {
+          "iou": 65.25,
+          "acc": 93.98
+        },
+        "cat": {
+          "iou": 83.04,
+          "acc": 93.87
+        },
+        "chair": {
+          "iou": 28.69,
+          "acc": 40.99
+        },
+        "cow": {
+          "iou": 76.16,
+          "acc": 90.7
+        },
+        "diningtable": {
+          "iou": 46.99,
+          "acc": 74.55
+        },
+        "dog": {
+          "iou": 80.41,
+          "acc": 91.22
+        },
+        "horse": {
+          "iou": 58.0,
+          "acc": 96.65
+        },
+        "motorbike": {
+          "iou": 64.0,
+          "acc": 79.56
+        },
+        "person": {
+          "iou": 67.61,
+          "acc": 78.32
+        },
+        "pottedplant": {
+          "iou": 39.36,
+          "acc": 72.63
+        },
+        "sheep": {
+          "iou": 72.22,
+          "acc": 89.55
+        },
+        "sofa": {
+          "iou": 45.21,
+          "acc": 78.22
+        },
+        "train": {
+          "iou": 58.45,
+          "acc": 83.8
+        },
+        "tvmonitor": {
+          "iou": 39.55,
+          "acc": 62.21
+        }
+      },
+      "metrics_file": "/data/Multimodal-final-project/outputs/performance/sclip_voc21/20261114_191330/20261114_191330.json",
+      "log": "/data/Multimodal-final-project/outputs/performance/sclip_voc21.log",
+      "samples": 1449,
+      "command": "python experiments/performance/run_external.py sclip voc21",
+      "peak_logged_memory_MiB": 1642,
+      "elapsed_s": 57.0
+    },
+    "sclip_voc20": {
+      "metrics": {
+        "aAcc": 91.03,
+        "mIoU": 81.54,
+        "mAcc": 90.3,
+        "data_time": 0.0012786292963969123,
+        "time": 0.03332384394480493
+      },
+      "per_class": {
+        "aeroplane": {
+          "iou": 93.63,
+          "acc": 98.43
+        },
+        "bicycle": {
+          "iou": 57.21,
+          "acc": 99.12
+        },
+        "bird": {
+          "iou": 90.39,
+          "acc": 94.35
+        },
+        "boat": {
+          "iou": 85.07,
+          "acc": 87.25
+        },
+        "bottle": {
+          "iou": 79.96,
+          "acc": 83.71
+        },
+        "bus": {
+          "iou": 92.21,
+          "acc": 94.08
+        },
+        "car": {
+          "iou": 87.12,
+          "acc": 97.99
+        },
+        "cat": {
+          "iou": 94.19,
+          "acc": 96.12
+        },
+        "chair": {
+          "iou": 42.62,
+          "acc": 50.69
+        },
+        "cow": {
+          "iou": 88.77,
+          "acc": 93.41
+        },
+        "diningtable": {
+          "iou": 67.81,
+          "acc": 88.2
+        },
+        "dog": {
+          "iou": 90.56,
+          "acc": 93.99
+        },
+        "horse": {
+          "iou": 87.8,
+          "acc": 98.5
+        },
+        "motorbike": {
+          "iou": 72.93,
+          "acc": 80.75
+        },
+        "person": {
+          "iou": 85.01,
+          "acc": 89.79
+        },
+        "pottedplant": {
+          "iou": 82.18,
+          "acc": 87.46
+        },
+        "sheep": {
+          "iou": 87.35,
+          "acc": 93.42
+        },
+        "sofa": {
+          "iou": 73.93,
+          "acc": 89.55
+        },
+        "train": {
+          "iou": 95.03,
+          "acc": 96.07
+        },
+        "tvmonitor": {
+          "iou": 77.13,
+          "acc": 93.06
+        }
+      },
+      "metrics_file": "/data/Multimodal-final-project/outputs/performance/sclip_voc20/20261114_191431/20261114_191431.json",
+      "log": "/data/Multimodal-final-project/outputs/performance/sclip_voc20.log",
+      "samples": 1449,
+      "command": "python experiments/performance/run_external.py sclip voc20",
+      "peak_logged_memory_MiB": 1040,
+      "elapsed_s": 51.0
+    },
+    "sclip_ade20k": {
+      "metrics": {
+        "aAcc": 38.75,
+        "mIoU": 16.46,
+        "mAcc": 36.85,
+        "data_time": 0.0013555537462234498,
+        "time": 0.03404975771903992
+      },
+      "per_class": {
+        "wall": {
+          "iou": 14.71,
+          "acc": 15.67
+        },
+        "building": {
+          "iou": 20.02,
+          "acc": 20.76
+        },
+        "sky": {
+          "iou": 56.89,
+          "acc": 57.31
+        },
+        "floor": {
+          "iou": 42.9,
+          "acc": 50.48
+        },
+        "tree": {
+          "iou": 49.01,
+          "acc": 61.24
+        },
+        "ceiling": {
+          "iou": 44.44,
+          "acc": 58.48
+        },
+        "road": {
+          "iou": 57.9,
+          "acc": 71.8
+        },
+        "bed": {
+          "iou": 51.48,
+          "acc": 84.81
+        },
+        "windowpane": {
+          "iou": 10.61,
+          "acc": 13.8
+        },
+        "grass": {
+          "iou": 49.2,
+          "acc": 84.06
+        },
+        "cabinet": {
+          "iou": 9.99,
+          "acc": 12.32
+        },
+        "sidewalk": {
+          "iou": 27.26,
+          "acc": 73.62
+        },
+        "person": {
+          "iou": 17.69,
+          "acc": 18.38
+        },
+        "earth": {
+          "iou": 0.34,
+          "acc": 0.34
+        },
+        "door": {
+          "iou": 18.96,
+          "acc": 30.72
+        },
+        "table": {
+          "iou": 19.11,
+          "acc": 30.34
+        },
+        "mountain": {
+          "iou": 22.43,
+          "acc": 24.34
+        },
+        "plant": {
+          "iou": 20.5,
+          "acc": 22.7
+        },
+        "curtain": {
+          "iou": 40.69,
+          "acc": 58.32
+        },
+        "chair": {
+          "iou": 19.64,
+          "acc": 24.41
+        },
+        "car": {
+          "iou": 60.11,
+          "acc": 83.8
+        },
+        "water": {
+          "iou": 5.42,
+          "acc": 5.76
+        },
+        "painting": {
+          "iou": 8.97,
+          "acc": 10.16
+        },
+        "sofa": {
+          "iou": 37.37,
+          "acc": 71.66
+        },
+        "shelf": {
+          "iou": 10.6,
+          "acc": 12.42
+        },
+        "house": {
+          "iou": 6.12,
+          "acc": 74.24
+        },
+        "sea": {
+          "iou": 28.93,
+          "acc": 41.36
+        },
+        "mirror": {
+          "iou": 9.69,
+          "acc": 10.88
+        },
+        "rug": {
+          "iou": 19.53,
+          "acc": 67.62
+        },
+        "field": {
+          "iou": 14.9,
+          "acc": 25.02
+        },
+        "armchair": {
+          "iou": 13.5,
+          "acc": 40.02
+        },
+        "seat": {
+          "iou": 24.88,
+          "acc": 36.11
+        },
+        "fence": {
+          "iou": 23.95,
+          "acc": 31.53
+        },
+        "desk": {
+          "iou": 13.31,
+          "acc": 51.5
+        },
+        "rock": {
+          "iou": 23.66,
+          "acc": 79.19
+        },
+        "wardrobe": {
+          "iou": 9.13,
+          "acc": 67.56
+        },
+        "lamp": {
+          "iou": 26.75,
+          "acc": 53.95
+        },
+        "bathtub": {
+          "iou": 30.91,
+          "acc": 59.35
+        },
+        "railing": {
+          "iou": 5.85,
+          "acc": 8.78
+        },
+        "cushion": {
+          "iou": 5.48,
+          "acc": 6.94
+        },
+        "base": {
+          "iou": 0.01,
+          "acc": 0.01
+        },
+        "box": {
+          "iou": 6.37,
+          "acc": 10.45
+        },
+        "column": {
+          "iou": 16.02,
+          "acc": 34.75
+        },
+        "signboard": {
+          "iou": 8.12,
+          "acc": 10.06
+        },
+        "chest of drawers": {
+          "iou": 15.43,
+          "acc": 37.59
+        },
+        "counter": {
+          "iou": 5.27,
+          "acc": 13.25
+        },
+        "sand": {
+          "iou": 46.92,
+          "acc": 77.73
+        },
+        "sink": {
+          "iou": 22.48,
+          "acc": 31.58
+        },
+        "skyscraper": {
+          "iou": 28.72,
+          "acc": 63.29
+        },
+        "fireplace": {
+          "iou": 33.03,
+          "acc": 68.5
+        },
+        "refrigerator": {
+          "iou": 10.84,
+          "acc": 77.32
+        },
+        "grandstand": {
+          "iou": 31.19,
+          "acc": 56.73
+        },
+        "path": {
+          "iou": 7.05,
+          "acc": 11.84
+        },
+        "stairs": {
+          "iou": 11.91,
+          "acc": 20.72
+        },
+        "runway": {
+          "iou": 47.11,
+          "acc": 68.47
+        },
+        "case": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "pool table": {
+          "iou": 46.59,
+          "acc": 65.23
+        },
+        "pillow": {
+          "iou": 1.33,
+          "acc": 1.73
+        },
+        "screen door": {
+          "iou": 0.02,
+          "acc": 0.08
+        },
+        "stairway": {
+          "iou": 9.08,
+          "acc": 23.32
+        },
+        "river": {
+          "iou": 9.68,
+          "acc": 47.4
+        },
+        "bridge": {
+          "iou": 24.0,
+          "acc": 46.5
+        },
+        "bookcase": {
+          "iou": 20.85,
+          "acc": 64.19
+        },
+        "blind": {
+          "iou": 12.85,
+          "acc": 15.09
+        },
+        "coffee table": {
+          "iou": 14.92,
+          "acc": 32.51
+        },
+        "toilet": {
+          "iou": 13.82,
+          "acc": 92.11
+        },
+        "flower": {
+          "iou": 18.43,
+          "acc": 50.85
+        },
+        "book": {
+          "iou": 5.35,
+          "acc": 5.54
+        },
+        "hill": {
+          "iou": 3.58,
+          "acc": 20.1
+        },
+        "bench": {
+          "iou": 18.75,
+          "acc": 22.29
+        },
+        "countertop": {
+          "iou": 5.92,
+          "acc": 47.98
+        },
+        "stove": {
+          "iou": 4.88,
+          "acc": 9.0
+        },
+        "palm": {
+          "iou": 16.83,
+          "acc": 82.24
+        },
+        "kitchen island": {
+          "iou": 2.2,
+          "acc": 40.41
+        },
+        "computer": {
+          "iou": 21.41,
+          "acc": 22.75
+        },
+        "swivel chair": {
+          "iou": 0.08,
+          "acc": 0.14
+        },
+        "boat": {
+          "iou": 26.79,
+          "acc": 88.43
+        },
+        "bar": {
+          "iou": 13.86,
+          "acc": 33.63
+        },
+        "arcade machine": {
+          "iou": 29.62,
+          "acc": 34.07
+        },
+        "hovel": {
+          "iou": 1.49,
+          "acc": 58.39
+        },
+        "bus": {
+          "iou": 34.17,
+          "acc": 86.69
+        },
+        "towel": {
+          "iou": 23.07,
+          "acc": 51.19
+        },
+        "light": {
+          "iou": 8.69,
+          "acc": 13.85
+        },
+        "truck": {
+          "iou": 15.93,
+          "acc": 55.24
+        },
+        "tower": {
+          "iou": 16.01,
+          "acc": 65.1
+        },
+        "chandelier": {
+          "iou": 33.86,
+          "acc": 66.48
+        },
+        "awning": {
+          "iou": 3.23,
+          "acc": 38.35
+        },
+        "streetlight": {
+          "iou": 7.73,
+          "acc": 32.01
+        },
+        "booth": {
+          "iou": 0.42,
+          "acc": 2.38
+        },
+        "television receiver": {
+          "iou": 32.04,
+          "acc": 51.01
+        },
+        "airplane": {
+          "iou": 13.24,
+          "acc": 65.07
+        },
+        "dirt track": {
+          "iou": 0.04,
+          "acc": 0.26
+        },
+        "apparel": {
+          "iou": 0.02,
+          "acc": 0.1
+        },
+        "pole": {
+          "iou": 2.6,
+          "acc": 8.28
+        },
+        "land": {
+          "iou": 0.6,
+          "acc": 53.73
+        },
+        "bannister": {
+          "iou": 2.19,
+          "acc": 21.59
+        },
+        "escalator": {
+          "iou": 17.93,
+          "acc": 37.88
+        },
+        "ottoman": {
+          "iou": 0.53,
+          "acc": 3.46
+        },
+        "bottle": {
+          "iou": 23.4,
+          "acc": 27.52
+        },
+        "buffet": {
+          "iou": 0.04,
+          "acc": 0.28
+        },
+        "poster": {
+          "iou": 3.52,
+          "acc": 3.94
+        },
+        "stage": {
+          "iou": 16.45,
+          "acc": 47.02
+        },
+        "van": {
+          "iou": 15.86,
+          "acc": 42.24
+        },
+        "ship": {
+          "iou": 4.03,
+          "acc": 4.77
+        },
+        "fountain": {
+          "iou": 25.45,
+          "acc": 48.47
+        },
+        "conveyer belt": {
+          "iou": 5.93,
+          "acc": 35.71
+        },
+        "canopy": {
+          "iou": 0.73,
+          "acc": 7.46
+        },
+        "washer": {
+          "iou": 37.63,
+          "acc": 40.23
+        },
+        "plaything": {
+          "iou": 1.45,
+          "acc": 2.26
+        },
+        "swimming pool": {
+          "iou": 18.21,
+          "acc": 82.35
+        },
+        "stool": {
+          "iou": 2.89,
+          "acc": 36.6
+        },
+        "barrel": {
+          "iou": 2.77,
+          "acc": 69.18
+        },
+        "basket": {
+          "iou": 8.19,
+          "acc": 25.95
+        },
+        "waterfall": {
+          "iou": 42.14,
+          "acc": 97.54
+        },
+        "tent": {
+          "iou": 26.8,
+          "acc": 99.52
+        },
+        "bag": {
+          "iou": 12.57,
+          "acc": 21.07
+        },
+        "minibike": {
+          "iou": 44.85,
+          "acc": 52.79
+        },
+        "cradle": {
+          "iou": 14.28,
+          "acc": 33.37
+        },
+        "oven": {
+          "iou": 4.51,
+          "acc": 33.1
+        },
+        "ball": {
+          "iou": 17.67,
+          "acc": 69.0
+        },
+        "food": {
+          "iou": 12.28,
+          "acc": 49.03
+        },
+        "step": {
+          "iou": 0.85,
+          "acc": 14.76
+        },
+        "tank": {
+          "iou": 1.81,
+          "acc": 1.88
+        },
+        "trade name": {
+          "iou": 3.79,
+          "acc": 6.19
+        },
+        "microwave": {
+          "iou": 31.57,
+          "acc": 46.28
+        },
+        "pot": {
+          "iou": 8.15,
+          "acc": 12.25
+        },
+        "animal": {
+          "iou": 37.7,
+          "acc": 47.65
+        },
+        "bicycle": {
+          "iou": 24.28,
+          "acc": 88.08
+        },
+        "lake": {
+          "iou": 4.05,
+          "acc": 35.28
+        },
+        "dishwasher": {
+          "iou": 1.29,
+          "acc": 2.38
+        },
+        "screen": {
+          "iou": 32.67,
+          "acc": 67.03
+        },
+        "blanket": {
+          "iou": 2.72,
+          "acc": 9.57
+        },
+        "sculpture": {
+          "iou": 24.91,
+          "acc": 26.77
+        },
+        "hood": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "sconce": {
+          "iou": 4.5,
+          "acc": 43.15
+        },
+        "vase": {
+          "iou": 8.53,
+          "acc": 23.42
+        },
+        "traffic light": {
+          "iou": 4.73,
+          "acc": 52.09
+        },
+        "tray": {
+          "iou": 1.52,
+          "acc": 3.75
+        },
+        "ashcan": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "fan": {
+          "iou": 28.54,
+          "acc": 60.58
+        },
+        "pier": {
+          "iou": 6.24,
+          "acc": 30.03
+        },
+        "crt screen": {
+          "iou": 0.01,
+          "acc": 0.02
+        },
+        "plate": {
+          "iou": 16.76,
+          "acc": 19.81
+        },
+        "monitor": {
+          "iou": 7.24,
+          "acc": 18.87
+        },
+        "bulletin board": {
+          "iou": 1.17,
+          "acc": 2.85
+        },
+        "shower": {
+          "iou": 0.21,
+          "acc": 37.53
+        },
+        "radiator": {
+          "iou": 18.66,
+          "acc": 34.63
+        },
+        "glass": {
+          "iou": 0.72,
+          "acc": 1.5
+        },
+        "clock": {
+          "iou": 20.76,
+          "acc": 41.36
+        },
+        "flag": {
+          "iou": 35.75,
+          "acc": 79.65
+        }
+      },
+      "metrics_file": "/data/Multimodal-final-project/outputs/performance/sclip_ade20k/20261114_191527/20261114_191527.json",
+      "log": "/data/Multimodal-final-project/outputs/performance/sclip_ade20k.log",
+      "samples": 2000,
+      "command": "python experiments/performance/run_external.py sclip ade20k",
+      "peak_logged_memory_MiB": 4765,
+      "elapsed_s": 73.0
+    },
+    "naclip_voc21": {
+      "metrics": {
+        "aAcc": 89.36,
+        "mIoU": 64.06,
+        "mAcc": 79.68,
+        "data_time": 0.001270742232096944,
+        "time": 0.07922120814984876
+      },
+      "per_class": {
+        "background": {
+          "iou": 87.66,
+          "acc": 93.38
+        },
+        "aeroplane": {
+          "iou": 64.19,
+          "acc": 81.08
+        },
+        "bicycle": {
+          "iou": 37.73,
+          "acc": 84.73
+        },
+        "bird": {
+          "iou": 74.95,
+          "acc": 79.92
+        },
+        "boat": {
+          "iou": 56.36,
+          "acc": 64.45
+        },
+        "bottle": {
+          "iou": 64.93,
+          "acc": 76.86
+        },
+        "bus": {
+          "iou": 75.71,
+          "acc": 85.96
+        },
+        "car": {
+          "iou": 72.31,
+          "acc": 94.44
+        },
+        "cat": {
+          "iou": 84.85,
+          "acc": 88.79
+        },
+        "chair": {
+          "iou": 36.09,
+          "acc": 49.49
+        },
+        "cow": {
+          "iou": 80.75,
+          "acc": 86.67
+        },
+        "diningtable": {
+          "iou": 44.75,
+          "acc": 83.4
+        },
+        "dog": {
+          "iou": 81.19,
+          "acc": 85.84
+        },
+        "horse": {
+          "iou": 68.98,
+          "acc": 92.4
+        },
+        "motorbike": {
+          "iou": 68.73,
+          "acc": 76.16
+        },
+        "person": {
+          "iou": 58.48,
+          "acc": 63.12
+        },
+        "pottedplant": {
+          "iou": 41.26,
+          "acc": 77.0
+        },
+        "sheep": {
+          "iou": 78.75,
+          "acc": 91.27
+        },
+        "sofa": {
+          "iou": 55.99,
+          "acc": 81.22
+        },
+        "train": {
+          "iou": 68.6,
+          "acc": 81.57
+        },
+        "tvmonitor": {
+          "iou": 43.04,
+          "acc": 55.6
+        }
+      },
+      "metrics_file": "/data/Multimodal-final-project/outputs/performance/naclip_voc21/20261114_191644/20261114_191644.json",
+      "log": "/data/Multimodal-final-project/outputs/performance/naclip_voc21.log",
+      "samples": 1449,
+      "command": "python experiments/performance/run_external.py naclip voc21",
+      "peak_logged_memory_MiB": 9370,
+      "elapsed_s": 118.0
+    },
+    "naclip_voc20": {
+      "metrics": {
+        "aAcc": 91.25,
+        "mIoU": 83.03,
+        "mAcc": 90.79,
+        "data_time": 0.001318257458873088,
+        "time": 0.05820965437826574
+      },
+      "per_class": {
+        "aeroplane": {
+          "iou": 93.84,
+          "acc": 94.85
+        },
+        "bicycle": {
+          "iou": 68.07,
+          "acc": 94.49
+        },
+        "bird": {
+          "iou": 92.34,
+          "acc": 95.1
+        },
+        "boat": {
+          "iou": 87.79,
+          "acc": 88.93
+        },
+        "bottle": {
+          "iou": 82.44,
+          "acc": 89.72
+        },
+        "bus": {
+          "iou": 91.91,
+          "acc": 93.11
+        },
+        "car": {
+          "iou": 88.47,
+          "acc": 98.21
+        },
+        "cat": {
+          "iou": 92.77,
+          "acc": 94.11
+        },
+        "chair": {
+          "iou": 47.13,
+          "acc": 55.25
+        },
+        "cow": {
+          "iou": 89.09,
+          "acc": 93.14
+        },
+        "diningtable": {
+          "iou": 61.87,
+          "acc": 92.28
+        },
+        "dog": {
+          "iou": 90.41,
+          "acc": 92.79
+        },
+        "horse": {
+          "iou": 91.68,
+          "acc": 96.09
+        },
+        "motorbike": {
+          "iou": 78.07,
+          "acc": 83.51
+        },
+        "person": {
+          "iou": 83.64,
+          "acc": 90.31
+        },
+        "pottedplant": {
+          "iou": 84.17,
+          "acc": 92.83
+        },
+        "sheep": {
+          "iou": 87.22,
+          "acc": 96.74
+        },
+        "sofa": {
+          "iou": 76.38,
+          "acc": 90.08
+        },
+        "train": {
+          "iou": 93.95,
+          "acc": 94.24
+        },
+        "tvmonitor": {
+          "iou": 79.35,
+          "acc": 90.0
+        }
+      },
+      "metrics_file": "/data/Multimodal-final-project/outputs/performance/naclip_voc20/20261114_191847/20261114_191847.json",
+      "log": "/data/Multimodal-final-project/outputs/performance/naclip_voc20.log",
+      "samples": 1449,
+      "command": "python experiments/performance/run_external.py naclip voc20",
+      "peak_logged_memory_MiB": 5200,
+      "elapsed_s": 87.0
+    },
+    "naclip_ade20k": {
+      "metrics": {
+        "aAcc": 48.1,
+        "mIoU": 19.07,
+        "mAcc": 39.09,
+        "data_time": 0.0014274533987045288,
+        "time": 0.24194212794303893
+      },
+      "per_class": {
+        "wall": {
+          "iou": 30.12,
+          "acc": 34.98
+        },
+        "building": {
+          "iou": 20.96,
+          "acc": 21.65
+        },
+        "sky": {
+          "iou": 83.75,
+          "acc": 85.57
+        },
+        "floor": {
+          "iou": 49.55,
+          "acc": 58.96
+        },
+        "tree": {
+          "iou": 58.47,
+          "acc": 77.14
+        },
+        "ceiling": {
+          "iou": 51.32,
+          "acc": 63.14
+        },
+        "road": {
+          "iou": 60.88,
+          "acc": 73.75
+        },
+        "bed": {
+          "iou": 53.09,
+          "acc": 69.74
+        },
+        "windowpane": {
+          "iou": 22.13,
+          "acc": 27.58
+        },
+        "grass": {
+          "iou": 52.2,
+          "acc": 89.19
+        },
+        "cabinet": {
+          "iou": 24.72,
+          "acc": 36.06
+        },
+        "sidewalk": {
+          "iou": 34.72,
+          "acc": 79.03
+        },
+        "person": {
+          "iou": 18.76,
+          "acc": 19.19
+        },
+        "earth": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "door": {
+          "iou": 21.6,
+          "acc": 50.54
+        },
+        "table": {
+          "iou": 25.2,
+          "acc": 46.84
+        },
+        "mountain": {
+          "iou": 27.74,
+          "acc": 30.92
+        },
+        "plant": {
+          "iou": 31.42,
+          "acc": 39.49
+        },
+        "curtain": {
+          "iou": 43.52,
+          "acc": 71.08
+        },
+        "chair": {
+          "iou": 18.82,
+          "acc": 21.37
+        },
+        "car": {
+          "iou": 61.13,
+          "acc": 80.96
+        },
+        "water": {
+          "iou": 6.65,
+          "acc": 6.91
+        },
+        "painting": {
+          "iou": 16.59,
+          "acc": 18.44
+        },
+        "sofa": {
+          "iou": 44.34,
+          "acc": 77.53
+        },
+        "shelf": {
+          "iou": 13.32,
+          "acc": 15.29
+        },
+        "house": {
+          "iou": 7.18,
+          "acc": 67.47
+        },
+        "sea": {
+          "iou": 33.12,
+          "acc": 46.61
+        },
+        "mirror": {
+          "iou": 14.46,
+          "acc": 17.07
+        },
+        "rug": {
+          "iou": 18.96,
+          "acc": 78.94
+        },
+        "field": {
+          "iou": 18.65,
+          "acc": 28.08
+        },
+        "armchair": {
+          "iou": 16.58,
+          "acc": 32.05
+        },
+        "seat": {
+          "iou": 26.82,
+          "acc": 58.99
+        },
+        "fence": {
+          "iou": 26.87,
+          "acc": 43.71
+        },
+        "desk": {
+          "iou": 17.81,
+          "acc": 39.54
+        },
+        "rock": {
+          "iou": 25.7,
+          "acc": 79.24
+        },
+        "wardrobe": {
+          "iou": 15.11,
+          "acc": 39.06
+        },
+        "lamp": {
+          "iou": 31.5,
+          "acc": 59.62
+        },
+        "bathtub": {
+          "iou": 36.04,
+          "acc": 58.38
+        },
+        "railing": {
+          "iou": 10.66,
+          "acc": 17.17
+        },
+        "cushion": {
+          "iou": 10.61,
+          "acc": 15.75
+        },
+        "base": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "box": {
+          "iou": 9.59,
+          "acc": 17.01
+        },
+        "column": {
+          "iou": 19.37,
+          "acc": 47.1
+        },
+        "signboard": {
+          "iou": 13.16,
+          "acc": 15.44
+        },
+        "chest of drawers": {
+          "iou": 20.34,
+          "acc": 43.94
+        },
+        "counter": {
+          "iou": 5.92,
+          "acc": 28.15
+        },
+        "sand": {
+          "iou": 39.05,
+          "acc": 84.82
+        },
+        "sink": {
+          "iou": 27.52,
+          "acc": 41.38
+        },
+        "skyscraper": {
+          "iou": 26.44,
+          "acc": 52.39
+        },
+        "fireplace": {
+          "iou": 46.39,
+          "acc": 64.07
+        },
+        "refrigerator": {
+          "iou": 16.49,
+          "acc": 78.37
+        },
+        "grandstand": {
+          "iou": 22.15,
+          "acc": 26.94
+        },
+        "path": {
+          "iou": 8.38,
+          "acc": 13.43
+        },
+        "stairs": {
+          "iou": 13.46,
+          "acc": 22.68
+        },
+        "runway": {
+          "iou": 37.23,
+          "acc": 41.38
+        },
+        "case": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "pool table": {
+          "iou": 37.42,
+          "acc": 37.88
+        },
+        "pillow": {
+          "iou": 6.8,
+          "acc": 11.35
+        },
+        "screen door": {
+          "iou": 0.03,
+          "acc": 0.11
+        },
+        "stairway": {
+          "iou": 5.54,
+          "acc": 15.22
+        },
+        "river": {
+          "iou": 11.27,
+          "acc": 49.1
+        },
+        "bridge": {
+          "iou": 20.97,
+          "acc": 45.43
+        },
+        "bookcase": {
+          "iou": 24.47,
+          "acc": 58.57
+        },
+        "blind": {
+          "iou": 5.61,
+          "acc": 6.4
+        },
+        "coffee table": {
+          "iou": 24.83,
+          "acc": 52.77
+        },
+        "toilet": {
+          "iou": 24.41,
+          "acc": 92.11
+        },
+        "flower": {
+          "iou": 18.31,
+          "acc": 57.56
+        },
+        "book": {
+          "iou": 15.29,
+          "acc": 16.71
+        },
+        "hill": {
+          "iou": 3.93,
+          "acc": 43.11
+        },
+        "bench": {
+          "iou": 20.94,
+          "acc": 25.02
+        },
+        "countertop": {
+          "iou": 9.83,
+          "acc": 51.82
+        },
+        "stove": {
+          "iou": 17.02,
+          "acc": 29.58
+        },
+        "palm": {
+          "iou": 23.57,
+          "acc": 86.37
+        },
+        "kitchen island": {
+          "iou": 1.42,
+          "acc": 11.83
+        },
+        "computer": {
+          "iou": 11.9,
+          "acc": 12.23
+        },
+        "swivel chair": {
+          "iou": 0.01,
+          "acc": 0.01
+        },
+        "boat": {
+          "iou": 29.86,
+          "acc": 89.22
+        },
+        "bar": {
+          "iou": 10.66,
+          "acc": 24.78
+        },
+        "arcade machine": {
+          "iou": 13.49,
+          "acc": 13.71
+        },
+        "hovel": {
+          "iou": 2.38,
+          "acc": 48.54
+        },
+        "bus": {
+          "iou": 41.83,
+          "acc": 85.88
+        },
+        "towel": {
+          "iou": 21.93,
+          "acc": 75.96
+        },
+        "light": {
+          "iou": 9.95,
+          "acc": 16.85
+        },
+        "truck": {
+          "iou": 12.94,
+          "acc": 60.79
+        },
+        "tower": {
+          "iou": 13.1,
+          "acc": 66.2
+        },
+        "chandelier": {
+          "iou": 40.47,
+          "acc": 78.15
+        },
+        "awning": {
+          "iou": 2.71,
+          "acc": 57.43
+        },
+        "streetlight": {
+          "iou": 12.93,
+          "acc": 27.84
+        },
+        "booth": {
+          "iou": 2.64,
+          "acc": 20.39
+        },
+        "television receiver": {
+          "iou": 42.82,
+          "acc": 57.02
+        },
+        "airplane": {
+          "iou": 19.99,
+          "acc": 49.07
+        },
+        "dirt track": {
+          "iou": 0.59,
+          "acc": 1.76
+        },
+        "apparel": {
+          "iou": 0.28,
+          "acc": 2.76
+        },
+        "pole": {
+          "iou": 7.93,
+          "acc": 23.95
+        },
+        "land": {
+          "iou": 1.67,
+          "acc": 26.59
+        },
+        "bannister": {
+          "iou": 3.36,
+          "acc": 9.52
+        },
+        "escalator": {
+          "iou": 15.0,
+          "acc": 19.43
+        },
+        "ottoman": {
+          "iou": 0.06,
+          "acc": 0.13
+        },
+        "bottle": {
+          "iou": 23.96,
+          "acc": 36.1
+        },
+        "buffet": {
+          "iou": 0.06,
+          "acc": 0.26
+        },
+        "poster": {
+          "iou": 12.37,
+          "acc": 38.71
+        },
+        "stage": {
+          "iou": 13.59,
+          "acc": 39.89
+        },
+        "van": {
+          "iou": 16.63,
+          "acc": 53.62
+        },
+        "ship": {
+          "iou": 3.34,
+          "acc": 3.8
+        },
+        "fountain": {
+          "iou": 30.3,
+          "acc": 54.59
+        },
+        "conveyer belt": {
+          "iou": 4.17,
+          "acc": 8.61
+        },
+        "canopy": {
+          "iou": 0.89,
+          "acc": 7.28
+        },
+        "washer": {
+          "iou": 38.06,
+          "acc": 39.47
+        },
+        "plaything": {
+          "iou": 0.79,
+          "acc": 1.01
+        },
+        "swimming pool": {
+          "iou": 23.15,
+          "acc": 75.63
+        },
+        "stool": {
+          "iou": 3.72,
+          "acc": 58.43
+        },
+        "barrel": {
+          "iou": 2.56,
+          "acc": 63.19
+        },
+        "basket": {
+          "iou": 14.82,
+          "acc": 38.01
+        },
+        "waterfall": {
+          "iou": 33.21,
+          "acc": 95.7
+        },
+        "tent": {
+          "iou": 39.35,
+          "acc": 96.91
+        },
+        "bag": {
+          "iou": 13.6,
+          "acc": 29.37
+        },
+        "minibike": {
+          "iou": 29.08,
+          "acc": 30.59
+        },
+        "cradle": {
+          "iou": 13.5,
+          "acc": 61.18
+        },
+        "oven": {
+          "iou": 6.12,
+          "acc": 27.67
+        },
+        "ball": {
+          "iou": 20.08,
+          "acc": 70.85
+        },
+        "food": {
+          "iou": 18.58,
+          "acc": 44.35
+        },
+        "step": {
+          "iou": 0.79,
+          "acc": 18.28
+        },
+        "tank": {
+          "iou": 2.14,
+          "acc": 2.3
+        },
+        "trade name": {
+          "iou": 5.65,
+          "acc": 12.63
+        },
+        "microwave": {
+          "iou": 25.42,
+          "acc": 29.34
+        },
+        "pot": {
+          "iou": 12.73,
+          "acc": 20.93
+        },
+        "animal": {
+          "iou": 50.56,
+          "acc": 63.93
+        },
+        "bicycle": {
+          "iou": 30.81,
+          "acc": 79.17
+        },
+        "lake": {
+          "iou": 3.6,
+          "acc": 30.56
+        },
+        "dishwasher": {
+          "iou": 0.01,
+          "acc": 0.01
+        },
+        "screen": {
+          "iou": 36.36,
+          "acc": 68.12
+        },
+        "blanket": {
+          "iou": 4.27,
+          "acc": 29.06
+        },
+        "sculpture": {
+          "iou": 25.43,
+          "acc": 29.38
+        },
+        "hood": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "sconce": {
+          "iou": 12.95,
+          "acc": 38.34
+        },
+        "vase": {
+          "iou": 16.82,
+          "acc": 30.13
+        },
+        "traffic light": {
+          "iou": 13.36,
+          "acc": 42.07
+        },
+        "tray": {
+          "iou": 3.06,
+          "acc": 15.73
+        },
+        "ashcan": {
+          "iou": 0.0,
+          "acc": 0.0
+        },
+        "fan": {
+          "iou": 33.68,
+          "acc": 58.8
+        },
+        "pier": {
+          "iou": 5.49,
+          "acc": 15.78
+        },
+        "crt screen": {
+          "iou": 0.02,
+          "acc": 0.06
+        },
+        "plate": {
+          "iou": 33.34,
+          "acc": 58.22
+        },
+        "monitor": {
+          "iou": 5.48,
+          "acc": 12.14
+        },
+        "bulletin board": {
+          "iou": 1.71,
+          "acc": 3.08
+        },
+        "shower": {
+          "iou": 0.2,
+          "acc": 36.85
+        },
+        "radiator": {
+          "iou": 27.85,
+          "acc": 61.22
+        },
+        "glass": {
+          "iou": 1.24,
+          "acc": 3.35
+        },
+        "clock": {
+          "iou": 23.48,
+          "acc": 37.38
+        },
+        "flag": {
+          "iou": 44.72,
+          "acc": 77.67
+        }
+      },
+      "metrics_file": "/data/Multimodal-final-project/outputs/performance/naclip_ade20k/20261114_192020/20261114_192020.json",
+      "log": "/data/Multimodal-final-project/outputs/performance/naclip_ade20k.log",
+      "samples": 2000,
+      "command": "python experiments/performance/run_external.py naclip ade20k",
+      "peak_logged_memory_MiB": 91469,
+      "elapsed_s": 489.0
+    }
+  }
+}

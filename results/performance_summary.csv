@@ -1,0 +1,25 @@
+method,dataset,protocol,status,samples,expected_samples,paper_mIoU,official_repo_mIoU,local_mIoU,delta,delta_vs_official_repo,comparability,mAcc,pAcc,peak_logged_memory_MiB,elapsed_s,log
+vanilla,voc21,official-code,Completed,1449,1449,N/A,N/A,15.16,,,no directly matched paper value,28.7,61.53,1017,23.0,/data/Multimodal-final-project/outputs/performance/voc21_vanilla.log
+vanilla,voc20,official-code,Completed,1449,1449,N/A,N/A,38.01,,,no directly matched paper value,53.17,53.6,715,17.0,/data/Multimodal-final-project/outputs/performance/voc20_vanilla.log
+vanilla,ade20k,official-code,Completed,2000,2000,N/A,N/A,3.17,,,no directly matched paper value,10.49,7.85,4765,74.0,/data/Multimodal-final-project/outputs/performance/ade20k_vanilla.log
+reduced,voc21,official-code,Completed,1449,1449,N/A,N/A,35.28,,,no directly matched paper value,76.82,65.52,1017,20.0,/data/Multimodal-final-project/outputs/performance/voc21_reduced.log
+reduced,voc20,official-code,Completed,1449,1449,N/A,N/A,78.98,,,no directly matched paper value,89.97,87.09,715,18.0,/data/Multimodal-final-project/outputs/performance/voc20_reduced.log
+reduced,ade20k,official-code,Completed,2000,2000,N/A,N/A,11.6,,,no directly matched paper value,31.42,29.07,4765,81.0,/data/Multimodal-final-project/outputs/performance/ade20k_reduced.log
+pa_only,voc21,official-code,Completed,1449,1449,59.2,N/A,59.19,-0.01,,matched official-code setting,83.43,86.28,1017,19.0,/data/Multimodal-final-project/outputs/performance/voc21_pa_only.log
+pa_only,voc20,official-code,Completed,1449,1449,85.0,N/A,84.95,-0.05,,matched official-code setting,92.15,92.17,786,21.0,/data/Multimodal-final-project/outputs/performance/voc20_pa_only.log
+pa_only,ade20k,official-code,Completed,2000,2000,17.9,N/A,17.82,-0.08,,matched official-code setting,40.46,44.34,4765,85.0,/data/Multimodal-final-project/outputs/performance/ade20k_pa_only.log
+tlp_only,voc21,official-code,Completed,1449,1449,35.4,N/A,35.37,-0.03,,matched official-code setting,77.19,65.23,1017,32.0,/data/Multimodal-final-project/outputs/performance/voc21_tlp_only.log
+tlp_only,voc20,official-code,Completed,1449,1449,79.3,N/A,79.27,-0.03,,matched official-code setting,90.18,87.24,715,31.0,/data/Multimodal-final-project/outputs/performance/voc20_tlp_only.log
+tlp_only,ade20k,official-code,Completed,2000,2000,11.7,N/A,11.71,0.01,,matched official-code setting,31.37,29.27,4032,88.0,/data/Multimodal-final-project/outputs/performance/ade20k_tlp_only.log
+full_pearl,voc21,official-code,Completed,1449,1449,64.1,N/A,64.07,-0.03,,matched official-code setting,85.32,88.5,1017,37.0,/data/Multimodal-final-project/outputs/work_dirs/voc21/20261113_152255/20261113_152255.log
+full_pearl,voc20,official-code,Completed,1449,1449,86.9,N/A,86.9,0.0,,matched official-code setting,93.39,93.29,786,34.0,/data/Multimodal-final-project/outputs/performance/voc20_full_pearl.log
+full_pearl,ade20k,official-code,Completed,2000,2000,19.4,N/A,19.36,-0.04,,matched official-code setting,41.16,46.87,4033,100.0,/data/Multimodal-final-project/outputs/performance/ade20k_full_pearl.log
+sclip,voc21,official-code,Completed,1449,1449,59.1,59.63,59.63,,0.0,different published protocol,81.89,87.55,1642,57.0,/data/Multimodal-final-project/outputs/performance/sclip_voc21.log
+sclip,voc20,official-code,Completed,1449,1449,80.4,81.54,81.54,,0.0,different published protocol,90.3,91.03,1040,51.0,/data/Multimodal-final-project/outputs/performance/sclip_voc20.log
+sclip,ade20k,official-code,Completed,2000,2000,16.1,16.45,16.46,,0.01,different published protocol,36.85,38.75,4765,73.0,/data/Multimodal-final-project/outputs/performance/sclip_ade20k.log
+naclip,voc21,official-code,Completed,1449,1449,58.9,64.07,64.06,,-0.01,different published protocol,79.68,89.36,9370,118.0,/data/Multimodal-final-project/outputs/performance/naclip_voc21.log
+naclip,voc20,official-code,Completed,1449,1449,79.7,83.03,83.03,,0.0,different published protocol,90.79,91.25,5200,87.0,/data/Multimodal-final-project/outputs/performance/naclip_voc20.log
+naclip,ade20k,official-code,Completed,2000,2000,17.4,19.05,19.07,,0.02,different published protocol,39.09,48.1,91469,489.0,/data/Multimodal-final-project/outputs/performance/naclip_ade20k.log
+clearclip,voc21,official-code,Not Run,,1449,51.8,N/A,,,,different published protocol,,,,,/data/Multimodal-final-project/outputs/performance/clearclip_voc21.log
+clearclip,voc20,official-code,Not Run,,1449,80.9,N/A,,,,different published protocol,,,,,/data/Multimodal-final-project/outputs/performance/clearclip_voc20.log
+clearclip,ade20k,official-code,Not Run,,2000,16.7,N/A,,,,different published protocol,,,,,/data/Multimodal-final-project/outputs/performance/clearclip_ade20k.log

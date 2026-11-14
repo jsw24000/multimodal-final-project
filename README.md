@@ -4,9 +4,11 @@ This project is based on the [official PEARL implementation by Gensheng Pei, Xir
 
 Use `PEARL_DATA_ROOT` (see `.env.example` and `project_paths.py`) for a single external data root. On this host it is `/data/Multimodal-final-project` on the large mounted disk. Run `bash scripts/check_environment.sh`, then `bash scripts/download_datasets.sh voc2012` or `ade20k`, and verify with `python scripts/verify_datasets.py --dataset all`. Current dataset and environment status is recorded in [docs/DATASETS.md](docs/DATASETS.md) and [docs/ENVIRONMENT_REPORT.md](docs/ENVIRONMENT_REPORT.md).
 
-The first goal is VOC21 performance reproduction. Later work will compare PEARL components with Vanilla CLIP, SCLIP and NACLIP; inspect attention, Q/K features and background tokens; and test alignment and TLP ablations. See [docs/REPRODUCTION_PLAN.md](docs/REPRODUCTION_PLAN.md). Do not run the original `run.sh` for the first baseline: it evaluates all eight datasets.
+The first performance phase covers VOC21, VOC20 and ADE20K with PEARL component ablations and SCLIP/NACLIP official-code baselines. Later work will inspect attention, Q/K features and background tokens, then test alignment and TLP ablations. See [docs/REPRODUCTION_PLAN.md](docs/REPRODUCTION_PLAN.md). The original `run.sh` evaluates all eight datasets, including datasets that are not prepared here.
 
 The host's isolated PEARL environment and Blackwell-compatible package versions are documented in [docs/SETUP.md](docs/SETUP.md). After activation, run `python scripts/check_pearl_environment.py --check-voc21` before evaluation.
+
+**Full validation results (2026-11-14):** Full PEARL reached 64.07 mIoU on VOC21, 86.90 on VOC20, and 19.36 on ADE20K. The PEARL ablations and official SCLIP/NACLIP runs are summarized in [results/performance_summary.csv](results/performance_summary.csv); reproducibility details and protocol limits are in [docs/BASELINE_REPRODUCTION.md](docs/BASELINE_REPRODUCTION.md) and [docs/REPRODUCTION_RESULTS.md](docs/REPRODUCTION_RESULTS.md). Ten fixed VOC21 comparison panels are stored on the data disk under `outputs/qualitative/voc21/panels/`. Mechanism-analysis entry points are noted in [docs/ANALYSIS_INTERFACE.md](docs/ANALYSIS_INTERFACE.md).
 
 ## Original upstream README
 

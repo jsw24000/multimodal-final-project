@@ -16,6 +16,8 @@ def parse_args():
     parser.add_argument('--backbone', default='')
     parser.add_argument('--attn', default='pearl')
     parser.add_argument('--prop', default="off")
+    parser.add_argument('--arch', choices=['vanilla', 'reduced'], default='',
+                        help='CLIP architecture; empty keeps the official reduced default')
     parser.add_argument('--work-dir', default='',
                         help='work directory to save logs/checkpoints. '
                              'If empty, will be auto-set to ./work_dirs/<dataset_name>')
@@ -79,6 +81,7 @@ def main():
     safe_set_arg(cfg, args.backbone, 'clip_path')
     safe_set_arg(cfg, args.attn, 'attn_strategy')
     safe_set_arg(cfg, args.prop, 'use_prop')
+    safe_set_arg(cfg, args.arch, 'arch')
 
     # visualization_hook(cfg, args.show_dir)
 
