@@ -1,0 +1,68 @@
+{
+  "images": 1449,
+  "valid_pixels": 244886857,
+  "foreground_pixels": 65340659,
+  "background_pixels": 179546198,
+  "variants": {
+    "qk": {
+      "correct": 160443989,
+      "foreground_correct": 49024153,
+      "background_correct": 111419836,
+      "foreground_predicted_background": 10700030,
+      "background_predicted_foreground": 68126362
+    },
+    "qq": {
+      "correct": 209451398,
+      "foreground_correct": 52405550,
+      "background_correct": 157045848,
+      "foreground_predicted_background": 10144520,
+      "background_predicted_foreground": 22500350
+    },
+    "kk": {
+      "correct": 213453964,
+      "foreground_correct": 49612238,
+      "background_correct": 163841726,
+      "foreground_predicted_background": 13142494,
+      "background_predicted_foreground": 15704472
+    },
+    "sclip_mean": {
+      "correct": 212580477,
+      "foreground_correct": 51696651,
+      "background_correct": 160883826,
+      "foreground_predicted_background": 10982351,
+      "background_predicted_foreground": 18662372
+    },
+    "ns5_pa": {
+      "correct": 211241473,
+      "foreground_correct": 52674575,
+      "background_correct": 158566898,
+      "foreground_predicted_background": 9998840,
+      "background_predicted_foreground": 20979300
+    },
+    "ns5_pakk": {
+      "correct": 211300156,
+      "foreground_correct": 53356016,
+      "background_correct": 157944140,
+      "foreground_predicted_background": 9296709,
+      "background_predicted_foreground": 21602058
+    }
+  },
+  "pairs": {
+    "qq_to_ns5_pa": {
+      "corrected": 4271316,
+      "damaged": 2481241,
+      "foreground_corrected": 1419666,
+      "foreground_damaged": 1150641,
+      "background_corrected": 2851650,
+      "background_damaged": 1330600
+    },
+    "sclip_mean_to_ns5_pakk": {
+      "corrected": 3192773,
+      "damaged": 4473094,
+      "foreground_corrected": 2323051,
+      "foreground_damaged": 663686,
+      "background_corrected": 869722,
+      "background_damaged": 3809408
+    }
+  }
+}

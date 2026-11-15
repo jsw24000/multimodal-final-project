@@ -1,0 +1,35 @@
+{
+  "dataset": "voc21",
+  "images": 1449,
+  "heads": 12,
+  "variants": {
+    "qk": {
+      "key_norm_received_pearson": -0.5764150678477276,
+      "top1pct_receiver_mass": 0.029817145346662393,
+      "top1pct_bg_fraction": 0.7230980705948898,
+      "bg_area_fraction": 0.7222207850989358,
+      "high_purity_fraction": 0.9318969218874077
+    },
+    "qq": {
+      "key_norm_received_pearson": 0.5584077497585429,
+      "top1pct_receiver_mass": 0.031239506444581622,
+      "top1pct_bg_fraction": 0.8296088777994126,
+      "bg_area_fraction": 0.7222207850989358,
+      "high_purity_fraction": 0.9318969218874077
+    },
+    "kk": {
+      "key_norm_received_pearson": 0.6567447205895333,
+      "top1pct_receiver_mass": 0.06919854093550408,
+      "top1pct_bg_fraction": 0.9063117960247262,
+      "bg_area_fraction": 0.7222207850989358,
+      "high_purity_fraction": 0.9318969218874077
+    },
+    "pure_pa": {
+      "key_norm_received_pearson": 0.6979444046297085,
+      "top1pct_receiver_mass": 0.03896039512285019,
+      "top1pct_bg_fraction": 0.8655997505105135,
+      "bg_area_fraction": 0.7222207850989358,
+      "high_purity_fraction": 0.9318969218874077
+    }
+  }
+}

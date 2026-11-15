@@ -1,0 +1,46 @@
+{
+  "dataset": "ade20k",
+  "images": 2000,
+  "repetitions": 1000,
+  "seed_per_comparison": 24000,
+  "statistic": "pooled confusion mIoU difference after paired image resampling",
+  "interval": "95% percentile",
+  "comparisons": [
+    {
+      "tlp": "off", "first": "qq", "second": "ns5_pa",
+      "delta_mIoU": 0.43341419330685227,
+      "ci95": [0.2734370510341724, 0.5440079580899909],
+      "image_improved": 1702, "image_damaged": 292
+    },
+    {
+      "tlp": "off", "first": "sclip_mean", "second": "ns5_pakk",
+      "delta_mIoU": 0.1840467546957214,
+      "ci95": [0.07884614327612427, 0.3424755629742074],
+      "image_improved": 1230, "image_damaged": 765
+    },
+    {
+      "tlp": "off", "first": "ns5_pakk", "second": "svd_pakk",
+      "delta_mIoU": -0.41439599912941816,
+      "ci95": [-0.4713013653862109, -0.32936291218106944],
+      "image_improved": 135, "image_damaged": 1862
+    },
+    {
+      "tlp": "off", "first": "ns5_qqmatch", "second": "ns5_pa",
+      "delta_mIoU": 0.5229556870526828,
+      "ci95": [0.3928391324868047, 0.6282885964715176],
+      "image_improved": 1649, "image_damaged": 341
+    },
+    {
+      "tlp": "off", "first": "svd_qqmatch", "second": "svd_pa",
+      "delta_mIoU": 0.4690302005905558,
+      "ci95": [0.36707793024777463, 0.5616638174026196],
+      "image_improved": 1592, "image_damaged": 403
+    },
+    {
+      "tlp": "off", "first": "ns5_pa", "second": "svd_pa",
+      "delta_mIoU": 0.04456267207754294,
+      "ci95": [-0.014765435261542769, 0.14898934640982275],
+      "image_improved": 481, "image_damaged": 1512
+    }
+  ]
+}

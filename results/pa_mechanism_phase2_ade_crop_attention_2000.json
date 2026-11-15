@@ -1,0 +1,131 @@
+{
+  "dataset": "ade20k",
+  "images": 2000,
+  "crops_per_image": 1,
+  "crop_selection": "index modulo official slide-grid count",
+  "heads_per_crop": 12,
+  "means": {
+    "qk": {
+      "valid_patches": 181.7691537305959,
+      "high_purity_fraction": 0.7803002971974862,
+      "same": 0.4676843580027053,
+      "off_same": 0.45617326079370174,
+      "same_enrichment": 1.1235920631702467,
+      "high_same": 0.4922320936590264,
+      "mixed_same": 0.3430959613980789,
+      "within_cos": 0.8310116001880044,
+      "between_cos": 0.7831070295447632,
+      "entropy": 4.932945036468771
+    },
+    "qq": {
+      "valid_patches": 181.7691537305959,
+      "high_purity_fraction": 0.7803002971974862,
+      "same": 0.6412800847370992,
+      "off_same": 0.5415633497493875,
+      "same_enrichment": 2.078847429267235,
+      "high_same": 0.6787375485152379,
+      "mixed_same": 0.47978990022062623,
+      "within_cos": 0.4708148150705889,
+      "between_cos": 0.32602668872675405,
+      "entropy": 4.440176966943828
+    },
+    "kk": {
+      "valid_patches": 181.7691537305959,
+      "high_purity_fraction": 0.7803002971974862,
+      "same": 0.6631865626220621,
+      "off_same": 0.5545663297600127,
+      "same_enrichment": 2.1782773497471366,
+      "high_same": 0.703392334172337,
+      "mixed_same": 0.49348654108056156,
+      "within_cos": 0.46525216828164273,
+      "between_cos": 0.3158570800009261,
+      "entropy": 4.058020257090233
+    },
+    "pure_pa_ns5": {
+      "valid_patches": 181.7691537305959,
+      "high_purity_fraction": 0.7803002971974862,
+      "same": 0.6119629368633703,
+      "off_same": 0.5797313379810601,
+      "same_enrichment": 1.7202934374959098,
+      "high_same": 0.6556961066881607,
+      "mixed_same": 0.42460353582294563,
+      "within_cos": 0.6591928345748965,
+      "between_cos": 0.4856128733190373,
+      "entropy": 4.573931836439948
+    },
+    "pure_pa_svd": {
+      "valid_patches": 181.7691537305959,
+      "high_purity_fraction": 0.7803002971974862,
+      "same": 0.6319326641925078,
+      "off_same": 0.574532737911924,
+      "same_enrichment": 1.9192038442043484,
+      "high_same": 0.6739213866607769,
+      "mixed_same": 0.4532914209836504,
+      "within_cos": 0.5633134308134777,
+      "between_cos": 0.39325317670619137,
+      "entropy": 4.4825091862410895
+    }
+  },
+  "valid_head_counts": {
+    "qk": {
+      "valid_patches": 23964,
+      "high_purity_fraction": 23964,
+      "same": 23964,
+      "off_same": 23964,
+      "same_enrichment": 23964,
+      "high_same": 23964,
+      "mixed_same": 23256,
+      "within_cos": 23964,
+      "between_cos": 23316,
+      "entropy": 23964
+    },
+    "qq": {
+      "valid_patches": 23964,
+      "high_purity_fraction": 23964,
+      "same": 23964,
+      "off_same": 23964,
+      "same_enrichment": 23964,
+      "high_same": 23964,
+      "mixed_same": 23256,
+      "within_cos": 23964,
+      "between_cos": 23316,
+      "entropy": 23964
+    },
+    "kk": {
+      "valid_patches": 23964,
+      "high_purity_fraction": 23964,
+      "same": 23964,
+      "off_same": 23964,
+      "same_enrichment": 23964,
+      "high_same": 23964,
+      "mixed_same": 23256,
+      "within_cos": 23964,
+      "between_cos": 23316,
+      "entropy": 23964
+    },
+    "pure_pa_ns5": {
+      "valid_patches": 23964,
+      "high_purity_fraction": 23964,
+      "same": 23964,
+      "off_same": 23964,
+      "same_enrichment": 23964,
+      "high_same": 23964,
+      "mixed_same": 23256,
+      "within_cos": 23964,
+      "between_cos": 23316,
+      "entropy": 23964
+    },
+    "pure_pa_svd": {
+      "valid_patches": 23964,
+      "high_purity_fraction": 23964,
+      "same": 23964,
+      "off_same": 23964,
+      "same_enrichment": 23964,
+      "high_same": 23964,
+      "mixed_same": 23256,
+      "within_cos": 23964,
+      "between_cos": 23316,
+      "entropy": 23964
+    }
+  }
+}

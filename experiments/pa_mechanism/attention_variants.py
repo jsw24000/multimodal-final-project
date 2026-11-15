@@ -3,7 +3,7 @@ import torch.nn.functional as F
 from pearl.attn import _polar_unitary_newton_schulz
 
 
-def alignment(q, k, solver='polar'):
+def alignment(q, k, solver='polar', polar_iters=5):
     q, k = q.float(), k.float()
     w = q.norm(dim=-1, keepdim=True)
     w[:, :1] = 0
@@ -11,7 +11,7 @@ def alignment(q, k, solver='polar'):
     qc, kc = q - (w*q).sum(1, keepdim=True), k - (w*k).sum(1, keepdim=True)
     m = kc.transpose(1, 2) @ qc
     if solver == 'polar':
-        r = _polar_unitary_newton_schulz(m)
+        r = _polar_unitary_newton_schulz(m, iters=polar_iters)
     elif solver == 'svd':
         u, _, vh = torch.linalg.svd(m, full_matrices=False)
         r = u @ vh
@@ -20,7 +20,7 @@ def alignment(q, k, solver='polar'):
     return qc, kc, r, kc @ r - qc
 
 
-def attention(q, k, strategy, *, gamma=1., alpha_kk=.08, solver='polar'):
+def attention(q, k, strategy, *, gamma=1., alpha_kk=.08, solver='polar', polar_iters=5):
     q, k = q.float(), k.float()
     scale = q.shape[-1] ** -.5
     qq = (q @ q.transpose(1, 2)) * scale
@@ -31,8 +31,21 @@ def attention(q, k, strategy, *, gamma=1., alpha_kk=.08, solver='polar'):
     elif strategy in ('sclip', 'sclip_mean'):
         a = F.softmax(qq, -1) + F.softmax(kk, -1)
         return a if strategy == 'sclip' else a * .5
+    elif strategy == 'qq_entropy_match':
+        qc, kc, r, e = alignment(q, k, solver, polar_iters)
+        target = F.softmax((q @ (k @ r).transpose(1, 2)) * scale, -1)
+        target_entropy = -(target * target.clamp_min(1e-12).log()).sum(-1).mean(-1)
+        lo = torch.full_like(target_entropy, .01)
+        hi = torch.full_like(target_entropy, 100.)
+        for _ in range(16):
+            mid = (lo + hi) * .5
+            trial = F.softmax(qq * mid[:, None, None], -1)
+            ent = -(trial * trial.clamp_min(1e-12).log()).sum(-1).mean(-1)
+            lo = torch.where(ent > target_entropy, mid, lo)
+            hi = torch.where(ent > target_entropy, hi, mid)
+        return F.softmax(qq * ((lo+hi)*.5)[:, None, None], -1)
     elif strategy in ('pure_pa', 'pa_kk', 'gamma'):
-        qc, kc, r, e = alignment(q, k, solver)
+        qc, kc, r, e = alignment(q, k, solver, polar_iters)
         if strategy == 'gamma': logits = (qq + gamma * (q @ e.transpose(1, 2)) * scale)
         else:
             logits = (q @ (k @ r).transpose(1, 2)) * scale

@@ -1,0 +1,32 @@
+{
+  "dataset": "voc21",
+  "images": 128,
+  "heads": 12,
+  "matrices": 1536,
+  "dimensions": 64,
+  "seed": 24000,
+  "definition": "effective rank = exp(entropy of normalized singular values); stable rank = sum(s^2)/max(s)^2",
+  "summaries": {
+    "M": {
+      "effective_rank_mean": 16.771723434934923,
+      "effective_rank_median": 16.730098315423863,
+      "stable_rank_mean": 1.5863965502310808,
+      "singular_min_mean": 0.4569353175393,
+      "singular_max_mean": 4346.338593641917
+    },
+    "NS5": {
+      "effective_rank_mean": 32.498423476076724,
+      "effective_rank_median": 32.648124562994155,
+      "stable_rank_mean": 8.328402204945348,
+      "singular_min_mean": 0.0008534435004359983,
+      "singular_max_mean": 1.0000037805487711
+    },
+    "SVD": {
+      "effective_rank_mean": 63.99999999793233,
+      "effective_rank_median": 63.99999999794168,
+      "stable_rank_mean": 63.997759851691,
+      "singular_min_mean": 1.000009130531301,
+      "singular_max_mean": 1.0000440101139247
+    }
+  }
+}

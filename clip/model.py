@@ -93,7 +93,7 @@ class VisionTransformer(nn.Module):
 
     def set_params(self, arch, attn_strategy):
         assert arch in ['reduced', 'vanilla']
-        assert attn_strategy in ['pearl', 'vanilla', 'qk', 'qq', 'kk', 'sclip', 'sclip_mean', 'pure_pa', 'pa_kk', 'gamma']
+        assert attn_strategy in ['pearl', 'vanilla', 'qk', 'qq', 'kk', 'sclip', 'sclip_mean', 'pure_pa', 'pa_kk', 'gamma', 'qq_entropy_match']
 
         self.arch, self.attn_strategy = arch, attn_strategy
 
@@ -115,8 +115,19 @@ class VisionTransformer(nn.Module):
         x = self.ln_pre(x)
 
         x = x.permute(1, 0, 2)  # NLD -> LND
-        for blk in self.transformer.resblocks[:-1]:
-            x = blk(x)
+        if getattr(self, 'phase2_cache_enabled', False):
+            entry = next((saved for key, saved in getattr(self, '_phase2_prefix_cache', [])
+                          if torch.equal(key, x)), None)
+            if entry is None:
+                key = x.detach().clone()
+                for blk_prefix in self.transformer.resblocks[:-1]:
+                    x = blk_prefix(x)
+                self._phase2_prefix_cache = getattr(self, '_phase2_prefix_cache', []) + [(key, x.detach().clone())]
+            else:
+                x = entry
+        else:
+            for blk_prefix in self.transformer.resblocks[:-1]:
+                x = blk_prefix(x)
         blk = self.transformer.resblocks[-1]
         if self.arch == 'vanilla':
             x = x + self.custom_attn(blk.attn, blk.ln_1(x), n_patches)
@@ -229,11 +240,12 @@ class VisionTransformer(nn.Module):
         k = k.contiguous().view(-1, bsz * num_heads, head_dim).transpose(0, 1)
         v = v.contiguous().view(-1, bsz * num_heads, head_dim).transpose(0, 1)
 
-        if self.attn_strategy in ('qk', 'qq', 'kk', 'sclip', 'sclip_mean', 'pure_pa', 'pa_kk', 'gamma'):
+        if self.attn_strategy in ('qk', 'qq', 'kk', 'sclip', 'sclip_mean', 'pure_pa', 'pa_kk', 'gamma', 'qq_entropy_match'):
             from experiments.pa_mechanism.attention_variants import attention
             weights = attention(q, k, self.attn_strategy,
                                 gamma=getattr(self, 'gamma', 1.),
-                                alpha_kk=self.alpha_kk, solver=self.align_solver)
+                                alpha_kk=self.alpha_kk, solver=self.align_solver,
+                                polar_iters=self.polar_iters)
             if return_attn:
                 return weights.to(q.dtype)
             output = torch.bmm(weights, v.float()).to(v.dtype)

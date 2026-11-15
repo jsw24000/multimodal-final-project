@@ -1,0 +1,10 @@
+{
+  "images": 2000,
+  "classes": 150,
+  "resamples": 1000,
+  "seed": 24000,
+  "full_split_present_classes": 150,
+  "resample_present_class_min": 148,
+  "resample_present_class_max": 150,
+  "resamples_missing_any_class": 159
+}

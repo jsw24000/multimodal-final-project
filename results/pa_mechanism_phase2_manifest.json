@@ -1,0 +1,390 @@
+{
+  "created_from": "actual records",
+  "base_commit_at_generation": "86edd05d70bf90b5363c8b246896d70028bddeb5",
+  "checkpoint": "/data/Multimodal-final-project/checkpoints/clip/ViT-B-16.pt",
+  "checkpoint_sha256": "5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f",
+  "data_root": "/data/Multimodal-final-project",
+  "python_environment": "/data/Multimodal-final-project/cache/conda_envs/pearl",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition",
+  "runs": [
+    {
+      "config": "/data/Multimodal-final-project/outputs/pa_mechanism/phase2/runs/ade20k_off_2000_24000_ns1_pa-ns3_pa-ns10_pa-ns20_pa.config.json",
+      "records": "/data/Multimodal-final-project/outputs/pa_mechanism/phase2/runs/ade20k_off_2000_24000_ns1_pa-ns3_pa-ns10_pa-ns20_pa.jsonl",
+      "dataset": "ade20k",
+      "tlp": "off",
+      "variants": [
+        "ns1_pa",
+        "ns3_pa",
+        "ns10_pa",
+        "ns20_pa"
+      ],
+      "expected_images": 2000,
+      "completed_images": {
+        "ns1_pa": 2000,
+        "ns3_pa": 2000,
+        "ns10_pa": 2000,
+        "ns20_pa": 2000
+      },
+      "complete": true,
+      "seed": 24000,
+      "base_commit": "86edd05d70bf90b5363c8b246896d70028bddeb5"
+    },
+    {
+      "config": "/data/Multimodal-final-project/outputs/pa_mechanism/phase2/runs/ade20k_off_2000_24000_ns5_qqmatch-svd_qqmatch.config.json",
+      "records": "/data/Multimodal-final-project/outputs/pa_mechanism/phase2/runs/ade20k_off_2000_24000_ns5_qqmatch-svd_qqmatch.jsonl",
+      "dataset": "ade20k",
+      "tlp": "off",
+      "variants": [
+        "ns5_qqmatch",
+        "svd_qqmatch"
+      ],
+      "expected_images": 2000,
+      "completed_images": {
+        "ns5_qqmatch": 2000,
+        "svd_qqmatch": 2000
+      },
+      "complete": true,
+      "seed": 24000,
+      "base_commit": "86edd05d70bf90b5363c8b246896d70028bddeb5"
+    },
+    {
+      "config": "/data/Multimodal-final-project/outputs/pa_mechanism/phase2/runs/ade20k_off_2000_24000_qk-qq-kk-sclip-sclip_mean-ns5_pa-ns5_pakk-ns5_g025-ns5_g050-ns5_g075-ns5_g125-svd_pa-svd_pakk-svd_g025-svd_g050-svd_g075-svd_g125.config.json",
+      "records": "/data/Multimodal-final-project/outputs/pa_mechanism/phase2/runs/ade20k_off_2000_24000_qk-qq-kk-sclip-sclip_mean-ns5_pa-ns5_pakk-ns5_g025-ns5_g050-ns5_g075-ns5_g125-svd_pa-svd_pakk-svd_g025-svd_g050-svd_g075-svd_g125.jsonl",
+      "dataset": "ade20k",
+      "tlp": "off",
+      "variants": [
+        "qk",
+        "qq",
+        "kk",
+        "sclip",
+        "sclip_mean",
+        "ns5_pa",
+        "ns5_pakk",
+        "ns5_g025",
+        "ns5_g050",
+        "ns5_g075",
+        "ns5_g125",
+        "svd_pa",
+        "svd_pakk",
+        "svd_g025",
+        "svd_g050",
+        "svd_g075",
+        "svd_g125"
+      ],
+      "expected_images": 2000,
+      "completed_images": {
+        "qk": 2000,
+        "qq": 2000,
+        "kk": 2000,
+        "sclip": 2000,
+        "sclip_mean": 2000,
+        "ns5_pa": 2000,
+        "ns5_pakk": 2000,
+        "ns5_g025": 2000,
+        "ns5_g050": 2000,
+        "ns5_g075": 2000,
+        "ns5_g125": 2000,
+        "svd_pa": 2000,
+        "svd_pakk": 2000,
+        "svd_g025": 2000,
+        "svd_g050": 2000,
+        "svd_g075": 2000,
+        "svd_g125": 2000
+      },
+      "complete": true,
+      "seed": 24000,
+      "base_commit": "86edd05d70bf90b5363c8b246896d70028bddeb5"
+    },
+    {
+      "config": "/data/Multimodal-final-project/outputs/pa_mechanism/phase2/runs/ade20k_on_2000_24000_qq-kk-sclip-sclip_mean-ns5_pa-ns5_pakk-svd_pakk.config.json",
+      "records": "/data/Multimodal-final-project/outputs/pa_mechanism/phase2/runs/ade20k_on_2000_24000_qq-kk-sclip-sclip_mean-ns5_pa-ns5_pakk-svd_pakk.jsonl",
+      "dataset": "ade20k",
+      "tlp": "on",
+      "variants": [
+        "qq",
+        "kk",
+        "sclip",
+        "sclip_mean",
+        "ns5_pa",
+        "ns5_pakk",
+        "svd_pakk"
+      ],
+      "expected_images": 2000,
+      "completed_images": {
+        "qq": 2000,
+        "kk": 2000,
+        "sclip": 2000,
+        "sclip_mean": 2000,
+        "ns5_pa": 2000,
+        "ns5_pakk": 2000,
+        "svd_pakk": 2000
+      },
+      "complete": true,
+      "seed": 24000,
+      "base_commit": "86edd05d70bf90b5363c8b246896d70028bddeb5"
+    },
+    {
+      "config": "/data/Multimodal-final-project/outputs/pa_mechanism/phase2/runs/voc20_off_1449_24000_kk-sclip-sclip_mean.config.json",
+      "records": "/data/Multimodal-final-project/outputs/pa_mechanism/phase2/runs/voc20_off_1449_24000_kk-sclip-sclip_mean.jsonl",
+      "dataset": "voc20",
+      "tlp": "off",
+      "variants": [
+        "kk",
+        "sclip",
+        "sclip_mean"
+      ],
+      "expected_images": 1449,
+      "completed_images": {
+        "kk": 1449,
+        "sclip": 1449,
+        "sclip_mean": 1449
+      },
+      "complete": true,
+      "seed": 24000,
+      "base_commit": "86edd05d70bf90b5363c8b246896d70028bddeb5"
+    },
+    {
+      "config": "/data/Multimodal-final-project/outputs/pa_mechanism/phase2/runs/voc20_off_1449_24000_ns1_pa-ns3_pa-ns10_pa-ns20_pa.config.json",
+      "records": "/data/Multimodal-final-project/outputs/pa_mechanism/phase2/runs/voc20_off_1449_24000_ns1_pa-ns3_pa-ns10_pa-ns20_pa.jsonl",
+      "dataset": "voc20",
+      "tlp": "off",
+      "variants": [
+        "ns1_pa",
+        "ns3_pa",
+        "ns10_pa",
+        "ns20_pa"
+      ],
+      "expected_images": 1449,
+      "completed_images": {
+        "ns1_pa": 1449,
+        "ns3_pa": 1449,
+        "ns10_pa": 1449,
+        "ns20_pa": 1449
+      },
+      "complete": true,
+      "seed": 24000,
+      "base_commit": "86edd05d70bf90b5363c8b246896d70028bddeb5"
+    },
+    {
+      "config": "/data/Multimodal-final-project/outputs/pa_mechanism/phase2/runs/voc20_off_1449_24000_ns5_g025-ns5_g050-ns5_g075-ns5_g125.config.json",
+      "records": "/data/Multimodal-final-project/outputs/pa_mechanism/phase2/runs/voc20_off_1449_24000_ns5_g025-ns5_g050-ns5_g075-ns5_g125.jsonl",
+      "dataset": "voc20",
+      "tlp": "off",
+      "variants": [
+        "ns5_g025",
+        "ns5_g050",
+        "ns5_g075",
+        "ns5_g125"
+      ],
+      "expected_images": 1449,
+      "completed_images": {
+        "ns5_g025": 1449,
+        "ns5_g050": 1449,
+        "ns5_g075": 1449,
+        "ns5_g125": 1449
+      },
+      "complete": true,
+      "seed": 24000,
+      "base_commit": "86edd05d70bf90b5363c8b246896d70028bddeb5"
+    },
+    {
+      "config": "/data/Multimodal-final-project/outputs/pa_mechanism/phase2/runs/voc20_off_1449_24000_ns5_qqmatch-svd_qqmatch.config.json",
+      "records": "/data/Multimodal-final-project/outputs/pa_mechanism/phase2/runs/voc20_off_1449_24000_ns5_qqmatch-svd_qqmatch.jsonl",
+      "dataset": "voc20",
+      "tlp": "off",
+      "variants": [
+        "ns5_qqmatch",
+        "svd_qqmatch"
+      ],
+      "expected_images": 1449,
+      "completed_images": {
+        "ns5_qqmatch": 1449,
+        "svd_qqmatch": 1449
+      },
+      "complete": true,
+      "seed": 24000,
+      "base_commit": "86edd05d70bf90b5363c8b246896d70028bddeb5"
+    },
+    {
+      "config": "/data/Multimodal-final-project/outputs/pa_mechanism/phase2/runs/voc20_off_1449_24000_svd_pa-svd_pakk-svd_g025-svd_g050-svd_g075-svd_g125.config.json",
+      "records": "/data/Multimodal-final-project/outputs/pa_mechanism/phase2/runs/voc20_off_1449_24000_svd_pa-svd_pakk-svd_g025-svd_g050-svd_g075-svd_g125.jsonl",
+      "dataset": "voc20",
+      "tlp": "off",
+      "variants": [
+        "svd_pa",
+        "svd_pakk",
+        "svd_g025",
+        "svd_g050",
+        "svd_g075",
+        "svd_g125"
+      ],
+      "expected_images": 1449,
+      "completed_images": {
+        "svd_pa": 1449,
+        "svd_pakk": 1449,
+        "svd_g025": 1449,
+        "svd_g050": 1449,
+        "svd_g075": 1449,
+        "svd_g125": 1449
+      },
+      "complete": true,
+      "seed": 24000,
+      "base_commit": "86edd05d70bf90b5363c8b246896d70028bddeb5"
+    },
+    {
+      "config": "/data/Multimodal-final-project/outputs/pa_mechanism/phase2/runs/voc20_on_1449_24000_qq-kk-sclip-sclip_mean-ns5_pa-ns5_pakk-svd_pakk.config.json",
+      "records": "/data/Multimodal-final-project/outputs/pa_mechanism/phase2/runs/voc20_on_1449_24000_qq-kk-sclip-sclip_mean-ns5_pa-ns5_pakk-svd_pakk.jsonl",
+      "dataset": "voc20",
+      "tlp": "on",
+      "variants": [
+        "qq",
+        "kk",
+        "sclip",
+        "sclip_mean",
+        "ns5_pa",
+        "ns5_pakk",
+        "svd_pakk"
+      ],
+      "expected_images": 1449,
+      "completed_images": {
+        "qq": 1449,
+        "kk": 1449,
+        "sclip": 1449,
+        "sclip_mean": 1449,
+        "ns5_pa": 1449,
+        "ns5_pakk": 1449,
+        "svd_pakk": 1449
+      },
+      "complete": true,
+      "seed": 24000,
+      "base_commit": "86edd05d70bf90b5363c8b246896d70028bddeb5"
+    },
+    {
+      "config": "/data/Multimodal-final-project/outputs/pa_mechanism/phase2/runs/voc21_off_1449_24000_ns1_pa-ns3_pa-ns10_pa-ns20_pa.config.json",
+      "records": "/data/Multimodal-final-project/outputs/pa_mechanism/phase2/runs/voc21_off_1449_24000_ns1_pa-ns3_pa-ns10_pa-ns20_pa.jsonl",
+      "dataset": "voc21",
+      "tlp": "off",
+      "variants": [
+        "ns1_pa",
+        "ns3_pa",
+        "ns10_pa",
+        "ns20_pa"
+      ],
+      "expected_images": 1449,
+      "completed_images": {
+        "ns1_pa": 1449,
+        "ns3_pa": 1449,
+        "ns10_pa": 1449,
+        "ns20_pa": 1449
+      },
+      "complete": true,
+      "seed": 24000,
+      "base_commit": "86edd05d70bf90b5363c8b246896d70028bddeb5"
+    },
+    {
+      "config": "/data/Multimodal-final-project/outputs/pa_mechanism/phase2/runs/voc21_off_1449_24000_ns5_qqmatch-svd_qqmatch.config.json",
+      "records": "/data/Multimodal-final-project/outputs/pa_mechanism/phase2/runs/voc21_off_1449_24000_ns5_qqmatch-svd_qqmatch.jsonl",
+      "dataset": "voc21",
+      "tlp": "off",
+      "variants": [
+        "ns5_qqmatch",
+        "svd_qqmatch"
+      ],
+      "expected_images": 1449,
+      "completed_images": {
+        "ns5_qqmatch": 1449,
+        "svd_qqmatch": 1449
+      },
+      "complete": true,
+      "seed": 24000,
+      "base_commit": "86edd05d70bf90b5363c8b246896d70028bddeb5"
+    },
+    {
+      "config": "/data/Multimodal-final-project/outputs/pa_mechanism/phase2/runs/voc21_off_1449_24000_svd_pa-svd_pakk-svd_g025-svd_g050-svd_g075-svd_g125.config.json",
+      "records": "/data/Multimodal-final-project/outputs/pa_mechanism/phase2/runs/voc21_off_1449_24000_svd_pa-svd_pakk-svd_g025-svd_g050-svd_g075-svd_g125.jsonl",
+      "dataset": "voc21",
+      "tlp": "off",
+      "variants": [
+        "svd_pa",
+        "svd_pakk",
+        "svd_g025",
+        "svd_g050",
+        "svd_g075",
+        "svd_g125"
+      ],
+      "expected_images": 1449,
+      "completed_images": {
+        "svd_pa": 1449,
+        "svd_pakk": 1449,
+        "svd_g025": 1449,
+        "svd_g050": 1449,
+        "svd_g075": 1449,
+        "svd_g125": 1449
+      },
+      "complete": true,
+      "seed": 24000,
+      "base_commit": "86edd05d70bf90b5363c8b246896d70028bddeb5"
+    },
+    {
+      "config": "/data/Multimodal-final-project/outputs/pa_mechanism/phase2/runs/voc21_off_32_24000_ns1_pa-ns3_pa-ns5_pa-ns10_pa-ns20_pa.config.json",
+      "records": "/data/Multimodal-final-project/outputs/pa_mechanism/phase2/runs/voc21_off_32_24000_ns1_pa-ns3_pa-ns5_pa-ns10_pa-ns20_pa.jsonl",
+      "dataset": "voc21",
+      "tlp": "off",
+      "variants": [
+        "ns1_pa",
+        "ns3_pa",
+        "ns5_pa",
+        "ns10_pa",
+        "ns20_pa"
+      ],
+      "expected_images": 32,
+      "completed_images": {
+        "ns1_pa": 32,
+        "ns3_pa": 32,
+        "ns5_pa": 32,
+        "ns10_pa": 32,
+        "ns20_pa": 32
+      },
+      "complete": true,
+      "seed": 24000,
+      "base_commit": "86edd05d70bf90b5363c8b246896d70028bddeb5"
+    },
+    {
+      "config": "/data/Multimodal-final-project/outputs/pa_mechanism/phase2/runs/voc21_on_1449_24000_qq-kk-sclip-sclip_mean-ns5_pa-ns5_pakk-svd_pakk.config.json",
+      "records": "/data/Multimodal-final-project/outputs/pa_mechanism/phase2/runs/voc21_on_1449_24000_qq-kk-sclip-sclip_mean-ns5_pa-ns5_pakk-svd_pakk.jsonl",
+      "dataset": "voc21",
+      "tlp": "on",
+      "variants": [
+        "qq",
+        "kk",
+        "sclip",
+        "sclip_mean",
+        "ns5_pa",
+        "ns5_pakk",
+        "svd_pakk"
+      ],
+      "expected_images": 1449,
+      "completed_images": {
+        "qq": 1449,
+        "kk": 1449,
+        "sclip": 1449,
+        "sclip_mean": 1449,
+        "ns5_pa": 1449,
+        "ns5_pakk": 1449,
+        "svd_pakk": 1449
+      },
+      "complete": true,
+      "seed": 24000,
+      "base_commit": "86edd05d70bf90b5363c8b246896d70028bddeb5"
+    }
+  ],
+  "voc21_attention_diagnostic_images": 1449,
+  "voc21_key_receiver_diagnostic_images": 1449,
+  "voc21_foreground_background_audit_images": 1449,
+  "ade20k_attention_sampled_crop_images": 2000,
+  "benchmark_files": [
+    "/data/Multimodal-final-project/outputs/pa_mechanism/phase2/metrics/benchmark_voc21_tlp_off.json",
+    "/data/Multimodal-final-project/outputs/pa_mechanism/phase2/metrics/benchmark_voc21_tlp_on.json"
+  ],
+  "artifacts_root": "/data/Multimodal-final-project/outputs/pa_mechanism/phase2"
+}
