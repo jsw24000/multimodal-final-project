@@ -93,7 +93,7 @@ class VisionTransformer(nn.Module):
 
     def set_params(self, arch, attn_strategy):
         assert arch in ['reduced', 'vanilla']
-        assert attn_strategy in ['pearl', 'vanilla']
+        assert attn_strategy in ['pearl', 'vanilla', 'qk', 'qq', 'kk', 'sclip', 'sclip_mean', 'pure_pa', 'pa_kk', 'gamma']
 
         self.arch, self.attn_strategy = arch, attn_strategy
 
@@ -228,6 +228,18 @@ class VisionTransformer(nn.Module):
         q = q.contiguous().view(-1, bsz * num_heads, head_dim).transpose(0, 1)
         k = k.contiguous().view(-1, bsz * num_heads, head_dim).transpose(0, 1)
         v = v.contiguous().view(-1, bsz * num_heads, head_dim).transpose(0, 1)
+
+        if self.attn_strategy in ('qk', 'qq', 'kk', 'sclip', 'sclip_mean', 'pure_pa', 'pa_kk', 'gamma'):
+            from experiments.pa_mechanism.attention_variants import attention
+            weights = attention(q, k, self.attn_strategy,
+                                gamma=getattr(self, 'gamma', 1.),
+                                alpha_kk=self.alpha_kk, solver=self.align_solver)
+            if return_attn:
+                return weights.to(q.dtype)
+            output = torch.bmm(weights, v.float()).to(v.dtype)
+            output = output.transpose(0, 1).contiguous().view(-1, bsz, embed_dim)
+            output = attn_layer.out_proj(output)
+            return (output, weights.to(q.dtype)) if with_attn else output
 
         # ------------------------------------------------------------------
         # PEARL  (Procrustes Alignment in Self-Attention)

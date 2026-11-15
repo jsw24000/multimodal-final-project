@@ -1,0 +1,41 @@
+{
+  "base_commit": "fd72506466f593533e5c10d98ae665a0373e11c6",
+  "checkpoint": "/data/Multimodal-final-project/checkpoints/clip/ViT-B-16.pt",
+  "checkpoint_sha256": "5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition",
+  "python_environment": "/data/Multimodal-final-project/cache/conda_envs/pearl",
+  "architecture": "reduced",
+  "tlp": "off",
+  "solver": "released five-step Newton-Schulz polar for PA inference; exact SVD in held-out diagnostics",
+  "alpha_kk_voc": 0.08,
+  "seed": 24000,
+  "voc21_full": {
+    "status": "complete",
+    "images": 1449,
+    "variants": ["qk", "qq", "kk", "sclip", "sclip_mean", "pure_pa", "pa_kk", "gamma_0.25", "gamma_0.5", "gamma_0.75", "gamma_1.25"],
+    "run_file": "/data/Multimodal-final-project/outputs/pa_mechanism/runs/eval_1449_24000_11.json",
+    "summary": "results/pa_mechanism_summary.csv"
+  },
+  "voc21_attention_diagnostics": {
+    "status": "pilot",
+    "images": 16,
+    "per_head_observations": 192,
+    "run_file": "/data/Multimodal-final-project/outputs/pa_mechanism/metrics/geometry_16_24000.json"
+  },
+  "voc20_full": {
+    "status": "complete",
+    "images": 1449,
+    "variants": ["qk", "qq", "pure_pa", "pa_kk"],
+    "run_file": "/data/Multimodal-final-project/outputs/pa_mechanism/runs/eval_voc20_1449_24000_4.json",
+    "summary": "results/pa_mechanism_voc20_summary.csv"
+  },
+  "ade20k_pilot": {
+    "status": "pilot",
+    "images": 32,
+    "alpha_kk": 0.3,
+    "variants": ["qk", "qq", "pure_pa", "pa_kk"],
+    "run_file": "/data/Multimodal-final-project/outputs/pa_mechanism/runs/eval_ade20k_32_24000_4.json",
+    "summary": "results/pa_mechanism_ade20k_pilot.csv"
+  },
+  "figures_full_resolution": "/data/Multimodal-final-project/outputs/pa_mechanism/figures/"
+}
