@@ -1,0 +1,2 @@
+dataset,tlp,variant,n,mIoU,mAcc,pAcc,delta_vs_first,ci_low,ci_high
+voc21,on,g100,1449,63.659858034434556,84.49694549438382,88.40460351859552,0.0,0,0

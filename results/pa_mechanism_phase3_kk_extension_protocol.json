@@ -1,0 +1,11 @@
+{
+  "status": "conditional exploratory extension after completing the three-dataset Pure PA and TLP comparisons",
+  "reason": "Residual gamma=1.25 improves Pure PA at least on VOC21 and ADE20K, but Pure PA plus TLP remains below original PEARL on VOC20 and ADE20K. Test whether a small centered KK term adds value.",
+  "fixed_gamma": 1.25,
+  "formula": "softmax((QQ^T + gamma Q E^T + alpha Kc Kc^T)/sqrt(d))",
+  "alpha_candidates_voc21_voc20": [0, 0.03, 0.08, 0.15],
+  "alpha_candidates_ade20k": [0, 0.03, 0.08, 0.15, 0.30],
+  "first_stage": "TLP off on all complete validation splits; alpha=0 is the historical gamma=1.25 result",
+  "second_stage": "Only a development-set-supported alpha is considered for full TLP-on testing, using the Phase 3 fixed development partitions. Report all off results and any on results with the same full/holdout protocol.",
+  "interpretation": "All alpha>0 variants are Residual-Enhanced PA+KK, not Pure PA. This follow-on is exploratory because Phase 3 full-split Pure PA and TLP results were inspected before planning it."
+}

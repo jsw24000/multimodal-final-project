@@ -1,0 +1,130 @@
+{
+  "protocol": {
+    "purpose": "Select one shared Pure PA SVD residual strength without using held-out labels",
+    "model_weights_updated": false,
+    "labeled_development_selection": true,
+    "source_split": "released validation images, partitioned by index before development/holdout scoring; the initial VOC21 full-split exploratory curve had already been inspected",
+    "voc21_voc20": {
+      "seed": 24003,
+      "development_images": 435,
+      "holdout_images": 1014,
+      "paired_image_indices": true
+    },
+    "ade20k": {
+      "seed": 24004,
+      "development_images": 600,
+      "holdout_images": 1400
+    },
+    "gamma_candidates": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      1,
+      1.25,
+      1.5,
+      2,
+      2.5,
+      3
+    ],
+    "weighted_csa_lambda_candidates": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      1
+    ],
+    "shared_gamma_criterion": "maximize the unweighted mean development mIoU difference from fixed CSA mean across VOC21, VOC20 and ADE20K; ties choose smaller gamma",
+    "shared_lambda_criterion": "maximize the unweighted mean development mIoU of weighted CSA across the same three splits; ties choose smaller lambda",
+    "reported_holdout_comparison": "shared selected gamma against fixed CSA mean and gamma=1 on all three holdouts",
+    "full_validation_curves": "exploratory, not independent confirmation after parameter choice",
+    "blinding_limit": "Because initial VOC21 full-split results were inspected before freezing this index partition, the VOC21 holdout is not fully blinded to the research process. All parameter selection computations use development indices only."
+  },
+  "shared_gamma": "g125",
+  "shared_lambda": "cw075",
+  "candidates": {
+    "g000": -0.2560396438745573,
+    "g025": 0.022891985161308526,
+    "g050": 0.2046171423434752,
+    "g075": 0.3143605092907862,
+    "g100": 0.3748255856068745,
+    "g125": 0.3895553582101587,
+    "g150": 0.3466969760974467,
+    "g200": 0.10733876315058903,
+    "g250": -0.3541590253554657,
+    "g300": -1.077231378320705,
+    "cw000": -1.240972555853027,
+    "cw025": -0.4244700178566987,
+    "cw050": 0.0,
+    "cw075": 0.0653138513632238,
+    "cw100": -0.2560396438745573
+  },
+  "dataset_checks": {
+    "voc21": {
+      "g125": {
+        "development_mIoU": 57.072886467724125,
+        "holdout_mIoU": 59.84241204024161,
+        "full_mIoU": 59.238236890734385
+      },
+      "cw075": {
+        "development_mIoU": 56.54542602344672,
+        "holdout_mIoU": 59.37522227670258,
+        "full_mIoU": 58.76260816316182
+      },
+      "csa": {
+        "development_mIoU": 57.11531365891318,
+        "holdout_mIoU": 59.89673727018449,
+        "full_mIoU": 59.29934393319192
+      },
+      "g100": {
+        "development_mIoU": 56.89458157220305,
+        "holdout_mIoU": 59.68874570769695,
+        "full_mIoU": 59.078737891368945
+      }
+    },
+    "voc20": {
+      "g125": {
+        "development_mIoU": 82.21023120298035,
+        "holdout_mIoU": 85.1900369708033,
+        "full_mIoU": 84.45052024744032
+      },
+      "cw075": {
+        "development_mIoU": 82.17950257928483,
+        "holdout_mIoU": 85.0311218447038,
+        "full_mIoU": 84.32174141937614
+      },
+      "csa": {
+        "development_mIoU": 81.284333280566,
+        "holdout_mIoU": 84.1870899169203,
+        "full_mIoU": 83.47902727848341
+      },
+      "g100": {
+        "development_mIoU": 82.42645101308037,
+        "holdout_mIoU": 85.35875356029783,
+        "full_mIoU": 84.62415540586024
+      }
+    },
+    "ade20k": {
+      "g125": {
+        "development_mIoU": 17.70706798461534,
+        "holdout_mIoU": 17.527522214006595,
+        "full_mIoU": 17.859021729475945
+      },
+      "cw075": {
+        "development_mIoU": 17.29253253204746,
+        "holdout_mIoU": 17.26768868977334,
+        "full_mIoU": 17.541167652801455
+      },
+      "csa": {
+        "development_mIoU": 17.421872641210157,
+        "holdout_mIoU": 17.355887216355327,
+        "full_mIoU": 17.634252824380724
+      },
+      "g100": {
+        "development_mIoU": 17.624963752226545,
+        "holdout_mIoU": 17.475211274382385,
+        "full_mIoU": 17.795862534203795
+      }
+    }
+  }
+}

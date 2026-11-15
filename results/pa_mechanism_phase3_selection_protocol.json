@@ -1,0 +1,24 @@
+{
+  "purpose": "Select one shared Pure PA SVD residual strength without using held-out labels",
+  "model_weights_updated": false,
+  "labeled_development_selection": true,
+  "source_split": "released validation images, partitioned by index before development/holdout scoring; the initial VOC21 full-split exploratory curve had already been inspected",
+  "voc21_voc20": {
+    "seed": 24003,
+    "development_images": 435,
+    "holdout_images": 1014,
+    "paired_image_indices": true
+  },
+  "ade20k": {
+    "seed": 24004,
+    "development_images": 600,
+    "holdout_images": 1400
+  },
+  "gamma_candidates": [0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 2, 2.5, 3],
+  "weighted_csa_lambda_candidates": [0, 0.25, 0.5, 0.75, 1],
+  "shared_gamma_criterion": "maximize the unweighted mean development mIoU difference from fixed CSA mean across VOC21, VOC20 and ADE20K; ties choose smaller gamma",
+  "shared_lambda_criterion": "maximize the unweighted mean development mIoU of weighted CSA across the same three splits; ties choose smaller lambda",
+  "reported_holdout_comparison": "shared selected gamma against fixed CSA mean and gamma=1 on all three holdouts",
+  "full_validation_curves": "exploratory, not independent confirmation after parameter choice",
+  "blinding_limit": "Because initial VOC21 full-split results were inspected before freezing this index partition, the VOC21 holdout is not fully blinded to the research process. All parameter selection computations use development indices only."
+}

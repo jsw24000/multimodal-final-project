@@ -1,0 +1,392 @@
+{
+  "created_from": "actual Phase 3 raw records",
+  "base_commit_at_generation": "62a0cb25d4aab7572f178374596333d1836c2c2b",
+  "checkpoint": "/data/Multimodal-final-project/checkpoints/clip/ViT-B-16.pt",
+  "checkpoint_sha256": "5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f",
+  "data_root": "/data/Multimodal-final-project",
+  "environment": "/data/Multimodal-final-project/cache/conda_envs/pearl",
+  "selection_protocol": "results/pa_mechanism_phase3_selection_protocol.json",
+  "runs": [
+    {
+      "config": "/data/Multimodal-final-project/outputs/pa_mechanism/phase3/runs/ade20k_off_2000_24003_g150-g200-g250-g300-kb025-kb050-kb075-cb025-cb050-cb075-cw025-cw075.config.json",
+      "records": "/data/Multimodal-final-project/outputs/pa_mechanism/phase3/runs/ade20k_off_2000_24003_g150-g200-g250-g300-kb025-kb050-kb075-cb025-cb050-cb075-cw025-cw075.jsonl",
+      "dataset": "ade20k",
+      "tlp": "off",
+      "variants": [
+        "g150",
+        "g200",
+        "g250",
+        "g300",
+        "kb025",
+        "kb050",
+        "kb075",
+        "cb025",
+        "cb050",
+        "cb075",
+        "cw025",
+        "cw075"
+      ],
+      "expected_images": 2000,
+      "completed_images": {
+        "g150": 2000,
+        "g200": 2000,
+        "g250": 2000,
+        "g300": 2000,
+        "kb025": 2000,
+        "kb050": 2000,
+        "kb075": 2000,
+        "cb025": 2000,
+        "cb050": 2000,
+        "cb075": 2000,
+        "cw025": 2000,
+        "cw075": 2000
+      },
+      "complete": true,
+      "duplicate_or_unknown_records": 0,
+      "seed": 24003,
+      "solver": "svd",
+      "original_alpha_kk": 0.3,
+      "slide_crop": 224,
+      "slide_stride": 112,
+      "checkpoint": "/data/Multimodal-final-project/checkpoints/clip/ViT-B-16.pt",
+      "git_base_commit": "62a0cb25d4aab7572f178374596333d1836c2c2b"
+    },
+    {
+      "config": "/data/Multimodal-final-project/outputs/pa_mechanism/phase3/runs/ade20k_off_2000_24003_rk_g125_a003-rk_g125_a008-rk_g125_a015-rk_g125_a030.config.json",
+      "records": "/data/Multimodal-final-project/outputs/pa_mechanism/phase3/runs/ade20k_off_2000_24003_rk_g125_a003-rk_g125_a008-rk_g125_a015-rk_g125_a030.jsonl",
+      "dataset": "ade20k",
+      "tlp": "off",
+      "variants": [
+        "rk_g125_a003",
+        "rk_g125_a008",
+        "rk_g125_a015",
+        "rk_g125_a030"
+      ],
+      "expected_images": 2000,
+      "completed_images": {
+        "rk_g125_a003": 2000,
+        "rk_g125_a008": 2000,
+        "rk_g125_a015": 2000,
+        "rk_g125_a030": 2000
+      },
+      "complete": true,
+      "duplicate_or_unknown_records": 0,
+      "seed": 24003,
+      "solver": "svd",
+      "original_alpha_kk": 0.3,
+      "slide_crop": 224,
+      "slide_stride": 112,
+      "checkpoint": "/data/Multimodal-final-project/checkpoints/clip/ViT-B-16.pt",
+      "git_base_commit": "62a0cb25d4aab7572f178374596333d1836c2c2b"
+    },
+    {
+      "config": "/data/Multimodal-final-project/outputs/pa_mechanism/phase3/runs/ade20k_on_2000_24003_g100.config.json",
+      "records": "/data/Multimodal-final-project/outputs/pa_mechanism/phase3/runs/ade20k_on_2000_24003_g100.jsonl",
+      "dataset": "ade20k",
+      "tlp": "on",
+      "variants": [
+        "g100"
+      ],
+      "expected_images": 2000,
+      "completed_images": {
+        "g100": 2000
+      },
+      "complete": true,
+      "duplicate_or_unknown_records": 0,
+      "seed": 24003,
+      "solver": "svd",
+      "original_alpha_kk": 0.3,
+      "slide_crop": 224,
+      "slide_stride": 112,
+      "checkpoint": "/data/Multimodal-final-project/checkpoints/clip/ViT-B-16.pt",
+      "git_base_commit": "62a0cb25d4aab7572f178374596333d1836c2c2b"
+    },
+    {
+      "config": "/data/Multimodal-final-project/outputs/pa_mechanism/phase3/runs/ade20k_on_2000_24003_g125-g150-cw075.config.json",
+      "records": "/data/Multimodal-final-project/outputs/pa_mechanism/phase3/runs/ade20k_on_2000_24003_g125-g150-cw075.jsonl",
+      "dataset": "ade20k",
+      "tlp": "on",
+      "variants": [
+        "g125",
+        "g150",
+        "cw075"
+      ],
+      "expected_images": 2000,
+      "completed_images": {
+        "g125": 2000,
+        "g150": 2000,
+        "cw075": 2000
+      },
+      "complete": true,
+      "duplicate_or_unknown_records": 0,
+      "seed": 24003,
+      "solver": "svd",
+      "original_alpha_kk": 0.3,
+      "slide_crop": 224,
+      "slide_stride": 112,
+      "checkpoint": "/data/Multimodal-final-project/checkpoints/clip/ViT-B-16.pt",
+      "git_base_commit": "62a0cb25d4aab7572f178374596333d1836c2c2b"
+    },
+    {
+      "config": "/data/Multimodal-final-project/outputs/pa_mechanism/phase3/runs/ade20k_on_2000_24003_rk_g125_a008.config.json",
+      "records": "/data/Multimodal-final-project/outputs/pa_mechanism/phase3/runs/ade20k_on_2000_24003_rk_g125_a008.jsonl",
+      "dataset": "ade20k",
+      "tlp": "on",
+      "variants": [
+        "rk_g125_a008"
+      ],
+      "expected_images": 2000,
+      "completed_images": {
+        "rk_g125_a008": 2000
+      },
+      "complete": true,
+      "duplicate_or_unknown_records": 0,
+      "seed": 24003,
+      "solver": "svd",
+      "original_alpha_kk": 0.3,
+      "slide_crop": 224,
+      "slide_stride": 112,
+      "checkpoint": "/data/Multimodal-final-project/checkpoints/clip/ViT-B-16.pt",
+      "git_base_commit": "62a0cb25d4aab7572f178374596333d1836c2c2b"
+    },
+    {
+      "config": "/data/Multimodal-final-project/outputs/pa_mechanism/phase3/runs/voc20_off_1449_24003_g150-g200-g250-g300-kb025-kb050-kb075-cb025-cb050-cb075-cw025-cw075.config.json",
+      "records": "/data/Multimodal-final-project/outputs/pa_mechanism/phase3/runs/voc20_off_1449_24003_g150-g200-g250-g300-kb025-kb050-kb075-cb025-cb050-cb075-cw025-cw075.jsonl",
+      "dataset": "voc20",
+      "tlp": "off",
+      "variants": [
+        "g150",
+        "g200",
+        "g250",
+        "g300",
+        "kb025",
+        "kb050",
+        "kb075",
+        "cb025",
+        "cb050",
+        "cb075",
+        "cw025",
+        "cw075"
+      ],
+      "expected_images": 1449,
+      "completed_images": {
+        "g150": 1449,
+        "g200": 1449,
+        "g250": 1449,
+        "g300": 1449,
+        "kb025": 1449,
+        "kb050": 1449,
+        "kb075": 1449,
+        "cb025": 1449,
+        "cb050": 1449,
+        "cb075": 1449,
+        "cw025": 1449,
+        "cw075": 1449
+      },
+      "complete": true,
+      "duplicate_or_unknown_records": 0,
+      "seed": 24003,
+      "solver": "svd",
+      "original_alpha_kk": 0.08,
+      "slide_crop": 0,
+      "slide_stride": 112,
+      "checkpoint": "/data/Multimodal-final-project/checkpoints/clip/ViT-B-16.pt",
+      "git_base_commit": "62a0cb25d4aab7572f178374596333d1836c2c2b"
+    },
+    {
+      "config": "/data/Multimodal-final-project/outputs/pa_mechanism/phase3/runs/voc20_off_1449_24003_rk_g125_a003-rk_g125_a008-rk_g125_a015.config.json",
+      "records": "/data/Multimodal-final-project/outputs/pa_mechanism/phase3/runs/voc20_off_1449_24003_rk_g125_a003-rk_g125_a008-rk_g125_a015.jsonl",
+      "dataset": "voc20",
+      "tlp": "off",
+      "variants": [
+        "rk_g125_a003",
+        "rk_g125_a008",
+        "rk_g125_a015"
+      ],
+      "expected_images": 1449,
+      "completed_images": {
+        "rk_g125_a003": 1449,
+        "rk_g125_a008": 1449,
+        "rk_g125_a015": 1449
+      },
+      "complete": true,
+      "duplicate_or_unknown_records": 0,
+      "seed": 24003,
+      "solver": "svd",
+      "original_alpha_kk": 0.08,
+      "slide_crop": 0,
+      "slide_stride": 112,
+      "checkpoint": "/data/Multimodal-final-project/checkpoints/clip/ViT-B-16.pt",
+      "git_base_commit": "62a0cb25d4aab7572f178374596333d1836c2c2b"
+    },
+    {
+      "config": "/data/Multimodal-final-project/outputs/pa_mechanism/phase3/runs/voc20_on_1449_24003_g100.config.json",
+      "records": "/data/Multimodal-final-project/outputs/pa_mechanism/phase3/runs/voc20_on_1449_24003_g100.jsonl",
+      "dataset": "voc20",
+      "tlp": "on",
+      "variants": [
+        "g100"
+      ],
+      "expected_images": 1449,
+      "completed_images": {
+        "g100": 1449
+      },
+      "complete": true,
+      "duplicate_or_unknown_records": 0,
+      "seed": 24003,
+      "solver": "svd",
+      "original_alpha_kk": 0.08,
+      "slide_crop": 0,
+      "slide_stride": 112,
+      "checkpoint": "/data/Multimodal-final-project/checkpoints/clip/ViT-B-16.pt",
+      "git_base_commit": "62a0cb25d4aab7572f178374596333d1836c2c2b"
+    },
+    {
+      "config": "/data/Multimodal-final-project/outputs/pa_mechanism/phase3/runs/voc20_on_1449_24003_g125-g150-cw075.config.json",
+      "records": "/data/Multimodal-final-project/outputs/pa_mechanism/phase3/runs/voc20_on_1449_24003_g125-g150-cw075.jsonl",
+      "dataset": "voc20",
+      "tlp": "on",
+      "variants": [
+        "g125",
+        "g150",
+        "cw075"
+      ],
+      "expected_images": 1449,
+      "completed_images": {
+        "g125": 1449,
+        "g150": 1449,
+        "cw075": 1449
+      },
+      "complete": true,
+      "duplicate_or_unknown_records": 0,
+      "seed": 24003,
+      "solver": "svd",
+      "original_alpha_kk": 0.08,
+      "slide_crop": 0,
+      "slide_stride": 112,
+      "checkpoint": "/data/Multimodal-final-project/checkpoints/clip/ViT-B-16.pt",
+      "git_base_commit": "62a0cb25d4aab7572f178374596333d1836c2c2b"
+    },
+    {
+      "config": "/data/Multimodal-final-project/outputs/pa_mechanism/phase3/runs/voc21_off_1449_24003_g150-g200-g250-g300-kb025-kb050-kb075-cb025-cb050-cb075-cw025-cw075.config.json",
+      "records": "/data/Multimodal-final-project/outputs/pa_mechanism/phase3/runs/voc21_off_1449_24003_g150-g200-g250-g300-kb025-kb050-kb075-cb025-cb050-cb075-cw025-cw075.jsonl",
+      "dataset": "voc21",
+      "tlp": "off",
+      "variants": [
+        "g150",
+        "g200",
+        "g250",
+        "g300",
+        "kb025",
+        "kb050",
+        "kb075",
+        "cb025",
+        "cb050",
+        "cb075",
+        "cw025",
+        "cw075"
+      ],
+      "expected_images": 1449,
+      "completed_images": {
+        "g150": 1449,
+        "g200": 1449,
+        "g250": 1449,
+        "g300": 1449,
+        "kb025": 1449,
+        "kb050": 1449,
+        "kb075": 1449,
+        "cb025": 1449,
+        "cb050": 1449,
+        "cb075": 1449,
+        "cw025": 1449,
+        "cw075": 1449
+      },
+      "complete": true,
+      "duplicate_or_unknown_records": 0,
+      "seed": 24003,
+      "solver": "svd",
+      "original_alpha_kk": 0.08,
+      "slide_crop": 0,
+      "slide_stride": 112,
+      "checkpoint": "/data/Multimodal-final-project/checkpoints/clip/ViT-B-16.pt",
+      "git_base_commit": "62a0cb25d4aab7572f178374596333d1836c2c2b"
+    },
+    {
+      "config": "/data/Multimodal-final-project/outputs/pa_mechanism/phase3/runs/voc21_off_1449_24003_rk_g125_a003-rk_g125_a008-rk_g125_a015.config.json",
+      "records": "/data/Multimodal-final-project/outputs/pa_mechanism/phase3/runs/voc21_off_1449_24003_rk_g125_a003-rk_g125_a008-rk_g125_a015.jsonl",
+      "dataset": "voc21",
+      "tlp": "off",
+      "variants": [
+        "rk_g125_a003",
+        "rk_g125_a008",
+        "rk_g125_a015"
+      ],
+      "expected_images": 1449,
+      "completed_images": {
+        "rk_g125_a003": 1449,
+        "rk_g125_a008": 1449,
+        "rk_g125_a015": 1449
+      },
+      "complete": true,
+      "duplicate_or_unknown_records": 0,
+      "seed": 24003,
+      "solver": "svd",
+      "original_alpha_kk": 0.08,
+      "slide_crop": 0,
+      "slide_stride": 112,
+      "checkpoint": "/data/Multimodal-final-project/checkpoints/clip/ViT-B-16.pt",
+      "git_base_commit": "62a0cb25d4aab7572f178374596333d1836c2c2b"
+    },
+    {
+      "config": "/data/Multimodal-final-project/outputs/pa_mechanism/phase3/runs/voc21_on_1449_24003_g100.config.json",
+      "records": "/data/Multimodal-final-project/outputs/pa_mechanism/phase3/runs/voc21_on_1449_24003_g100.jsonl",
+      "dataset": "voc21",
+      "tlp": "on",
+      "variants": [
+        "g100"
+      ],
+      "expected_images": 1449,
+      "completed_images": {
+        "g100": 1449
+      },
+      "complete": true,
+      "duplicate_or_unknown_records": 0,
+      "seed": 24003,
+      "solver": "svd",
+      "original_alpha_kk": 0.08,
+      "slide_crop": 0,
+      "slide_stride": 112,
+      "checkpoint": "/data/Multimodal-final-project/checkpoints/clip/ViT-B-16.pt",
+      "git_base_commit": "62a0cb25d4aab7572f178374596333d1836c2c2b"
+    },
+    {
+      "config": "/data/Multimodal-final-project/outputs/pa_mechanism/phase3/runs/voc21_on_1449_24003_g125-g150-cw075.config.json",
+      "records": "/data/Multimodal-final-project/outputs/pa_mechanism/phase3/runs/voc21_on_1449_24003_g125-g150-cw075.jsonl",
+      "dataset": "voc21",
+      "tlp": "on",
+      "variants": [
+        "g125",
+        "g150",
+        "cw075"
+      ],
+      "expected_images": 1449,
+      "completed_images": {
+        "g125": 1449,
+        "g150": 1449,
+        "cw075": 1449
+      },
+      "complete": true,
+      "duplicate_or_unknown_records": 0,
+      "seed": 24003,
+      "solver": "svd",
+      "original_alpha_kk": 0.08,
+      "slide_crop": 0,
+      "slide_stride": 112,
+      "checkpoint": "/data/Multimodal-final-project/checkpoints/clip/ViT-B-16.pt",
+      "git_base_commit": "62a0cb25d4aab7572f178374596333d1836c2c2b"
+    }
+  ],
+  "runs_complete": 13,
+  "runs_total": 13,
+  "raw_root": "/data/Multimodal-final-project/outputs/pa_mechanism/phase3"
+}

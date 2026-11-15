@@ -1,0 +1,19 @@
+{
+  "fixed_gamma": 1.25,
+  "selection_scope": "conditional exploratory extension, TLP off labeled development partitions",
+  "voc21": {
+    "selected_alpha_for_tlp": null,
+    "reason": "alpha=0.03 differs from Pure PA by only +0.0005 development mIoU points and loses 0.0323 on holdout; larger alpha values lose on development"
+  },
+  "voc20": {
+    "selected_alpha_for_tlp": null,
+    "reason": "all positive alpha candidates reduce development mIoU relative to Pure PA"
+  },
+  "ade20k": {
+    "selected_alpha_for_tlp": 0.08,
+    "development_delta_mIoU_off": 0.0367,
+    "holdout_delta_mIoU_off": 0.0099,
+    "reason": "alpha=0.08 gives the largest development mIoU among tested positive alpha values"
+  },
+  "warning": "The extension was planned after observing core Phase 3 full-validation results; this is exploratory, not independent model selection."
+}

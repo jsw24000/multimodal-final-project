@@ -20,7 +20,8 @@ def alignment(q, k, solver='polar', polar_iters=5):
     return qc, kc, r, kc @ r - qc
 
 
-def attention(q, k, strategy, *, gamma=1., alpha_kk=.08, solver='polar', polar_iters=5):
+def attention(q, k, strategy, *, gamma=1., beta=.5, lambda_csa=.5,
+              alpha_kk=.08, solver='polar', polar_iters=5, alignment_result=None):
     q, k = q.float(), k.float()
     scale = q.shape[-1] ** -.5
     qq = (q @ q.transpose(1, 2)) * scale
@@ -31,6 +32,17 @@ def attention(q, k, strategy, *, gamma=1., alpha_kk=.08, solver='polar', polar_i
     elif strategy in ('sclip', 'sclip_mean'):
         a = F.softmax(qq, -1) + F.softmax(kk, -1)
         return a if strategy == 'sclip' else a * .5
+    elif strategy == 'csa_weighted':
+        return lambda_csa * F.softmax(qq, -1) + (1. - lambda_csa) * F.softmax(kk, -1)
+    elif strategy == 'csa_pa_beta':
+        _, _, r, _ = alignment_result if alignment_result is not None else alignment(q, k, solver, polar_iters)
+        pa = F.softmax((q @ (k @ r).transpose(1, 2)) * scale, -1)
+        csa = .5 * (F.softmax(qq, -1) + F.softmax(kk, -1))
+        return (1. - beta) * csa + beta * pa
+    elif strategy == 'kk_pa_beta':
+        _, _, r, _ = alignment_result if alignment_result is not None else alignment(q, k, solver, polar_iters)
+        kr = k @ r
+        logits = kk + beta * ((q - kr) @ kr.transpose(1, 2)) * scale
     elif strategy == 'qq_entropy_match':
         qc, kc, r, e = alignment(q, k, solver, polar_iters)
         target = F.softmax((q @ (k @ r).transpose(1, 2)) * scale, -1)
@@ -44,9 +56,12 @@ def attention(q, k, strategy, *, gamma=1., alpha_kk=.08, solver='polar', polar_i
             lo = torch.where(ent > target_entropy, mid, lo)
             hi = torch.where(ent > target_entropy, hi, mid)
         return F.softmax(qq * ((lo+hi)*.5)[:, None, None], -1)
-    elif strategy in ('pure_pa', 'pa_kk', 'gamma'):
-        qc, kc, r, e = alignment(q, k, solver, polar_iters)
-        if strategy == 'gamma': logits = (qq + gamma * (q @ e.transpose(1, 2)) * scale)
+    elif strategy in ('pure_pa', 'pa_kk', 'gamma', 'residual_kk'):
+        qc, kc, r, e = alignment_result if alignment_result is not None else alignment(q, k, solver, polar_iters)
+        if strategy in ('gamma', 'residual_kk'):
+            logits = qq + gamma * (q @ e.transpose(1, 2)) * scale
+            if strategy == 'residual_kk':
+                logits = logits + alpha_kk * (kc @ kc.transpose(1, 2)) * scale
         else:
             logits = (q @ (k @ r).transpose(1, 2)) * scale
             if strategy == 'pa_kk': logits = logits + alpha_kk * (kc @ kc.transpose(1, 2)) * scale
